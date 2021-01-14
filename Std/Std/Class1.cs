@@ -16,7 +16,6 @@ namespace Std
             }
             return max;
         }
-
         public static double max(double[] a, int lo, int hi)
         {
             validateNotNull(a);
@@ -30,7 +29,6 @@ namespace Std
             }
             return max;
         }
-
         public static int max(int[] a)
         {
             validateNotNull(a);
@@ -41,6 +39,43 @@ namespace Std
                 if (a[i] > max) max = a[i];
             }
             return max;
+        }
+
+        public static double min(double[] a)
+        {
+            validateNotNull(a);
+
+            double min = double.PositiveInfinity;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (double.IsNaN(a[i])) return Double.NaN;
+                if (a[i] < min) min = a[i];
+            }
+            return min;
+        }
+        public static double min(double[] a, int lo, int hi)
+        {
+            validateNotNull(a);
+            validateSubarrayIndices(lo, hi, a.Length);
+
+            double min = double.PositiveInfinity;
+            for (int i = lo; i < hi; i++)
+            {
+                if (double.IsNaN(a[i])) return Double.NaN;
+                if (a[i] < min) min = a[i];
+            }
+            return min;
+        }
+        public static int min(int[] a)
+        {
+            validateNotNull(a);
+
+            int min = int.MaxValue;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] < min) min = a[i];
+            }
+            return min;
         }
 
         private static void validateNotNull(object x)
