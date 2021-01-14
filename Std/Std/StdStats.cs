@@ -78,6 +78,39 @@ namespace Std
             return min;
         }
 
+        private static double sum(double[] a)
+        {
+            validateNotNull(a);
+            double sum = 0.0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += a[i];
+            }
+            return sum;
+        }
+        private static double sum(double[] a, int lo, int hi)
+        {
+            validateNotNull(a);
+            validateSubarrayIndices(lo, hi, a.Length);
+
+            double sum = 0.0;
+            for (int i = lo; i < hi; i++)
+            {
+                sum += a[i];
+            }
+            return sum;
+        }
+        private static int sum(int[] a)
+        {
+            validateNotNull(a);
+            int sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += a[i];
+            }
+            return sum;
+        }
+
         private static void validateNotNull(object x)
         {
             if (x == null)
