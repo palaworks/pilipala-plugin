@@ -2,8 +2,59 @@
 
 namespace Std
 {
-    public class StdCheck
+    public class StdStats
     {
+        public static double max(double[] a)
+        {
+            validateNotNull(a);
+
+            double max = double.NegativeInfinity;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (double.IsNaN(a[i])) return Double.NaN;
+                if (a[i] > max) max = a[i];
+            }
+            return max;
+        }
+
+        public static double max(double[] a, int lo, int hi)
+        {
+            validateNotNull(a);
+            validateSubarrayIndices(lo, hi, a.Length);
+
+            double max = double.NegativeInfinity;
+            for (int i = lo; i < hi; i++)
+            {
+                if (double.IsNaN(a[i])) return Double.NaN;
+                if (a[i] > max) max = a[i];
+            }
+            return max;
+        }
+
+        public static int max(int[] a)
+        {
+            validateNotNull(a);
+
+            int max = int.MinValue;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] > max) max = a[i];
+            }
+            return max;
+        }
+
+        private static void validateNotNull(object x)
+        {
+            if (x == null)
+                throw new NotImplementedException("argument is null");//??
+        }
+
+        private static void validateSubarrayIndices(int lo, int hi, int length)
+        {
+            if (lo < 0 || hi > length || lo > hi)
+                throw new NotImplementedException("subarray indices out of bounds: [" + lo + ", " + hi + ")");
+        }
+
         /// <summary>
         /// 交换值的方法，引用类型
         /// </summary>
