@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Thaumy\\Desktop\\Std\\Std\\Std.csproj",
+      "projectUniqueName": "C:\\Users\\Thaumy\\Desktop\\GitHub\\Algs4_stdlib_csharp\\Std\\Std\\Std.csproj",
       "projectName": "Std",
-      "projectPath": "C:\\Users\\Thaumy\\Desktop\\Std\\Std\\Std.csproj",
+      "projectPath": "C:\\Users\\Thaumy\\Desktop\\GitHub\\Algs4_stdlib_csharp\\Std\\Std\\Std.csproj",
       "packagesPath": "C:\\Users\\Thaumy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Thaumy\\Desktop\\Std\\Std\\obj\\",
+      "outputPath": "C:\\Users\\Thaumy\\Desktop\\GitHub\\Algs4_stdlib_csharp\\Std\\Std\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Thaumy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -235,7 +235,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
