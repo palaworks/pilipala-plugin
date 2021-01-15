@@ -78,6 +78,136 @@ namespace Std
             return min;
         }
 
+        public static double mean(double[] a)
+        {
+            validateNotNull(a);
+
+            if (a.Length == 0) return Double.NaN;
+            double sum = StdStats.sum(a);
+            return sum / a.Length;
+        }
+        public static double mean(double[] a, int lo, int hi)
+        {
+            validateNotNull(a);
+            validateSubarrayIndices(lo, hi, a.Length);
+
+            int length = hi - lo;
+            if (length == 0) return Double.NaN;
+
+            double sum = StdStats.sum(a, lo, hi);
+            return sum / length;
+        }
+        public static double mean(int[] a)
+        {
+            validateNotNull(a);
+
+            if (a.Length == 0) return Double.NaN;
+            int sum = StdStats.sum(a);
+            return 1.0 * sum / a.Length;
+        }
+
+        public static double var(double[] a)
+        {
+            validateNotNull(a);
+
+            if (a.Length == 0) return Double.NaN;
+            double avg = mean(a);
+            double sum = 0.0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += (a[i] - avg) * (a[i] - avg);
+            }
+            return sum / (a.Length - 1);
+        }
+        public static double var(double[] a, int lo, int hi)
+        {
+            validateNotNull(a);
+            validateSubarrayIndices(lo, hi, a.Length);
+
+            int length = hi - lo;
+            if (length == 0) return Double.NaN;
+
+            double avg = mean(a, lo, hi);
+            double sum = 0.0;
+            for (int i = lo; i < hi; i++)
+            {
+                sum += (a[i] - avg) * (a[i] - avg);
+            }
+            return sum / (length - 1);
+        }
+        public static double var(int[] a)
+        {
+            validateNotNull(a);
+            if (a.Length == 0) return Double.NaN;
+            double avg = mean(a);
+            double sum = 0.0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += (a[i] - avg) * (a[i] - avg);
+            }
+            return sum / (a.Length - 1);
+        }
+
+        public static double varp(double[] a)
+        {
+            validateNotNull(a);
+            if (a.Length == 0) return Double.NaN;
+            double avg = mean(a);
+            double sum = 0.0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += (a[i] - avg) * (a[i] - avg);
+            }
+            return sum / a.Length;
+        }
+        public static double varp(double[] a, int lo, int hi)
+        {
+            validateNotNull(a);
+            validateSubarrayIndices(lo, hi, a.Length);
+
+            int length = hi - lo;
+            if (length == 0) return Double.NaN;
+
+            double avg = mean(a, lo, hi);
+            double sum = 0.0;
+            for (int i = lo; i < hi; i++)
+            {
+                sum += (a[i] - avg) * (a[i] - avg);
+            }
+            return sum / length;
+        }
+
+        public static double stddev(double[] a)
+        {
+            validateNotNull(a);
+            return Math.Sqrt(var(a));
+        }
+        public static double stddev(int[] a)
+        {
+            validateNotNull(a);
+            return Math.Sqrt(var(a));
+        }
+        public static double stddev(double[] a, int lo, int hi)
+        {
+            validateNotNull(a);
+            validateSubarrayIndices(lo, hi, a.Length);
+
+            return Math.Sqrt(var(a, lo, hi));
+        }
+
+        public static double stddevp(double[] a)
+        {
+            validateNotNull(a);
+            return Math.Sqrt(varp(a));
+        }
+        public static double stddevp(double[] a, int lo, int hi)
+        {
+            validateNotNull(a);
+            validateSubarrayIndices(lo, hi, a.Length);
+
+            return Math.Sqrt(varp(a, lo, hi));
+        }
+
         private static double sum(double[] a)
         {
             validateNotNull(a);
@@ -111,40 +241,12 @@ namespace Std
             return sum;
         }
 
-        public static double mean(double[] a)
-        {
-            validateNotNull(a);
-
-            if (a.Length == 0) return Double.NaN;
-            double sum = StdStats.sum(a);
-            return sum / a.Length;
-        }
-        public static double mean(double[] a, int lo, int hi)
-        {
-            validateNotNull(a);
-            validateSubarrayIndices(lo, hi, a.Length);
-
-            int length = hi - lo;
-            if (length == 0) return Double.NaN;
-
-            double sum = StdStats.sum(a, lo, hi);
-            return sum / length;
-        }
-        public static double mean(int[] a)
-        {
-            validateNotNull(a);
-
-            if (a.Length == 0) return Double.NaN;
-            int sum = StdStats.sum(a);
-            return 1.0 * sum / a.Length;
-        }
 
         private static void validateNotNull(object x)
         {
             if (x == null)
                 throw new NotImplementedException("argument is null");//??
         }
-
         private static void validateSubarrayIndices(int lo, int hi, int length)
         {
             if (lo < 0 || hi > length || lo > hi)
