@@ -111,6 +111,34 @@ namespace Std
             return sum;
         }
 
+        public static double mean(double[] a)
+        {
+            validateNotNull(a);
+
+            if (a.Length == 0) return Double.NaN;
+            double sum = StdStats.sum(a);
+            return sum / a.Length;
+        }
+        public static double mean(double[] a, int lo, int hi)
+        {
+            validateNotNull(a);
+            validateSubarrayIndices(lo, hi, a.Length);
+
+            int length = hi - lo;
+            if (length == 0) return Double.NaN;
+
+            double sum = StdStats.sum(a, lo, hi);
+            return sum / length;
+        }
+        public static double mean(int[] a)
+        {
+            validateNotNull(a);
+
+            if (a.Length == 0) return Double.NaN;
+            int sum = StdStats.sum(a);
+            return 1.0 * sum / a.Length;
+        }
+
         private static void validateNotNull(object x)
         {
             if (x == null)
