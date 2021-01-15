@@ -1,9 +1,0 @@
-C:\Users\Thaumy\Desktop\GitHub\Algs4_stdlib_csharp\Std\Std\bin\Debug\netstandard2.0\Std.deps.json
-C:\Users\Thaumy\Desktop\GitHub\Algs4_stdlib_csharp\Std\Std\bin\Debug\netstandard2.0\Std.dll
-C:\Users\Thaumy\Desktop\GitHub\Algs4_stdlib_csharp\Std\Std\bin\Debug\netstandard2.0\Std.pdb
-C:\Users\Thaumy\Desktop\GitHub\Algs4_stdlib_csharp\Std\Std\obj\Debug\netstandard2.0\Std.csprojAssemblyReference.cache
-C:\Users\Thaumy\Desktop\GitHub\Algs4_stdlib_csharp\Std\Std\obj\Debug\netstandard2.0\Std.AssemblyInfoInputs.cache
-C:\Users\Thaumy\Desktop\GitHub\Algs4_stdlib_csharp\Std\Std\obj\Debug\netstandard2.0\Std.AssemblyInfo.cs
-C:\Users\Thaumy\Desktop\GitHub\Algs4_stdlib_csharp\Std\Std\obj\Debug\netstandard2.0\Std.csproj.CoreCompileInputs.cache
-C:\Users\Thaumy\Desktop\GitHub\Algs4_stdlib_csharp\Std\Std\obj\Debug\netstandard2.0\Std.dll
-C:\Users\Thaumy\Desktop\GitHub\Algs4_stdlib_csharp\Std\Std\obj\Debug\netstandard2.0\Std.pdb
