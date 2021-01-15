@@ -8,9 +8,9 @@ namespace Std
 {
     public sealed class StdOut
     {
-        private static readonly Stream stream;
-
         private StdOut() { }
+
+        private static readonly Stream stream;
 
         public static void println()
         {

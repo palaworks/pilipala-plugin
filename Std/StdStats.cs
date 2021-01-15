@@ -4,10 +4,8 @@ namespace Std
 {
     public class StdStats
     {
-        private StdStats()
-        {
-        }
-        
+        private StdStats() { }
+
         public static double max(double[] a)
         {
             validateNotNull(a);

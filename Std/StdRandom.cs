@@ -6,5 +6,6 @@ namespace Std
 {
     class StdRandom
     {
+        private StdRandom() { }
     }
 }

@@ -6,5 +6,6 @@ namespace Std
 {
     class StdIn
     {
+        private StdIn() { }
     }
 }

@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Std
 {
-    class StdDraw
+    class StdArrayIO
     {
-        private StdDraw() { }
+        private StdArrayIO() { }
     }
 }
