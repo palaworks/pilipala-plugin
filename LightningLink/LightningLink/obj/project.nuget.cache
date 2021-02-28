@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5u3IzTLFDfZBsEGEO0qV/qd8yZii2hAZUcOF6gaBJrBoYKJTok1PvrshXdSnSWK4A2hrEeSvd8v/TEALj48cGA==",
+  "dgSpecHash": "Ep822ZR/ZhPHGawW7FYxcbL/wfJaHKBDw1w4bLn/6Ui5En56RrY/5bmQJVo7d7qJoLc/V88VvkjuUbnMkOQEtQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Thaumy\\Desktop\\GitHub\\pilipala\\pilipala2008beta9\\LightningLink\\LightningLink\\LightningLink.csproj",
+  "projectFilePath": "C:\\Users\\Thaumy\\Desktop\\GitHub\\pilipaplugins\\LightningLink\\LightningLink\\LightningLink.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Thaumy\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Thaumy\\.nuget\\packages\\google.protobuf\\3.11.4\\google.protobuf.3.11.4.nupkg.sha512",
