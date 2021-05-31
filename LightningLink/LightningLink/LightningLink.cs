@@ -7,20 +7,21 @@ using Newtonsoft.Json.Linq;
 using WaterLibrary.MySQL;
 
 
-namespace WaterLibrary.pilipala.Component
+namespace piliplugin
 {
     public class LightningLink
     {
         private readonly Dictionary<string, string> cache = new();
-        private readonly string path = "./LightningLink.json";
+        private readonly string path = null;//path of LightningLink.json
 
         /// <summary>
         /// 工厂构造
         /// </summary>
         /// <param name="Table"></param>
         /// <param name="MySqlManager"></param>
-        internal LightningLink()
+        public LightningLink(string path)
         {
+            this.path = path;
             string jsonString;
             try
             {
@@ -43,12 +44,6 @@ namespace WaterLibrary.pilipala.Component
                 cache[el.Key] = jObject[el.Key].ToString();
             }//初始化缓存
         }
-
-        /// <summary>
-        /// 生成闪链组件
-        /// </summary>
-        /// <returns></returns>
-        public static LightningLink GenLightningLink() => new();
 
         /// <summary>
         /// 新建链接
@@ -110,14 +105,5 @@ namespace WaterLibrary.pilipala.Component
             string jsonString = Convert.ToString(jObject);
             File.WriteAllText(path, jsonString, System.Text.Encoding.UTF8);
         }
-    }
-
-    public static class LightningLink_Extension
-    {
-        /// <summary>
-        /// 生成闪链组件
-        /// </summary>
-        /// <returns></returns>
-        public static LightningLink GenLightningLink(this ComponentFactory src) => new();
     }
 }
