@@ -1,4 +1,4 @@
-# palaPlugins
+# piliplugins
 plugins of pilipala
 
 ## projs
