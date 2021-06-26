@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Thaumy\\Desktop\\GitHub\\palaPlugins\\LightningLink\\LightningLink\\LightningLink.csproj": {}
+    "C:\\Users\\Thaumy\\Desktop\\GitHub\\piiliplugin\\LightningLink\\LightningLink\\LightningLink.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Thaumy\\Desktop\\GitHub\\palaPlugins\\LightningLink\\LightningLink\\LightningLink.csproj": {
+    "C:\\Users\\Thaumy\\Desktop\\GitHub\\piiliplugin\\LightningLink\\LightningLink\\LightningLink.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Thaumy\\Desktop\\GitHub\\palaPlugins\\LightningLink\\LightningLink\\LightningLink.csproj",
+        "projectUniqueName": "C:\\Users\\Thaumy\\Desktop\\GitHub\\piiliplugin\\LightningLink\\LightningLink\\LightningLink.csproj",
         "projectName": "LightningLink",
-        "projectPath": "C:\\Users\\Thaumy\\Desktop\\GitHub\\palaPlugins\\LightningLink\\LightningLink\\LightningLink.csproj",
+        "projectPath": "C:\\Users\\Thaumy\\Desktop\\GitHub\\piiliplugin\\LightningLink\\LightningLink\\LightningLink.csproj",
         "packagesPath": "C:\\Users\\Thaumy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Thaumy\\Desktop\\GitHub\\palaPlugins\\LightningLink\\LightningLink\\obj\\",
+        "outputPath": "C:\\Users\\Thaumy\\Desktop\\GitHub\\piiliplugin\\LightningLink\\LightningLink\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

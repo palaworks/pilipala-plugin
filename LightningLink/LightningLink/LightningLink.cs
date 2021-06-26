@@ -3,12 +3,12 @@ using System.IO;
 using System.Collections.Generic;
 using System.Data;
 
-using Newtonsoft.Json.Linq;
-using WaterLibrary.MySQL;
-
 
 namespace piliplugin
 {
+    using Newtonsoft.Json.Linq;
+    using WaterLibrary.MySQL;
+
     public class LightningLink
     {
         private readonly Dictionary<string, string> cache = new();
