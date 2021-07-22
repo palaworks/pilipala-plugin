@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "x6uWH8G12ETsOJs6F0Y3VcuQwxBpLkshrIV4T45zyBFgAMA+gEnaijnA1MGcQFSw2Oo2xZyNjQ15KwegkIDNcA==",
+  "dgSpecHash": "qSNd2hl7eBvqXmz6o2HN2vn9pOnIvQPJUXDpen2eBaVXMXZyzfQuVhQF37we7x2sfYKEbawlBTXzf9KsZcCP4A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Thaumy\\Desktop\\Mailssage\\Mailssage\\Mailssage.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Thaumy\\Desktop\\GitHub\\piiliplugin\\Mailssage\\Mailssage\\Mailssage.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Thaumy\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
