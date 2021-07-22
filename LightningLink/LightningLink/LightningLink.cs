@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Data;
 
 
 namespace piliplugin
@@ -12,13 +11,12 @@ namespace piliplugin
     public class LightningLink
     {
         private readonly Dictionary<string, string> cache = new();
-        private readonly string path = null;//path of LightningLink.json
+        private readonly string path = null;
 
         /// <summary>
         /// 工厂构造
         /// </summary>
-        /// <param name="Table"></param>
-        /// <param name="MySqlManager"></param>
+        /// <param name="path">LightningLink.json的绝对路径</param>
         public LightningLink(string path)
         {
             this.path = path;
@@ -78,12 +76,14 @@ namespace piliplugin
         /// <returns></returns>
         public string ApplyLink(string Text)
         {
-            foreach (var el in cache)
+            foreach (var link in cache)
             {
-                Text = Text.Replace("<{" + el.Key + "}>", el.Value);
+                Text = Text.Replace("<{" + link.Key + "}>", link.Value);
             }
             return Text;
         }
+
+
 
         /// <summary>
         /// 读JSON

@@ -1,7 +1,9 @@
 # piliplugins
-plugins of pilipala
+
+This repo is set for plugins of pilipala
 
 ## projs
 
 * LightningLink :: make a mark in your post and replace it when display
-* palaCache :: a memory based cache for pilipala to boost post loading
+* Mailssage :: message system for your website(SMTP)
+* palaCache :: memory based cache for pilipala to boost post loading
