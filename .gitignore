@@ -41,6 +41,7 @@ node_modules
 # VisualStudio
 bin
 obj
+.vs
 
 # local env files
 .env.local
