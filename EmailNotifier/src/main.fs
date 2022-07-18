@@ -31,9 +31,7 @@ type EmailNotifier(initBuilder: ICommentInitPipelineBuilder) =
         JsonConvert.DeserializeObject<Config>(readFile (path))
 
     let send (id: u64, comment: IComment) =
-        let smtp = new SmtpClient()
-
-        let client =
+        use smtp =
             new SmtpClient(
                 Host = config.host,
                 Port = config.port,
@@ -41,7 +39,7 @@ type EmailNotifier(initBuilder: ICommentInitPipelineBuilder) =
                 Credentials = System.Net.NetworkCredential(config.usr, config.pwd)
             )
 
-        client.Send(usr, config.receiver, "新的评论", comment.Body)
+        smtp.Send("噼里啪啦事件", config.receiver, "新的评论", comment.Body)
         id, comment
 
     do initBuilder.Batch.collection.Add(After(Pipe(send)))
