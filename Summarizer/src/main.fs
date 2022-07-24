@@ -8,31 +8,34 @@ open fsharper.typ.Pipe
 open fsharper.op.Error
 open fsharper.op.Foldable
 open DbManaged.PgSql
-open pilipala.db
+open pilipala.data.db
 open pilipala.pipeline
-open pilipala.util.html
+open pilipala.util.text
 open pilipala.pipeline.post
 
-type Summarizer(render: IPostRenderPipelineBuilder, dp: IDbProvider) =
+type Summarizer(renderBuilder: IPostRenderPipelineBuilder, db: IDbProvider) =
 
     //TODO 应该有更好的管道间通信方式，而不是手动构建目标管道
-
+    //下为手动管道构建模式
+    (*
     let getBody =
         let beforeFail =
-            render.body.beforeFail.foldr (fun p (acc: IGenericPipe<_, _>) -> acc.export p) (GenericPipe<_, _>(id))
+            renderBuilder.Body.beforeFail.foldr
+                (fun p (acc: IGenericPipe<_, _>) -> acc.export p)
+                (GenericPipe<_, _>(id))
 
         let fail: u64 -> _ =
             beforeFail.fill .> panicwith
 
         let data id =
-            dp
-                .mkCmd()
-                .getFstVal (dp.tables.record, "body", "recordId", id)
-            |> dp.managed.executeQuery
+            db
+                .makeCmd()
+                .getFstVal (db.tables.post, "post_body", "post_id", id)
+            |> db.managed.executeQuery
             >>= coerce
 
         let bodyRenderPipeline =
-            render.body.collection.foldl
+            renderBuilder.Body.collection.foldl
             <| fun acc x ->
                 match x with
                 | Before before -> before.export acc
@@ -41,17 +44,20 @@ type Summarizer(render: IPostRenderPipelineBuilder, dp: IDbProvider) =
             <| GenericCachePipe<_, _>(data, fail)
 
         bodyRenderPipeline.fill
+*)
+    let getBody id : string =
+        db
+            .makeCmd()
+            .getFstVal (db.tables.post, "post_body", "post_id", id)
+        |> db.managed.executeQuery
+        |> fmap coerce
+        |> unwrap
 
     do
         let after (id: u64, v: string) =
             match v with
             | ""
-            | null ->
-                id,
-                (getBody id)
-                    .snd()
-                    .removeHtmlTags()
-                    .Substring(0, 80)
+            | null -> id, { html = getBody id }.withoutTag.Substring (0, 80)
             | _ -> (id, v)
 
-        render.body.collection.Add(After(GenericPipe after))
+        renderBuilder.Body.collection.Add(After(GenericPipe after))

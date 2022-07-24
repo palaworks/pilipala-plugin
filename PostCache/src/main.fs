@@ -36,15 +36,8 @@ type PostCache(renderBuilder: IPostRenderPipelineBuilder, modifyBuilder: IPostMo
 
         renderBuilder.collection.Add(Replace(fun old -> GenericCachePipe(cache, old.fill)))
 
+    do gen renderBuilder.Title modifyBuilder.Title
     do gen renderBuilder.Body modifyBuilder.Body
     do gen renderBuilder.CreateTime modifyBuilder.CreateTime
     do gen renderBuilder.AccessTime modifyBuilder.AccessTime
     do gen renderBuilder.ModifyTime modifyBuilder.ModifyTime
-
-(*
-    do gen renderBuilder.cover modifyBuilder.cover
-    do gen renderBuilder.title modifyBuilder.title
-    do gen renderBuilder.summary modifyBuilder.summary
-    do gen renderBuilder.view modifyBuilder.view
-    do gen renderBuilder.star modifyBuilder.star
-*)
