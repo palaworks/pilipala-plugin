@@ -4,13 +4,14 @@ open System
 open System.IO
 open System.Reflection
 open System.Collections.Generic
+open Newtonsoft.Json.Linq
 open fsharper.op.Alias
 open fsharper.typ.Pipe
 open fsharper.op.Coerce
 open fsharper.op.Foldable
 open pilipala.util.io
 open pilipala.pipeline
-open pilipala.util.json
+open pilipala.util.text
 open pilipala.pipeline.post
 
 type Llink(render: IPostRenderPipelineBuilder) =
@@ -23,13 +24,14 @@ type Llink(render: IPostRenderPipelineBuilder) =
 
         $"{asmDir}/config.json"
 
-    let fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite)
+    let fs =
+        new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite)
 
     do
         if fs.Length <> 0 then
             let map = Dictionary<string, string>()
 
-            for el in readFile(path).jsonParsed do
+            for el in path |> readFile |> JObject.Parse do
                 map.Add($"<{{{el.Key}}}>", coerce el.Value)
 
             let after (id: u64, v: string) =

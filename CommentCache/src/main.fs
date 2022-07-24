@@ -37,9 +37,4 @@ type CommentCache(renderBuilder: ICommentRenderPipelineBuilder, modifyBuilder: I
         renderBuilder.collection.Add(Replace(fun old -> GenericCachePipe(cache, old.fill)))
 
     do gen renderBuilder.Body modifyBuilder.Body
-(*
-    do gen renderBuilder.nick modifyBuilder.nick
-    do gen renderBuilder.email modifyBuilder.email
-    do gen renderBuilder.site modifyBuilder.site
-    do gen renderBuilder.ctime modifyBuilder.ctime
-*)
+    do gen renderBuilder.CreateTime modifyBuilder.CreateTime
