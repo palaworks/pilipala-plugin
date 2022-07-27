@@ -18,14 +18,18 @@ plugins of pilipala
 
 使用电子邮件对噼哩啪啦事件予以通知。
 
-### PostCache
+### Cacher
 
-为文章加载提供缓存加速。
-
-### CommentCache
-
-为评论加载提供缓存加速。
+为文章和评论加载提供缓存加速。
 
 ### Markdown
 
 翻译正文中的Markdown为HTML。
+
+### PalangServ
+
+为噼哩啪啦引入命令行交互服务。
+
+### LogicFields
+
+提供更多的逻辑字段。

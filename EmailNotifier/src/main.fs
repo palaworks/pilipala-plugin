@@ -1,12 +1,10 @@
 ﻿namespace pilipala.plugin
 
 open System.Net.Mail
-open System.Reflection
-open pilipala.util.io
-open Newtonsoft.Json
 open fsharper.op.Alias
 open fsharper.typ.Pipe
 open pilipala.pipeline
+open pilipala.util.text
 open pilipala.pipeline.comment
 open pilipala.container.comment
 
@@ -17,18 +15,10 @@ type internal Config =
       pwd: string
       receiver: string }
 
-type EmailNotifier(initBuilder: ICommentInitPipelineBuilder) =
-
-    let path =
-        let asmDir =
-            Assembly
-                .GetAssembly(typeof<EmailNotifier>)
-                .Location.Replace($"{typeof<EmailNotifier>.Name}.dll", "")
-
-        $"{asmDir}/config.json"
+type EmailNotifier(initBuilder: ICommentInitPipelineBuilder, cfg: IPluginCfgProvider) =
 
     let config =
-        JsonConvert.DeserializeObject<Config>(readFile (path))
+        { json = cfg.config }.deserializeTo<Config> ()
 
     let send (id: u64, comment: IComment) =
         use smtp =
