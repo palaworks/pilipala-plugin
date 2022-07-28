@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CommentUserName", "CommentUserName.fsproj", "{142E310F-1DF5-4885-977D-8406C8A7DC8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{142E310F-1DF5-4885-977D-8406C8A7DC8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{142E310F-1DF5-4885-977D-8406C8A7DC8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{142E310F-1DF5-4885-977D-8406C8A7DC8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{142E310F-1DF5-4885-977D-8406C8A7DC8D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

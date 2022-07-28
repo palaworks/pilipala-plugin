@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CommentReplies", "CommentReplies.fsproj", "{5634A7E8-330E-4188-B566-B3AE9C377A0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5634A7E8-330E-4188-B566-B3AE9C377A0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5634A7E8-330E-4188-B566-B3AE9C377A0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5634A7E8-330E-4188-B566-B3AE9C377A0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5634A7E8-330E-4188-B566-B3AE9C377A0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
