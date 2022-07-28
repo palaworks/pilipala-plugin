@@ -9,5 +9,5 @@ open pilipala.util.text
 type Markdown(render: IPostRenderPipelineBuilder) =
 
     do
-        let after (id: u64, v: string) = (id, { markdown = v }.intoHtml.html)
+        let after (id: u64, v: string) = (id, { markdown = v }.intoHtml().html)
         render.Body.collection.Add(After(GenericPipe after))
