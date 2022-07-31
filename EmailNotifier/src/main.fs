@@ -17,8 +17,7 @@ type internal Config =
 
 type EmailNotifier(initBuilder: ICommentInitPipelineBuilder, cfg: IPluginCfgProvider) =
 
-    let config =
-        { json = cfg.config }.deserializeTo<Config> ()
+    let config = { json = cfg.config }.deserializeTo<Config> ()
 
     let send (id: u64, comment: IComment) =
         use smtp =
@@ -32,4 +31,4 @@ type EmailNotifier(initBuilder: ICommentInitPipelineBuilder, cfg: IPluginCfgProv
         smtp.Send("噼里啪啦事件", config.receiver, "新的评论", comment.Body)
         id, comment
 
-    do initBuilder.Batch.collection.Add(After(Pipe(send)))
+    do initBuilder.Batch.collection.Add <| After send

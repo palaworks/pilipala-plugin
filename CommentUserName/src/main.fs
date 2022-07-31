@@ -29,5 +29,5 @@ type CommentUserName(renderBuilder: ICommentRenderPipelineBuilder, db: IDbOperat
             getUserName comment_id
             >>= fun user_name -> Some(comment_id, user_name)
 
-        renderBuilder.["UserName"]
-            .collection.Add (Replace(fun failPipe -> GenericCachePipe(data, failPipe.fill)))
+        renderBuilder.["UserName"].collection.Add
+        <| Replace(fun fail id -> unwrapOr (data id) (fun _ -> fail id))

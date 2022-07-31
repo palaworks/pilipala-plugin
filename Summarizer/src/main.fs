@@ -4,7 +4,6 @@ open System.Collections.Generic
 open fsharper.op
 open fsharper.typ
 open fsharper.op.Alias
-open fsharper.typ.Pipe
 open DbManaged.PgSql
 open pilipala.plugin
 open pilipala.data.db
@@ -13,7 +12,7 @@ open pilipala.pipeline
 open pilipala.util.text
 open pilipala.pipeline.post
 
-type Summarizer(renderBuilder: IPostRenderPipelineBuilder, db: IDbOperationBuilder,cfg:IPluginCfgProvider) =
+type Summarizer(renderBuilder: IPostRenderPipelineBuilder, db: IDbOperationBuilder, cfg: IPluginCfgProvider) =
 
     let summaries =
         { json = cfg.config }
@@ -37,8 +36,8 @@ type Summarizer(renderBuilder: IPostRenderPipelineBuilder, db: IDbOperationBuild
                     .Substring(0, 80)
             | Some x -> (id, x)
 
-        renderBuilder.["Summary"]
-            .collection.Add (Replace(fun _ -> GenericPipe f))
+        renderBuilder.["Summary"].collection.Add
+        <| Replace(fun _ -> f)
 
 //TODO 应该有更好的管道间通信方式，而不是手动构建目标管道
 //下为手动管道构建模式

@@ -1,7 +1,7 @@
 ﻿namespace pilipala.plugin
 
+open fsharper.op
 open fsharper.typ
-open fsharper.typ.Pipe
 open pilipala.data.db
 open pilipala.pipeline
 open pilipala.pipeline.post
@@ -30,5 +30,5 @@ type PostComments(commentProvider: ICommentProvider, renderBuilder: IPostRenderP
         let data post_id =
             Some(post_id, getComments post_id :> obj)
 
-        renderBuilder.["Comments"]
-            .collection.Add (Replace(fun failPipe -> GenericCachePipe(data, failPipe.fill)))
+        renderBuilder.["Comments"].collection.Add
+        <| Replace(fun fail id -> unwrapOr (data id) (fun _ -> fail id))
