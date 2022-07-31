@@ -1,7 +1,8 @@
 ﻿namespace pilipala.plugin
 
+open fsharper.op
 open fsharper.typ
-open fsharper.typ.Pipe
+open fsharper.op.Alias
 open pilipala.data.db
 open pilipala.pipeline
 open pilipala.pipeline.comment
@@ -32,8 +33,8 @@ type CommentReplies
         }
 
     do
-        let data comment_id =
+        let data (comment_id: u64) =
             Some(comment_id, getReplies comment_id :> obj)
 
-        renderBuilder.["Replies"]
-            .collection.Add (Replace(fun failPipe -> GenericCachePipe(data, failPipe.fill)))
+        renderBuilder.["Replies"].collection.Add
+        <| Replace(fun fail id -> unwrapOr (data id) (fun _ -> fail id))
