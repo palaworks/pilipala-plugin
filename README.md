@@ -32,13 +32,13 @@ plugins of pilipala
 
 噼哩啪啦内核为这些插件提供集成支持，始终应该启用这些插件以保证系统功能的完整性。
 
+### UserName
+
+为`IComment`和`IPost`提供`UserName`字段
+
 ### PostComments
 
 为`IPost`提供`Comments`字段
-
-### CommentUserName
-
-为`IComment`提供`UserName`字段
 
 ### CommentReplies
 
