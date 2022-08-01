@@ -28,6 +28,14 @@ plugins of pilipala
 
 翻译正文中的Markdown为HTML。
 
+### ViewCount
+
+提供文章访问计数。
+
+### PostCover
+
+提供文章封面。
+
 ## 默认集成的插件
 
 噼哩啪啦内核为这些插件提供集成支持，始终应该启用这些插件以保证系统功能的完整性。
