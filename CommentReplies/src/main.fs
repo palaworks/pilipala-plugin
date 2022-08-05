@@ -10,7 +10,7 @@ open pilipala.container.comment
 
 type CommentReplies
     (
-        commentProvider: ICommentProvider,
+        mappedCommentProvider: IMappedCommentProvider,
         renderBuilder: ICommentRenderPipelineBuilder,
         db: IDbOperationBuilder
     ) =
@@ -24,7 +24,7 @@ type CommentReplies
 
         fun (list: obj list) ->
             match list with
-            | id :: ids -> Option.Some(commentProvider.fetch (downcast id), ids)
+            | id :: ids -> Option.Some(mappedCommentProvider.fetch (downcast id), ids)
             | [] -> Option.None
         |> Seq.unfold
         <| db {

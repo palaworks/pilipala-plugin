@@ -7,7 +7,12 @@ open pilipala.pipeline
 open pilipala.pipeline.post
 open pilipala.container.comment
 
-type PostComments(commentProvider: ICommentProvider, renderBuilder: IPostRenderPipelineBuilder, db: IDbOperationBuilder) =
+type PostComments
+    (
+        mappedCommentProvider: IMappedCommentProvider,
+        renderBuilder: IPostRenderPipelineBuilder,
+        db: IDbOperationBuilder
+    ) =
 
     let getComments post_id =
 
@@ -18,7 +23,7 @@ type PostComments(commentProvider: ICommentProvider, renderBuilder: IPostRenderP
 
         fun (list: obj list) ->
             match list with
-            | id :: ids -> Option.Some(commentProvider.fetch (downcast id), ids)
+            | id :: ids -> Option.Some(mappedCommentProvider.fetch (downcast id), ids)
             | [] -> Option.None
         |> Seq.unfold
         <| db {

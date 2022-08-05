@@ -1,8 +1,9 @@
 ﻿namespace pilipala.plugin
 
 open System.Net.Mail
+open fsharper.op
+open fsharper.typ
 open fsharper.op.Alias
-open fsharper.typ.Pipe
 open pilipala.pipeline
 open pilipala.util.text
 open pilipala.pipeline.comment
@@ -15,11 +16,17 @@ type internal Config =
       pwd: string
       receiver: string }
 
-type EmailNotifier(initBuilder: ICommentInitPipelineBuilder, cfg: IPluginCfgProvider) =
+type EmailNotifier
+    (
+        commentInitBuilder: ICommentInitPipelineBuilder,
+        mappedCommentProvider: IMappedCommentProvider,
+        cfg: IPluginCfgProvider
+    ) =
 
-    let config = { json = cfg.config }.deserializeTo<Config> ()
+    let config =
+        { json = cfg.config }.deserializeTo<Config> ()
 
-    let send (id: u64, comment: IComment) =
+    let send (id: u64) =
         use smtp =
             new SmtpClient(
                 Host = config.host,
@@ -28,7 +35,9 @@ type EmailNotifier(initBuilder: ICommentInitPipelineBuilder, cfg: IPluginCfgProv
                 Credentials = System.Net.NetworkCredential(config.usr, config.pwd)
             )
 
-        smtp.Send("噼里啪啦事件", config.receiver, "新的评论", comment.Body)
-        id, comment
+        let mapped = mappedCommentProvider.fetch id
+        smtp.Send("噼里啪啦事件", config.receiver, "新的评论", mapped.Body)
 
-    do initBuilder.Batch.collection.Add <| After send
+    do
+        commentInitBuilder.Batch.collection.Add
+        <| After(effect send)
