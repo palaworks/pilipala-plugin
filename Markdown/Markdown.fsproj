@@ -15,11 +15,10 @@
         <Private>False</Private>
       </Reference>
       <Reference Include="pilipala-frame">
-        <HintPath>..\..\pilipala-fs\pilipala-frame\bin\Debug\net6.0\pilipala-frame.dll</HintPath>
+        <HintPath>..\..\pilipala-sdk\pilipala-frame\bin\Debug\net6.0\pilipala-frame.dll</HintPath>
       </Reference>
       <Reference Include="pilipala.util">
-        <HintPath>..\..\pilipala-fs\pilipala.util\bin\Debug\net6.0\pilipala.util.dll</HintPath>
-        <Private>False</Private>
+        <HintPath>..\..\pilipala-sdk\pilipala.util\bin\Debug\net6.0\pilipala.util.dll</HintPath>
       </Reference>
     </ItemGroup>
 

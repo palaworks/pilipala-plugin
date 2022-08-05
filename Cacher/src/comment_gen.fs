@@ -5,12 +5,10 @@ open System.Collections.Concurrent
 open fsharper.op
 open fsharper.typ
 open fsharper.op.Alias
-open fsharper.typ.Pipe
 open pilipala.pipeline
 
 let comment_gen (renderBuilder: BuilderItem<_, _>) (modifyBuilder: BuilderItem<_>) =
-    let map =
-        ConcurrentDictionary<u64, u64 * _>()
+    let map = ConcurrentDictionary<u64, u64 * _>()
 
     //从数据库查询失败后清除缓存
     let beforeRenderFail id = map.Remove id |> always id
