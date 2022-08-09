@@ -4,7 +4,7 @@ open System.Collections.Generic
 open System.Collections.Concurrent
 open fsharper.op
 open fsharper.typ
-open fsharper.op.Alias
+open fsharper.alias
 open pilipala.pipeline
 
 let comment_gen (renderBuilder: BuilderItem<_, _>) (modifyBuilder: BuilderItem<_>) =

@@ -4,7 +4,7 @@ open System
 open System.Threading.Tasks
 open fsharper.op
 open fsharper.typ
-open fsharper.op.Alias
+open fsharper.alias
 open pilipala.pipeline
 open pilipala.util.text
 open pilipala.pipeline.post
