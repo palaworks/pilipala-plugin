@@ -5,7 +5,7 @@ open System.IO
 open System.Collections.Generic
 open Newtonsoft.Json.Linq
 open fsharper.op
-open fsharper.op.Alias
+open fsharper.alias
 open fsharper.op.Coerce
 open fsharper.op.Foldable
 open pilipala.pipeline

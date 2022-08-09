@@ -2,7 +2,7 @@
 
 open fsharper.op
 open fsharper.typ
-open fsharper.op.Alias
+open fsharper.alias
 open pilipala.data.db
 open pilipala.pipeline
 open pilipala.pipeline.comment
