@@ -1,7 +1,8 @@
 ﻿namespace pilipala.plugin
 
+open fsharper.op
 open fsharper.typ
-open fsharper.typ.Pipe
+open fsharper.alias
 open pilipala.data.db
 open pilipala.pipeline
 open pilipala.pipeline.comment
@@ -9,7 +10,7 @@ open pilipala.container.comment
 
 type CommentReplies
     (
-        commentProvider: ICommentProvider,
+        mappedCommentProvider: IMappedCommentProvider,
         renderBuilder: ICommentRenderPipelineBuilder,
         db: IDbOperationBuilder
     ) =
@@ -23,7 +24,7 @@ type CommentReplies
 
         fun (list: obj list) ->
             match list with
-            | id :: ids -> Option.Some(commentProvider.fetch (downcast id), ids)
+            | id :: ids -> Option.Some(mappedCommentProvider.fetch (downcast id), ids)
             | [] -> Option.None
         |> Seq.unfold
         <| db {
@@ -32,8 +33,8 @@ type CommentReplies
         }
 
     do
-        let data comment_id =
+        let data (comment_id: u64) =
             Some(comment_id, getReplies comment_id :> obj)
 
-        renderBuilder.["Replies"]
-            .collection.Add (Replace(fun failPipe -> GenericCachePipe(data, failPipe.fill)))
+        renderBuilder.["Replies"].collection.Add
+        <| Replace(fun fail id -> unwrapOr (data id) (fun _ -> fail id))
