@@ -6,7 +6,7 @@ open pilipala.pipeline.comment
 open Cacher.post_gen
 open Cacher.comment_gen
 
-type internal Config =
+type Config =
     { enable_post: bool
       enable_comment: bool }
 

@@ -4,11 +4,12 @@ open fsharper.op
 open fsharper.typ
 open pilipala.data.db
 open pilipala.pipeline
+open pilipala.pipeline.post
 open pilipala.pipeline.comment
 
 type UserName
     (
-        postRenderBuilder: ICommentRenderPipelineBuilder,
+        postRenderBuilder: IPostRenderPipelineBuilder,
         commentRenderBuilder: ICommentRenderPipelineBuilder,
         db: IDbOperationBuilder
     ) =

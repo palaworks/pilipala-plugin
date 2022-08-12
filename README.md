@@ -43,11 +43,3 @@ plugins of pilipala
 ### UserName
 
 为`IComment`和`IPost`提供`UserName`字段
-
-### PostComments
-
-为`IPost`提供`Comments`字段
-
-### CommentReplies
-
-为`IComment`提供`Replies`字段
