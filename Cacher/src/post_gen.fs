@@ -1,5 +1,6 @@
 module internal Cacher.post_gen
 
+open System
 open System.Collections.Generic
 open System.Collections.Concurrent
 open fsharper.op
@@ -9,8 +10,7 @@ open fsharper.typ.Pipe
 open pilipala.pipeline
 
 let post_gen (renderBuilder: BuilderItem<_, _>) (modifyBuilder: BuilderItem<_>) =
-    let map =
-        ConcurrentDictionary<u64, u64 * _>()
+    let map = ConcurrentDictionary<i64, i64 * _>()
 
     //从数据库查询失败后清除缓存
     let beforeRenderFail id = map.Remove id |> always id
@@ -19,7 +19,7 @@ let post_gen (renderBuilder: BuilderItem<_, _>) (modifyBuilder: BuilderItem<_>) 
     modifyBuilder.beforeFail.Add beforeStorageFail
 
     //从数据库查询成功后添加缓存
-    let after (id: u64, v) =
+    let after (id: i64, v) =
         map.AddOrUpdate(id, (fun _ -> (id, v)), (fun _ -> always (id, v)))
 
     renderBuilder.collection.Add(After after)
