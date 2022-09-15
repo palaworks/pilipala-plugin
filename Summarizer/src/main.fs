@@ -26,8 +26,25 @@ type Summarizer
     do
         let f id : i64 * obj =
             match summaries.TryGetValue(id).intoOption' () with
-            | None -> id, { html = getBody id }.removeTags().prefix 80
-            | Some x -> (id, x)
+            | None ->
+                id,
+                { html = getBody id }
+                    .removeTags()
+                    .mergeBlanks()
+                    .prefix 120
+            | Some x -> id, x
 
         postRenderBuilder.["Summary"].collection.Add
+        <| Replace(fun _ -> f)
+
+    do
+        //用于提供判断概要是否为生成的的依据
+        let f id : i64 * obj =
+            match summaries.TryGetValue(id).intoOption' () with
+            | None -> id, true
+            | Some _ -> id, false
+
+        postRenderBuilder.["IsGeneratedSummary"]
+            .collection
+            .Add
         <| Replace(fun _ -> f)

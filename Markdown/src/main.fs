@@ -4,8 +4,8 @@ open System
 open fsharper.op
 open fsharper.alias
 open pilipala.pipeline
-open pilipala.pipeline.post
 open pilipala.util.text
+open pilipala.pipeline.post
 
 type Markdown(render: IPostRenderPipelineBuilder) =
 
