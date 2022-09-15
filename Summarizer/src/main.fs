@@ -1,5 +1,6 @@
 ﻿namespace pilipala.plugin
 
+open System
 open System.Collections.Generic
 open fsharper.op
 open fsharper.typ
@@ -18,18 +19,14 @@ type Summarizer
 
     let summaries =
         { json = cfg.config }
-            .deserializeTo<Dictionary<u64, string>> ()
+            .deserializeTo<Dictionary<i64, string>> ()
 
     let getBody id = postRenderPipeline.Body id |> snd
 
     do
-        let f id : u64 * obj =
+        let f id : i64 * obj =
             match summaries.TryGetValue(id).intoOption' () with
-            | None ->
-                id,
-                { html = getBody id }
-                    .withoutTags()
-                    .Substring(0, 80)
+            | None -> id, { html = getBody id }.removeTags().prefix 80
             | Some x -> (id, x)
 
         postRenderBuilder.["Summary"].collection.Add
