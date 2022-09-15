@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="src\main.fs"/>
+        <Compile Include="src\main.fs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -20,7 +20,7 @@
             <HintPath>..\..\pilipala-sdk\pilipala-frame\bin\Debug\net6.0\pilipala-frame.dll</HintPath>
         </Reference>
         <Reference Include="pilipala.util">
-            <HintPath>..\..\pilipala-sdk\pilipala.util\bin\Debug\net6.0\pilipala.util.dll</HintPath>
+          <HintPath>..\..\pilipala-sdk\pilipala.util\bin\Debug\net6.0\pilipala.util.dll</HintPath>
         </Reference>
     </ItemGroup>
 
