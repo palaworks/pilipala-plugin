@@ -35,7 +35,7 @@ type Summarizer
             | Some x -> id, x
 
         postRenderBuilder.["Summary"].collection.Add
-        <| Replace(fun _ -> f)
+        <| Replace(always f)
 
     do
         //用于提供判断概要是否为生成的的依据
@@ -47,4 +47,4 @@ type Summarizer
         postRenderBuilder.["IsGeneratedSummary"]
             .collection
             .Add
-        <| Replace(fun _ -> f)
+        <| Replace(always f)
