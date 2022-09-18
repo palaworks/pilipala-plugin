@@ -26,7 +26,7 @@ plugins of pilipala
 
 ### Markdown
 
-翻译正文中的Markdown为HTML。
+翻译正文中的Markdown到HTML。
 
 ### ViewCount
 
@@ -35,6 +35,10 @@ plugins of pilipala
 ### PostCover
 
 提供文章封面。
+
+### PostStatus
+
+提供文章归档状态和计划状态。
 
 ## 默认集成的插件
 
