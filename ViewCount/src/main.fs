@@ -9,11 +9,11 @@ open pilipala.pipeline
 open pilipala.util.text
 open pilipala.pipeline.post
 
-type ViewCount(renderBuilder: IPostRenderPipelineBuilder, cfg: IPluginCfgProvider) =
+type ViewCount(postRenderBuilder: IPostRenderPipelineBuilder, cfg: IPluginCfgProvider) =
 
     let map =
         { json = cfg.config }
-            .deserializeTo<Dict<u64, u32>> ()
+            .deserializeTo<Dict<i64, u32>> ()
 
     //TODO 应实现每N次同步、关闭前同步和每时间段同步
     let save () =
@@ -28,18 +28,17 @@ type ViewCount(renderBuilder: IPostRenderPipelineBuilder, cfg: IPluginCfgProvide
                 map.Add(post_id, 1u)
             |> effect save
 
-        renderBuilder.Body.collection.Add
+        postRenderBuilder.Body.collection.Add
         <| After(effect f)
 
     do
-        let data post_id =
+        let f post_id =
             map
                 .TryGetValue(post_id)
                 .intoOption'()
-                .orPure(fun _ ->
-                    map.Add(post_id, 0u)
-                    0u)
-                .fmap (fun n -> post_id, obj n)
+                .orPure(always 0u) //请求访问计数的时候不需要进行持久化
+                .fmap(fun n -> post_id, n :> obj)
+                .unwrap ()
 
-        renderBuilder.["ViewCount"].collection.Add
-        <| Replace(fun fail id -> unwrapOr (data id) (fun _ -> fail id))
+        postRenderBuilder.["ViewCount"].collection.Add
+        <| Replace(always f)
