@@ -22,7 +22,8 @@ type UserSiteUrl
     //TODO JSON5 support
     let map =
         { json = cfg.config }
-            .deserializeTo<Dict<i64, string>> ()
+            .deserializeTo<Dict<i64, string>>()
+            .unwrapOr (fun _ -> Dict<i64, string>())
 
     do
         forPost postRenderBuilder postRenderPipeline map

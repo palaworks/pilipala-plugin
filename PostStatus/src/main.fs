@@ -18,7 +18,11 @@ type Config =
 type PostStatus(postRenderBuilder: IPostRenderPipelineBuilder, cfg: IPluginCfgProvider) =
 
     let config =
-        { json = cfg.config }.deserializeTo<Config> ()
+        { json = cfg.config }
+            .deserializeTo<Config>()
+            .unwrapOr (fun _ ->
+                { archived = HashSet<i64>()
+                  scheduled = HashSet<i64>() })
 
     do
         let f id : _ * obj = id, config.archived.Contains(id)

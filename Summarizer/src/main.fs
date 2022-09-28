@@ -19,7 +19,8 @@ type Summarizer
 
     let summaries =
         { json = cfg.config }
-            .deserializeTo<Dictionary<i64, string>> ()
+            .deserializeTo<Dictionary<i64, string>>()
+            .unwrapOr (fun _ -> Dict<i64, string>())
 
     let getBody id = postRenderPipeline.Body id |> snd
 

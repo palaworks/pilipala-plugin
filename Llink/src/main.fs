@@ -5,6 +5,9 @@ open System.IO
 open System.Collections.Generic
 open Newtonsoft.Json.Linq
 open fsharper.op
+open fsharper.op.Pattern
+open fsharper.op.Foldable
+open fsharper.typ
 open fsharper.alias
 open fsharper.op.Coerce
 open fsharper.op.Foldable
@@ -15,12 +18,12 @@ open pilipala.pipeline.post
 type Llink(render: IPostRenderPipelineBuilder, cfg: IPluginCfgProvider) =
 
     do
-        let map = Dictionary<string, string>()
+        let map =
+            { json = cfg.config }
+                .deserializeTo<Dict<string, string>>()
+                .unwrapOr (fun _ -> Dict<string, string>())
 
-        for el in JObject.Parse cfg.config do
-            map.Add($"<{{{el.Key}}}>", coerce el.Value)
+        let f (id: i64, body: string) =
+            id, map.foldl (fun (acc: string) (KV (k, v)) -> acc.Replace(k, v)) body
 
-        let f (id: u64, v: string) =
-            id, map.foldl (fun (acc: string) x -> acc.Replace(x.Key, x.Value)) v
-
-        render.Body.collection.Add <| After f
+        render.Body.collection.Add(After f)
