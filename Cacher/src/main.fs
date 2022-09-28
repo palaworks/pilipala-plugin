@@ -21,7 +21,11 @@ type Cacher
     //TODO 引入缓存容量
 
     let config =
-        { json = cfg.config }.deserializeTo<Config> ()
+        { json = cfg.config }
+            .deserializeTo<Config>()
+            .unwrapOr (fun _ ->
+                { enable_post = false
+                  enable_comment = false })
 
     do
         if config.enable_post then
