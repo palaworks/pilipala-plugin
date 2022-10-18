@@ -31,12 +31,12 @@ type UserName
                         execute
                     }
 
-        let data post_id =
+        let f post_id =
             getUserName post_id
             >>= fun user_name -> Some(post_id, user_name)
 
         postRenderBuilder.["UserName"].collection.Add
-        <| Replace(fun fail id -> unwrapOr (data id) (fun _ -> fail id))
+        <| Replace(fun fail id -> unwrapOr (f id) (fun _ -> fail id))
 
     do
         //comment
@@ -53,9 +53,9 @@ type UserName
                         execute
                     }
 
-        let data comment_id =
+        let f comment_id =
             getUserName comment_id
             >>= fun user_name -> Some(comment_id, user_name)
 
         commentRenderBuilder.["UserName"].collection.Add
-        <| Replace(fun fail id -> unwrapOr (data id) (fun _ -> fail id))
+        <| Replace(fun fail id -> unwrapOr (f id) (fun _ -> fail id))

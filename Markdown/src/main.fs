@@ -4,11 +4,16 @@ open System
 open fsharper.op
 open fsharper.alias
 open pilipala.pipeline
+open pilipala.pipeline.comment
 open pilipala.util.text
 open pilipala.pipeline.post
 
-type Markdown(render: IPostRenderPipelineBuilder) =
+type Markdown(postRenderBuilder: IPostRenderPipelineBuilder, commentRenderBuilder: ICommentRenderPipelineBuilder) =
 
     do
-        let f (id: i64, v: string) = id, { markdown = v }.intoHtml().html
-        render.Body.collection.Add <| After f
+        let f (id, body) = id, { markdown = body }.intoHtml().html
+        postRenderBuilder.Body.collection.Add(After f)
+
+    do
+        let f (id, body) = id, { markdown = body }.intoHtml().html
+        commentRenderBuilder.Body.collection.Add(After f)
