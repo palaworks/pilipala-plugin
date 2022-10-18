@@ -51,3 +51,7 @@ plugins of pilipala
 ### UserName
 
 为`IComment`和`IPost`提供`UserName`字段
+
+### Pinned
+
+提供文章置顶标识。
