@@ -14,7 +14,8 @@ type Topics(postRenderBuilder: IPostRenderPipelineBuilder, cfg: IPluginCfgProvid
 
     let topics =
         { json = cfg.config }
-            .deserializeTo<Dictionary<i64, string []>> ()
+            .deserializeTo<Dictionary<i64, string []>>()
+            .unwrapOr (fun _ -> Dict<i64, string []>())
 
     do
         let f id : i64 * obj =

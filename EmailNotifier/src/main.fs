@@ -26,18 +26,21 @@ type EmailNotifier
     let config =
         { json = cfg.config }.deserializeTo<Config> ()
 
-    let send (id: u64) =
-        use smtp =
-            new SmtpClient(
-                Host = config.host,
-                Port = config.port,
-                UseDefaultCredentials = false,
-                Credentials = System.Net.NetworkCredential(config.usr, config.pwd)
-            )
-
-        let mapped = mappedCommentProvider.fetch id
-        smtp.Send("噼里啪啦事件", config.receiver, "新的评论", mapped.Body)
-
     do
-        commentInitBuilder.Batch.collection.Add
-        <| After(effect send)
+        match config with
+        | Some config ->
+            let send (id: i64) =
+                use smtp =
+                    new SmtpClient(
+                        Host = config.host,
+                        Port = config.port,
+                        UseDefaultCredentials = false,
+                        Credentials = System.Net.NetworkCredential(config.usr, config.pwd)
+                    )
+
+                let mapped = mappedCommentProvider.fetch id
+                smtp.Send("噼里啪啦事件", config.receiver, "新的评论", mapped.Body)
+
+            commentInitBuilder.Batch.collection.Add
+            <| After(effect send)
+        | _ -> ()

@@ -40,6 +40,10 @@ plugins of pilipala
 
 提供文章归档状态和计划状态。
 
+### PartialOrder
+
+提供当前文章的前驱和后继ID导航。
+
 ## 默认集成的插件
 
 噼哩啪啦内核为这些插件提供集成支持，始终应该启用这些插件以保证系统功能的完整性。
@@ -47,3 +51,7 @@ plugins of pilipala
 ### UserName
 
 为`IComment`和`IPost`提供`UserName`字段
+
+### Pinned
+
+提供文章置顶标识。
