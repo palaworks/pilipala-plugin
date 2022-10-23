@@ -6,8 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="src\post_gen.fs" />
-        <Compile Include="src\comment_gen.fs" />
+        <Compile Include="src\gen.fs" />
         <Compile Include="src\main.fs" />
     </ItemGroup>
 
@@ -21,6 +20,11 @@
       <Reference Include="pilipala.util">
         <HintPath>..\..\pilipala-sdk\pilipala.util\bin\Debug\net6.0\pilipala.util.dll</HintPath>
       </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.1" />
+      <PackageReference Include="System.Runtime.Caching" Version="6.0.0" />
     </ItemGroup>
 
 </Project>
