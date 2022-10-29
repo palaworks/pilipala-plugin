@@ -13,9 +13,14 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\DbManaged\DbManaged.fsproj" />
-        <ProjectReference Include="..\..\fsharper\fsharper.fsproj" />
-        
+        <ProjectReference Include="..\..\DbManaged\DbManaged.fsproj">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </ProjectReference>
+        <ProjectReference Include="..\..\fsharper\fsharper.fsproj">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </ProjectReference>
         <ProjectReference Include="..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj">
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>

@@ -7,13 +7,18 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="src\main.fs" />
+        <Compile Include="src\main.fs"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\DbManaged\DbManaged.fsproj" />
-        <ProjectReference Include="..\..\fsharper\fsharper.fsproj" />
-
+        <ProjectReference Include="..\..\DbManaged\DbManaged.fsproj">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </ProjectReference>
+        <ProjectReference Include="..\..\fsharper\fsharper.fsproj">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </ProjectReference>
         <ProjectReference Include="..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj">
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
@@ -25,7 +30,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
 
         <PackageReference Update="FSharp.Core" Version="6.0.6">
             <Private>false</Private>
