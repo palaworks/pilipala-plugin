@@ -2,6 +2,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Cacher", "Cacher.fsproj", "{26BC5D65-1DE1-4E32-BEF6-DDE20429C160}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala-frame", "..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj", "{173A93CB-15BB-40B3-B9FA-2395179B677D}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala.util", "..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj", "{F90E57BA-06B3-460E-BE53-DD4C1C2B0F7B}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\fsharper\fsharper.fsproj", "{4BFA9E0B-5559-4C7D-BF6C-180D63AFF963}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DbManaged", "..\..\DbManaged\DbManaged.fsproj", "{3EAFA709-1B09-48D6-BEE9-8EA4AE046EA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +20,21 @@ Global
 		{26BC5D65-1DE1-4E32-BEF6-DDE20429C160}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26BC5D65-1DE1-4E32-BEF6-DDE20429C160}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26BC5D65-1DE1-4E32-BEF6-DDE20429C160}.Release|Any CPU.Build.0 = Release|Any CPU
+		{173A93CB-15BB-40B3-B9FA-2395179B677D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{173A93CB-15BB-40B3-B9FA-2395179B677D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{173A93CB-15BB-40B3-B9FA-2395179B677D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{173A93CB-15BB-40B3-B9FA-2395179B677D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F90E57BA-06B3-460E-BE53-DD4C1C2B0F7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F90E57BA-06B3-460E-BE53-DD4C1C2B0F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F90E57BA-06B3-460E-BE53-DD4C1C2B0F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F90E57BA-06B3-460E-BE53-DD4C1C2B0F7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BFA9E0B-5559-4C7D-BF6C-180D63AFF963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BFA9E0B-5559-4C7D-BF6C-180D63AFF963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BFA9E0B-5559-4C7D-BF6C-180D63AFF963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BFA9E0B-5559-4C7D-BF6C-180D63AFF963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EAFA709-1B09-48D6-BEE9-8EA4AE046EA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EAFA709-1B09-48D6-BEE9-8EA4AE046EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EAFA709-1B09-48D6-BEE9-8EA4AE046EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EAFA709-1B09-48D6-BEE9-8EA4AE046EA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,5 +1,7 @@
 ﻿namespace pilipala.plugin
 
+open System.Reflection
+open fsharper.op
 open pilipala.pipeline.post
 open pilipala.util.text
 open pilipala.pipeline.comment

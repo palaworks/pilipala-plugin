@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <EnableDynamicLoading>true</EnableDynamicLoading>
     </PropertyGroup>
 
     <ItemGroup>
@@ -10,15 +11,24 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="fsharper">
-        <HintPath>..\..\fsharper\bin\Debug\net6.0\fsharper.dll</HintPath>
-      </Reference>
-      <Reference Include="pilipala-frame">
-        <HintPath>..\..\pilipala-sdk\pilipala-frame\bin\Debug\net6.0\pilipala-frame.dll</HintPath>
-      </Reference>
-      <Reference Include="pilipala.util">
-        <HintPath>..\..\pilipala-sdk\pilipala.util\bin\Debug\net6.0\pilipala.util.dll</HintPath>
-      </Reference>
+        <ProjectReference Include="..\..\DbManaged\DbManaged.fsproj" />
+        <ProjectReference Include="..\..\fsharper\fsharper.fsproj" />
+       
+        <ProjectReference Include="..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </ProjectReference>
+        <ProjectReference Include="..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </ProjectReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Update="FSharp.Core" Version="6.0.6">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
     </ItemGroup>
 
 </Project>

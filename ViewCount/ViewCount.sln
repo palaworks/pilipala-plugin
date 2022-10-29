@@ -2,6 +2,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ViewCount", "ViewCount.fsproj", "{C6E337B2-D61E-49BE-B902-A576C1AB5E18}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala-frame", "..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj", "{34B202BD-F3BC-4CDC-AE56-D158AD77A188}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala.util", "..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj", "{9076E6E2-4453-408C-AE74-B6F12E3CF892}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\fsharper\fsharper.fsproj", "{F46654A0-C1EB-4A69-808F-DD98D384A5D0}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DbManaged", "..\..\DbManaged\DbManaged.fsproj", "{FF711D85-0C57-49AB-B1EA-F369DF614332}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +20,21 @@ Global
 		{C6E337B2-D61E-49BE-B902-A576C1AB5E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6E337B2-D61E-49BE-B902-A576C1AB5E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6E337B2-D61E-49BE-B902-A576C1AB5E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34B202BD-F3BC-4CDC-AE56-D158AD77A188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34B202BD-F3BC-4CDC-AE56-D158AD77A188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34B202BD-F3BC-4CDC-AE56-D158AD77A188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34B202BD-F3BC-4CDC-AE56-D158AD77A188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9076E6E2-4453-408C-AE74-B6F12E3CF892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9076E6E2-4453-408C-AE74-B6F12E3CF892}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9076E6E2-4453-408C-AE74-B6F12E3CF892}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9076E6E2-4453-408C-AE74-B6F12E3CF892}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F46654A0-C1EB-4A69-808F-DD98D384A5D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F46654A0-C1EB-4A69-808F-DD98D384A5D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F46654A0-C1EB-4A69-808F-DD98D384A5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F46654A0-C1EB-4A69-808F-DD98D384A5D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF711D85-0C57-49AB-B1EA-F369DF614332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF711D85-0C57-49AB-B1EA-F369DF614332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF711D85-0C57-49AB-B1EA-F369DF614332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF711D85-0C57-49AB-B1EA-F369DF614332}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

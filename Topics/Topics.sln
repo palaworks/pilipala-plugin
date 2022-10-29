@@ -2,6 +2,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Topics", "Topics.fsproj", "{76ED4A56-3829-4A37-9BC9-84EAFEE58444}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala-frame", "..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj", "{94DB189C-3D6F-4FD8-A6E0-FFA1E9BF9102}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala.util", "..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj", "{27DC7BA0-F62C-421E-B029-E2D30FACC0D8}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\fsharper\fsharper.fsproj", "{E2DD2920-17DB-4AC8-AF65-33233AD2A4BD}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DbManaged", "..\..\DbManaged\DbManaged.fsproj", "{64EFD9A5-0B0B-4192-AB1C-0A3CCEF6B111}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +20,21 @@ Global
 		{76ED4A56-3829-4A37-9BC9-84EAFEE58444}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76ED4A56-3829-4A37-9BC9-84EAFEE58444}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76ED4A56-3829-4A37-9BC9-84EAFEE58444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94DB189C-3D6F-4FD8-A6E0-FFA1E9BF9102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94DB189C-3D6F-4FD8-A6E0-FFA1E9BF9102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94DB189C-3D6F-4FD8-A6E0-FFA1E9BF9102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94DB189C-3D6F-4FD8-A6E0-FFA1E9BF9102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27DC7BA0-F62C-421E-B029-E2D30FACC0D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27DC7BA0-F62C-421E-B029-E2D30FACC0D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27DC7BA0-F62C-421E-B029-E2D30FACC0D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27DC7BA0-F62C-421E-B029-E2D30FACC0D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2DD2920-17DB-4AC8-AF65-33233AD2A4BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2DD2920-17DB-4AC8-AF65-33233AD2A4BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2DD2920-17DB-4AC8-AF65-33233AD2A4BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2DD2920-17DB-4AC8-AF65-33233AD2A4BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64EFD9A5-0B0B-4192-AB1C-0A3CCEF6B111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64EFD9A5-0B0B-4192-AB1C-0A3CCEF6B111}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64EFD9A5-0B0B-4192-AB1C-0A3CCEF6B111}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64EFD9A5-0B0B-4192-AB1C-0A3CCEF6B111}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
