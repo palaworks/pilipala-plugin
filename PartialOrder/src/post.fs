@@ -11,12 +11,11 @@ let forPost (renderBuilder: IPostRenderPipelineBuilder) (db: IDbOperationBuilder
         let f post_id =
             post_id,
             db {
-                getFstVal
-                    (db.managed.normalizeSql
-                        $"SELECT post_id FROM {db.tables.post} \
-                          WHERE post_id < <post_id> \
-                          ORDER BY post_id DESC \
-                          LIMIT 1")
+                getFstVal//TODO sql normalization
+                    $"SELECT post_id FROM {db.tables.post} \
+                      WHERE post_id < :post_id \
+                      ORDER BY post_id DESC \
+                      LIMIT 1"
                     [ ("post_id", post_id) ]
 
                 execute
@@ -31,11 +30,10 @@ let forPost (renderBuilder: IPostRenderPipelineBuilder) (db: IDbOperationBuilder
             post_id,
             db {
                 getFstVal
-                    (db.managed.normalizeSql
-                        $"SELECT post_id FROM {db.tables.post} \
-                          WHERE post_id > <post_id> \
-                          ORDER BY post_id \
-                          LIMIT 1")
+                    $"SELECT post_id FROM {db.tables.post} \
+                      WHERE post_id > :post_id \
+                      ORDER BY post_id \
+                      LIMIT 1"
                     [ ("post_id", post_id) ]
 
                 execute

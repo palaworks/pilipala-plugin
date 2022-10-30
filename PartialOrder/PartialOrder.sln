@@ -2,6 +2,16 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PartialOrder", "PartialOrder.fsproj", "{9A8DA72E-594A-4BDF-B9E6-E2EBEAF2101D}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala-frame", "..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj", "{54783FA6-50C3-4010-9B55-3744171D2FB8}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala.util", "..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj", "{7DEF0BA9-346E-4B55-A6DE-E3041ADC08BC}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\fsharper\fsharper.fsproj", "{BC432C58-C4C4-4010-9445-EA701C13D42F}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DbManaged", "..\..\DbManaged\DbManaged.fsproj", "{2F1FA657-E39B-414F-9EFD-84391035127A}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala.data.db-ext", "..\..\pilipala-sdk\pilipala.data.db-ext\pilipala.data.db-ext.fsproj", "{6FD98AE9-4CE0-49F1-A054-99AC89EF8196}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +22,25 @@ Global
 		{9A8DA72E-594A-4BDF-B9E6-E2EBEAF2101D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A8DA72E-594A-4BDF-B9E6-E2EBEAF2101D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A8DA72E-594A-4BDF-B9E6-E2EBEAF2101D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54783FA6-50C3-4010-9B55-3744171D2FB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54783FA6-50C3-4010-9B55-3744171D2FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54783FA6-50C3-4010-9B55-3744171D2FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54783FA6-50C3-4010-9B55-3744171D2FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DEF0BA9-346E-4B55-A6DE-E3041ADC08BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DEF0BA9-346E-4B55-A6DE-E3041ADC08BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DEF0BA9-346E-4B55-A6DE-E3041ADC08BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DEF0BA9-346E-4B55-A6DE-E3041ADC08BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC432C58-C4C4-4010-9445-EA701C13D42F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC432C58-C4C4-4010-9445-EA701C13D42F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC432C58-C4C4-4010-9445-EA701C13D42F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC432C58-C4C4-4010-9445-EA701C13D42F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F1FA657-E39B-414F-9EFD-84391035127A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F1FA657-E39B-414F-9EFD-84391035127A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F1FA657-E39B-414F-9EFD-84391035127A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F1FA657-E39B-414F-9EFD-84391035127A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FD98AE9-4CE0-49F1-A054-99AC89EF8196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FD98AE9-4CE0-49F1-A054-99AC89EF8196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FD98AE9-4CE0-49F1-A054-99AC89EF8196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FD98AE9-4CE0-49F1-A054-99AC89EF8196}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -2,6 +2,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Markdown", "Markdown.fsproj", "{94F7A40A-2603-4A1F-876A-C3D9109F4AD9}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala.util", "..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj", "{B6FF3012-B45F-46B2-936A-A69A9C106FEB}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala-frame", "..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj", "{E4409FB5-426B-4670-8A35-E3BFBCCA418C}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\fsharper\fsharper.fsproj", "{E7C5479D-39F6-410B-9D4A-E1AE81558909}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DbManaged", "..\..\DbManaged\DbManaged.fsproj", "{2884457D-2F29-410E-8E45-647E91378606}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +20,21 @@ Global
 		{94F7A40A-2603-4A1F-876A-C3D9109F4AD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94F7A40A-2603-4A1F-876A-C3D9109F4AD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94F7A40A-2603-4A1F-876A-C3D9109F4AD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6FF3012-B45F-46B2-936A-A69A9C106FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6FF3012-B45F-46B2-936A-A69A9C106FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6FF3012-B45F-46B2-936A-A69A9C106FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6FF3012-B45F-46B2-936A-A69A9C106FEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4409FB5-426B-4670-8A35-E3BFBCCA418C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4409FB5-426B-4670-8A35-E3BFBCCA418C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4409FB5-426B-4670-8A35-E3BFBCCA418C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4409FB5-426B-4670-8A35-E3BFBCCA418C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7C5479D-39F6-410B-9D4A-E1AE81558909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7C5479D-39F6-410B-9D4A-E1AE81558909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7C5479D-39F6-410B-9D4A-E1AE81558909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7C5479D-39F6-410B-9D4A-E1AE81558909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2884457D-2F29-410E-8E45-647E91378606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2884457D-2F29-410E-8E45-647E91378606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2884457D-2F29-410E-8E45-647E91378606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2884457D-2F29-410E-8E45-647E91378606}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

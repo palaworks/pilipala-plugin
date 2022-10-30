@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "UserSiteUrl", "UserSiteUrl.fsproj", "{B385B167-ACB7-4C0C-A3A6-650E178B99BF}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala-frame", "..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj", "{5EE5B95D-3626-4A0D-8019-C26FFC7B90E2}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala.util", "..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj", "{8BD79BF4-2A03-4AA9-A7FB-386FFD94E1E0}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\fsharper\fsharper.fsproj", "{14F77247-3503-4E6E-8CD5-DEC1C3C575CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,17 @@ Global
 		{B385B167-ACB7-4C0C-A3A6-650E178B99BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B385B167-ACB7-4C0C-A3A6-650E178B99BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B385B167-ACB7-4C0C-A3A6-650E178B99BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EE5B95D-3626-4A0D-8019-C26FFC7B90E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE5B95D-3626-4A0D-8019-C26FFC7B90E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE5B95D-3626-4A0D-8019-C26FFC7B90E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE5B95D-3626-4A0D-8019-C26FFC7B90E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BD79BF4-2A03-4AA9-A7FB-386FFD94E1E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD79BF4-2A03-4AA9-A7FB-386FFD94E1E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD79BF4-2A03-4AA9-A7FB-386FFD94E1E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD79BF4-2A03-4AA9-A7FB-386FFD94E1E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14F77247-3503-4E6E-8CD5-DEC1C3C575CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14F77247-3503-4E6E-8CD5-DEC1C3C575CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14F77247-3503-4E6E-8CD5-DEC1C3C575CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14F77247-3503-4E6E-8CD5-DEC1C3C575CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
