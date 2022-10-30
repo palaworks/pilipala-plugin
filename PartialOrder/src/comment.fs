@@ -12,11 +12,10 @@ let forComment (renderBuilder: ICommentRenderPipelineBuilder) (db: IDbOperationB
             comment_id,
             db {
                 getFstVal
-                    (db.managed.normalizeSql
-                        $"SELECT comment_id FROM {db.tables.comment} \
-                          WHERE comment_id < <comment_id> \
-                          ORDER BY comment_id DESC \
-                          LIMIT 1")
+                    $"SELECT comment_id FROM {db.tables.comment} \
+                      WHERE comment_id < :comment_id \
+                      ORDER BY comment_id DESC \
+                      LIMIT 1"
                     [ ("comment_id", comment_id) ]
 
                 execute
@@ -31,11 +30,10 @@ let forComment (renderBuilder: ICommentRenderPipelineBuilder) (db: IDbOperationB
             comment_id,
             db {
                 getFstVal
-                    (db.managed.normalizeSql
-                        $"SELECT comment_id FROM {db.tables.comment} \
-                          WHERE comment_id > <comment_id> \
-                          ORDER BY comment_id \
-                          LIMIT 1")
+                    $"SELECT comment_id FROM {db.tables.comment} \
+                      WHERE comment_id > :comment_id \
+                      ORDER BY comment_id \
+                      LIMIT 1"
                     [ ("comment_id", comment_id) ]
 
                 execute

@@ -1,8 +1,10 @@
 ﻿namespace pilipala.plugin
 
 open System
+open System.Reflection
 open fsharper.op
 open fsharper.alias
+open fsharper.typ
 open pilipala.pipeline
 open pilipala.pipeline.comment
 open pilipala.util.text

@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EmailNotifier", "EmailNotifier.fsproj", "{C5E71FA1-0451-4EE9-8D1D-D55EF32FA4EA}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala-frame", "..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj", "{02B3CE94-2546-4480-85EC-2B8EFD9088F6}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala.util", "..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj", "{77641AC1-D14C-436E-94D1-2025F05F8CD5}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\fsharper\fsharper.fsproj", "{7BEFC693-CEBC-47C8-BEFA-3772027F03B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,17 @@ Global
 		{C5E71FA1-0451-4EE9-8D1D-D55EF32FA4EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5E71FA1-0451-4EE9-8D1D-D55EF32FA4EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5E71FA1-0451-4EE9-8D1D-D55EF32FA4EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02B3CE94-2546-4480-85EC-2B8EFD9088F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02B3CE94-2546-4480-85EC-2B8EFD9088F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02B3CE94-2546-4480-85EC-2B8EFD9088F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02B3CE94-2546-4480-85EC-2B8EFD9088F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77641AC1-D14C-436E-94D1-2025F05F8CD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77641AC1-D14C-436E-94D1-2025F05F8CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77641AC1-D14C-436E-94D1-2025F05F8CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77641AC1-D14C-436E-94D1-2025F05F8CD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BEFC693-CEBC-47C8-BEFA-3772027F03B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BEFC693-CEBC-47C8-BEFA-3772027F03B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BEFC693-CEBC-47C8-BEFA-3772027F03B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BEFC693-CEBC-47C8-BEFA-3772027F03B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

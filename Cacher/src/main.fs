@@ -1,10 +1,13 @@
 ﻿namespace pilipala.plugin
 
+open System.Reflection
+open fsharper.op
 open pilipala.pipeline.post
 open pilipala.util.text
 open pilipala.pipeline.comment
-open Cacher.post_gen
-open Cacher.comment_gen
+open Cacher.gen
+open System.Runtime.Caching
+open Microsoft.Extensions.Caching.Memory
 
 type Config =
     { enable_post: bool
@@ -18,7 +21,6 @@ type Cacher
         commentRenderBuilder: ICommentRenderPipelineBuilder,
         commentModifyBuilder: ICommentModifyPipelineBuilder
     ) =
-    //TODO 引入缓存容量
 
     let config =
         { json = cfg.config }
@@ -27,14 +29,19 @@ type Cacher
                 { enable_post = false
                   enable_comment = false })
 
+    let cache = MemoryCache.Default
+
     do
         if config.enable_post then
-            post_gen postRenderBuilder.Title postModifyBuilder.Title
-            post_gen postRenderBuilder.Body postModifyBuilder.Body
-            post_gen postRenderBuilder.CreateTime postModifyBuilder.CreateTime
-            post_gen postRenderBuilder.AccessTime postModifyBuilder.AccessTime
-            post_gen postRenderBuilder.ModifyTime postModifyBuilder.ModifyTime
+            gen cache "post_title" postRenderBuilder.Title postModifyBuilder.Title
+            gen cache "post_body" postRenderBuilder.Body postModifyBuilder.Body
+            gen cache "post_create_time" postRenderBuilder.CreateTime postModifyBuilder.CreateTime
+            gen cache "post_access_time" postRenderBuilder.AccessTime postModifyBuilder.AccessTime
+            gen cache "post_modify_time" postRenderBuilder.ModifyTime postModifyBuilder.ModifyTime
+            gen cache "post_permission" postRenderBuilder.Permission postModifyBuilder.Permission
+            gen cache "post_user_id" postRenderBuilder.UserId postModifyBuilder.UserId
 
         if config.enable_comment then
-            comment_gen commentRenderBuilder.Body commentModifyBuilder.Body
-            comment_gen commentRenderBuilder.CreateTime commentModifyBuilder.CreateTime
+            gen cache "comment_body" commentRenderBuilder.Body commentModifyBuilder.Body
+            gen cache "comment_create_time" commentRenderBuilder.CreateTime commentModifyBuilder.CreateTime
+            gen cache "comment_binding" commentRenderBuilder.Binding commentModifyBuilder.Binding

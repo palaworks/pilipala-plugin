@@ -28,7 +28,7 @@ type EmailNotifier
 
     do
         match config with
-        | Some config ->
+        | Ok config ->
             let send (id: i64) =
                 use smtp =
                     new SmtpClient(

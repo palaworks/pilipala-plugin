@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PostCover", "PostCover.fsproj", "{E3EDD101-CD8C-4B73-80CE-EEA1FC3AD355}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala-frame", "..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj", "{411B15CF-7B03-41F5-99CF-2A05FFBCC6FC}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala.util", "..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj", "{C8EB32E6-BAD0-4E24-86D2-523C65DF9AE5}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\fsharper\fsharper.fsproj", "{B30FC05D-62C5-4FD1-94FB-BE53835A472B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,17 @@ Global
 		{E3EDD101-CD8C-4B73-80CE-EEA1FC3AD355}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3EDD101-CD8C-4B73-80CE-EEA1FC3AD355}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3EDD101-CD8C-4B73-80CE-EEA1FC3AD355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{411B15CF-7B03-41F5-99CF-2A05FFBCC6FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{411B15CF-7B03-41F5-99CF-2A05FFBCC6FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{411B15CF-7B03-41F5-99CF-2A05FFBCC6FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{411B15CF-7B03-41F5-99CF-2A05FFBCC6FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8EB32E6-BAD0-4E24-86D2-523C65DF9AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8EB32E6-BAD0-4E24-86D2-523C65DF9AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8EB32E6-BAD0-4E24-86D2-523C65DF9AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8EB32E6-BAD0-4E24-86D2-523C65DF9AE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B30FC05D-62C5-4FD1-94FB-BE53835A472B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B30FC05D-62C5-4FD1-94FB-BE53835A472B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B30FC05D-62C5-4FD1-94FB-BE53835A472B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B30FC05D-62C5-4FD1-94FB-BE53835A472B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
