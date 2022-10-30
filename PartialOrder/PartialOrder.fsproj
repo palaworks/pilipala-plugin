@@ -7,9 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="src\post.fs" />
-        <Compile Include="src\comment.fs" />
-        <Compile Include="src\main.fs" />
+        <Compile Include="src\post.fs"/>
+        <Compile Include="src\comment.fs"/>
+        <Compile Include="src\main.fs"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -26,6 +26,10 @@
             <ExcludeAssets>runtime</ExcludeAssets>
         </ProjectReference>
         <ProjectReference Include="..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </ProjectReference>
+        <ProjectReference Include="..\..\pilipala-sdk\pilipala.data.db-ext\pilipala.data.db-ext.fsproj">
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
         </ProjectReference>

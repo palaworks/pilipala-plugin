@@ -8,8 +8,6 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala.util", "..\..\pili
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\fsharper\fsharper.fsproj", "{7BEFC693-CEBC-47C8-BEFA-3772027F03B4}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DbManaged", "..\..\DbManaged\DbManaged.fsproj", "{25E89A59-7B6B-49A3-9907-DD4CE3B34B45}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +30,5 @@ Global
 		{7BEFC693-CEBC-47C8-BEFA-3772027F03B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BEFC693-CEBC-47C8-BEFA-3772027F03B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BEFC693-CEBC-47C8-BEFA-3772027F03B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25E89A59-7B6B-49A3-9907-DD4CE3B34B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25E89A59-7B6B-49A3-9907-DD4CE3B34B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25E89A59-7B6B-49A3-9907-DD4CE3B34B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25E89A59-7B6B-49A3-9907-DD4CE3B34B45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
