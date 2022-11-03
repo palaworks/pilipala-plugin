@@ -10,6 +10,7 @@ open pilipala.pipeline
 open pilipala.util.text
 open pilipala.pipeline.post
 
+[<HookOn(AppLifeCycle.BeforeBuild)>]
 type Topics(postRenderBuilder: IPostRenderPipelineBuilder, cfg: IPluginCfgProvider) =
 
     let topics =

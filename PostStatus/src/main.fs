@@ -11,15 +11,16 @@ open pilipala.pipeline
 open pilipala.util.text
 open pilipala.pipeline.post
 
-type Config =
+type Cfg =
     { archived: HashSet<i64>
       scheduled: HashSet<i64> }
 
+[<HookOn(AppLifeCycle.BeforeBuild)>]
 type PostStatus(postRenderBuilder: IPostRenderPipelineBuilder, cfg: IPluginCfgProvider) =
 
     let config =
         { json = cfg.config }
-            .deserializeTo<Config>()
+            .deserializeTo<Cfg>()
             .unwrapOr (fun _ ->
                 { archived = HashSet<i64>()
                   scheduled = HashSet<i64>() })

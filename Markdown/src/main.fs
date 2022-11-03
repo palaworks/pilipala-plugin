@@ -10,6 +10,7 @@ open pilipala.pipeline.comment
 open pilipala.util.text
 open pilipala.pipeline.post
 
+[<HookOn(AppLifeCycle.BeforeBuild)>]
 type Markdown(postRenderBuilder: IPostRenderPipelineBuilder, commentRenderBuilder: ICommentRenderPipelineBuilder) =
 
     do
