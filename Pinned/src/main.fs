@@ -10,13 +10,14 @@ open pilipala.pipeline
 open pilipala.util.text
 open pilipala.pipeline.post
 
-type Config = { pinned: HashSet<i64> }
+type Cfg = { pinned: HashSet<i64> }
 
+[<HookOn(AppLifeCycle.BeforeBuild)>]
 type Pinned(postRenderBuilder: IPostRenderPipelineBuilder, cfg: IPluginCfgProvider) =
 
     let map =
         { json = cfg.config }
-            .deserializeTo<Config>()
+            .deserializeTo<Cfg>()
             .unwrapOr (fun _ -> { pinned = HashSet<i64>() })
 
     do

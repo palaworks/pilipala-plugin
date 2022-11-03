@@ -10,6 +10,7 @@ open pilipala.pipeline.post
 open forPost
 open forComment
 
+[<HookOn(AppLifeCycle.BeforeBuild)>]
 type UserSiteUrl
     (
         postRenderBuilder: IPostRenderPipelineBuilder,

@@ -7,6 +7,7 @@ open pilipala.pipeline
 open pilipala.pipeline.post
 open pilipala.pipeline.comment
 
+[<HookOn(AppLifeCycle.BeforeBuild)>]
 type UserName
     (
         postRenderBuilder: IPostRenderPipelineBuilder,

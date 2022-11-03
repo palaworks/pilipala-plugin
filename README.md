@@ -55,3 +55,7 @@ plugins of pilipala
 ### Pinned
 
 提供文章置顶标识。
+
+### WSAPI
+
+提供基于WebSocket的噼哩啪啦API访问

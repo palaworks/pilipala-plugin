@@ -9,10 +9,11 @@ open Cacher.gen
 open System.Runtime.Caching
 open Microsoft.Extensions.Caching.Memory
 
-type Config =
+type Cfg =
     { enable_post: bool
       enable_comment: bool }
 
+[<HookOn(AppLifeCycle.BeforeBuild)>]
 type Cacher
     (
         cfg: IPluginCfgProvider,
@@ -24,7 +25,7 @@ type Cacher
 
     let config =
         { json = cfg.config }
-            .deserializeTo<Config>()
+            .deserializeTo<Cfg>()
             .unwrapOr (fun _ ->
                 { enable_post = false
                   enable_comment = false })
