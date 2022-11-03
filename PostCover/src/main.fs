@@ -7,6 +7,7 @@ open pilipala.pipeline
 open pilipala.util.text
 open pilipala.pipeline.post
 
+[<HookOn(AppLifeCycle.BeforeBuild)>]
 type PostCover
     (
         renderBuilder: IPostRenderPipelineBuilder,
