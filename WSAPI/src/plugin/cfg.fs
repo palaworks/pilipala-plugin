@@ -11,4 +11,5 @@ type Cfg =
       ws_public_port: i32
       ws_public_enable_ssl: bool
       ws_cert_pem_path: string
-      ws_cert_key_path: string }
+      ws_cert_key_path: string
+      enable_api_response_detail_logging: bool }

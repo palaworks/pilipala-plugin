@@ -4,11 +4,9 @@
 
 plugins of pilipala
 
-## 可选插件
+## 目录
 
-这类插件的装载与否不会影响噼哩啪啦的正常工作。
-
-### Llink
+### Llink*
 
 替换正文中的`<{}>`标记块。
 
@@ -16,13 +14,13 @@ plugins of pilipala
 
 为`IPost`提供`Summary`字段（概要），并在必要时从正文生成概要。
 
-### EmailNotifier
+### EmailNotifier*
 
 使用电子邮件对噼哩啪啦事件予以通知。
 
 ### Cacher
 
-为文章和评论加载提供缓存加速。
+为加载文章和评论提供缓存加速。
 
 ### Markdown
 
@@ -44,18 +42,18 @@ plugins of pilipala
 
 提供当前文章的前驱和后继ID导航。
 
-## 默认集成的插件
-
-噼哩啪啦内核为这些插件提供集成支持，始终应该启用这些插件以保证系统功能的完整性。
-
 ### UserName
 
-为`IComment`和`IPost`提供`UserName`字段
+为评论提供`UserName`字段
 
-### Pinned
+### Mark
 
-提供文章置顶标识。
+提供一个标记字符串，通常用于对文章进行元数据分类。
 
 ### WSAPI
 
 提供基于WebSocket的噼哩啪啦API访问
+
+## 注解
+
+* 带有星号标识(*)的插件为测试项目，可能存在一些问题。
