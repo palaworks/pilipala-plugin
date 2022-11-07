@@ -35,7 +35,7 @@ type WSAPI(cfg: IPluginCfgProvider, app: IApp) =
         let wsPublicServer =
             let cert_path =
                 if cfg.ws_public_enable_ssl then
-                    Some(cfg.ws_cert_key_path, cfg.ws_cert_pem_path)
+                    Some(cfg.ws_cert_pem_path, cfg.ws_cert_key_path)
                 else
                     None
 
