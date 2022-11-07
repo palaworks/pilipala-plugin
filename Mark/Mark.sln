@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Mark", "Mark.fsproj", "{E0DF0463-6123-4F65-B869-D2431C6EB9A5}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala-frame", "..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj", "{47386CEA-C9D8-40E5-A42A-7A6D8664765F}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala.util", "..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj", "{81368FD8-0344-471C-A0A2-6A01126C2180}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\fsharper\fsharper.fsproj", "{7377124D-3ADC-42D2-8C4E-4D8E36D5D350}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0DF0463-6123-4F65-B869-D2431C6EB9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0DF0463-6123-4F65-B869-D2431C6EB9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0DF0463-6123-4F65-B869-D2431C6EB9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0DF0463-6123-4F65-B869-D2431C6EB9A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47386CEA-C9D8-40E5-A42A-7A6D8664765F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47386CEA-C9D8-40E5-A42A-7A6D8664765F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47386CEA-C9D8-40E5-A42A-7A6D8664765F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47386CEA-C9D8-40E5-A42A-7A6D8664765F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81368FD8-0344-471C-A0A2-6A01126C2180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81368FD8-0344-471C-A0A2-6A01126C2180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81368FD8-0344-471C-A0A2-6A01126C2180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81368FD8-0344-471C-A0A2-6A01126C2180}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7377124D-3ADC-42D2-8C4E-4D8E36D5D350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7377124D-3ADC-42D2-8C4E-4D8E36D5D350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7377124D-3ADC-42D2-8C4E-4D8E36D5D350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7377124D-3ADC-42D2-8C4E-4D8E36D5D350}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

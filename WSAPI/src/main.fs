@@ -29,8 +29,8 @@ type WSAPI(cfg: IPluginCfgProvider, app: IApp) =
             |> unwrap
 
         let wsLocalServer =
-            (wsLocalServer cfg.ws_local_port)
-                .configRouting (pl_display_user, pl_comment_user)
+            (wsLocalServer cfg.ws_local_port).configRouting
+            <| (pl_display_user, pl_comment_user, cfg.enable_api_response_detail_logging)
 
         let wsPublicServer =
             let cert_path =
@@ -40,6 +40,7 @@ type WSAPI(cfg: IPluginCfgProvider, app: IApp) =
                     None
 
             (wsPublicServer cfg.ws_public_port cert_path)
-                .configRouting (pl_display_user, pl_comment_user)
+                .configRouting
+            <| (pl_display_user, pl_comment_user, cfg.enable_api_response_detail_logging)
 
         runHost (wsLocalServer, wsPublicServer)

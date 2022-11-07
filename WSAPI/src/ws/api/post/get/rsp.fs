@@ -26,7 +26,8 @@ type Rsp =
       IsScheduled: bool
       Topics: string array
       PrevId: i64
-      NextId: i64 }
+      NextId: i64
+      Mark: string }
 
     static member fromPost(post: IPost) =
         let rec getRecursiveComments (comment: IComment) =
@@ -109,6 +110,12 @@ type Rsp =
                 .fmap(fun id -> id.cast<i64> ()) //Opt<i64>
                 .unwrapOr (fun _ -> -1)
 
+        let mark =
+            post.["Mark"]
+                .unwrap() //Opt<obj>
+                .fmap(cast) //Opt<u32>
+                .unwrapOr (fun _ -> "")
+
         { Id = post.Id
           Title = post.Title.unwrap ()
           Body = post.Body.unwrap ()
@@ -124,4 +131,5 @@ type Rsp =
           IsScheduled = isScheduled
           Topics = topics
           PrevId = predId
-          NextId = succId }
+          NextId = succId
+          Mark = mark }

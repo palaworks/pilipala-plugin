@@ -17,16 +17,16 @@ type Handler(pl_display_user: IUser) =
                 let pinned, other =
                     all.foldr
                     <| fun post (pinned, other) ->
-                        let isPinned =
-                            post.["IsPinned"]
+                        let mark =
+                            post.["Mark"]
                                 .unwrap() //Opt<obj>
-                                .fmap(cast) //Opt<bool>
-                                .unwrapOr (fun _ -> false)
+                                .fmap(cast) //Opt<string>
+                                .unwrapOr (fun _ -> "")
 
-                        if isPinned then
-                            post.Id :: pinned, other
-                        else
-                            pinned, post.Id :: other
+                        match mark with
+                        | "pin" -> post.Id :: pinned, other //指定文章，排名靠前
+                        | "" -> pinned, post.Id :: other //普通文章
+                        | _ -> pinned, other //其他文章，不显示
                     <| ([], [])
 
                 (pinned @ other).toArray ()
