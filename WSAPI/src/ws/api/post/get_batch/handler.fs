@@ -1,8 +1,10 @@
 namespace ws.api.post.get_batch
 
+open System
 open fsharper.typ
 open fsharper.op.Foldable
 open pilipala.access.user
+open ws.api.post.get.helper
 open ws.helper
 
 type Handler(pl_display_user: IUser) =
@@ -13,8 +15,12 @@ type Handler(pl_display_user: IUser) =
             let arr =
                 req.Ids.foldr
                 <| fun id acc ->
+                    let id = Int64.Parse id
+
                     match pl_display_user.GetPost(id) with
-                    | Ok post -> ws.api.post.get.Rsp.fromPost post :: acc
+                    | Ok post ->
+                        ws.api.post.get.Rsp.fromPost (post, pl_display_user)
+                        :: acc
                     | _ -> acc
                 <| []
                 |> List.toArray

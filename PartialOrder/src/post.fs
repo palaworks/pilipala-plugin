@@ -7,11 +7,11 @@ open pilipala.pipeline.post
 
 let forPost (renderBuilder: IPostRenderPipelineBuilder) (db: IDbOperationBuilder) =
 
-    do
+    do //pred
         let f post_id =
             post_id,
             db {
-                getFstVal//TODO sql normalization
+                getFstVal //TODO sql normalization
                     $"SELECT post_id FROM {db.tables.post} \
                       WHERE post_id < :post_id \
                       ORDER BY post_id DESC \
@@ -22,10 +22,10 @@ let forPost (renderBuilder: IPostRenderPipelineBuilder) (db: IDbOperationBuilder
             }
             :> obj
 
-        renderBuilder.["PredId"].collection.Add
-        <| Replace(fun _ -> f)
+        renderBuilder.["PredId"]
+            .collection.Add (Replace(fun _ -> f))
 
-    do
+    do //succ
         let f post_id =
             post_id,
             db {
@@ -40,5 +40,5 @@ let forPost (renderBuilder: IPostRenderPipelineBuilder) (db: IDbOperationBuilder
             }
             :> obj
 
-        renderBuilder.["SuccId"].collection.Add
-        <| Replace(fun _ -> f)
+        renderBuilder.["SuccId"]
+            .collection.Add (Replace(fun _ -> f))

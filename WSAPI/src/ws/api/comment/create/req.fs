@@ -3,6 +3,6 @@ namespace ws.api.comment.create
 open fsharper.alias
 
 type Req =
-    { Binding: i64
+    { Binding: string
       IsReply: bool
       Body: string }
