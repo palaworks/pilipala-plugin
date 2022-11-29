@@ -7,12 +7,12 @@ open fsharper.alias
 open pilipala.container.comment
 
 type Rsp =
-    { Id: i64
+    { Id: string //raw i64
       UserName: string
       UserSiteUrl: string
       UserAvatarUrl: string
       Body: string
-      Binding: i64
+      Binding: string //raw i64
       IsReply: bool
       CreateTime: DateTime }
 
@@ -37,10 +37,10 @@ type Rsp =
                 .bind(id) //Opt<str>
                 .unwrapOr (fun _ -> null)
 
-        { Id = comment.Id
+        { Id = comment.Id.ToString()
           UserName = UserName
           Body = comment.Body.unwrap ()
-          Binding = binding
+          Binding = binding.ToString()
           IsReply = isReply
           UserSiteUrl = UserSiteUrl
           UserAvatarUrl = UserAvatarUrl

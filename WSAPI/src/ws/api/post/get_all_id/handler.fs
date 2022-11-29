@@ -24,8 +24,8 @@ type Handler(pl_display_user: IUser) =
                                 .unwrapOr (fun _ -> "")
 
                         match mark with
-                        | "pin" -> post.Id :: pinned, other //指定文章，排名靠前
-                        | "" -> pinned, post.Id :: other //普通文章
+                        | "pin" -> post.Id.ToString() :: pinned, other //指定文章，排名靠前
+                        | "" -> pinned, post.Id.ToString() :: other //普通文章
                         | _ -> pinned, other //其他文章，不显示
                     <| ([], [])
 
