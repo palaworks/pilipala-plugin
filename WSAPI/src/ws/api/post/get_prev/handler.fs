@@ -1,26 +1,19 @@
 namespace ws.api.post.get_prev
 
+open System
 open fsharper.op
 open fsharper.typ
 open fsharper.alias
 open pilipala.access.user
+open ws.api.post.get.helper
 open ws.helper
 
-type Handler(pl_display_user:IUser) =
+type Handler(pl_display_user: IUser) =
+
     interface IApiHandler<Handler, Req, Rsp> with
 
         override self.handle req =
+            let current_id = Int64.Parse req.CurrentId
 
-            pl_display_user.GetPost(req.CurrentId).bind
-            <| fun post ->
-                post.["PredId"].bind
-                <| fun opt_opt_id ->
-                    (opt_opt_id.fmap
-                     <| fun x ->
-                         x.cast<Option'<obj>>().fmap
-                         <| fun x -> x.cast<i64> ())
-                        .bind id
-                    |> fun optId ->
-                        match optId with
-                        | None -> Err "No post available"
-                        | Some id -> (pl_display_user.GetPost id) |> fmap Rsp.fromPost
+            (get_prev_post pl_display_user current_id)
+                .fmap (fun post -> ws.api.post.get.Rsp.fromPost (post, pl_display_user))
