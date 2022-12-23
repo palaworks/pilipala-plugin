@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <EnableDynamicLoading>true</EnableDynamicLoading>
     </PropertyGroup>
@@ -27,9 +27,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 
-        <PackageReference Update="FSharp.Core" Version="6.0.6">
+        <PackageReference Update="FSharp.Core" Version="7.0.0">
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
