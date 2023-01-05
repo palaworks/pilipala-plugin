@@ -24,7 +24,7 @@ plugins of pilipala
 
 ### Markdown
 
-翻译正文中的Markdown到HTML。
+翻译正文中的 Markdown 到 HTML。
 
 ### ViewCount
 
@@ -50,9 +50,13 @@ plugins of pilipala
 
 提供一个标记字符串，通常用于对文章进行元数据分类。
 
-### WSAPI
+### WsApi
 
-提供基于WebSocket的噼哩啪啦API访问
+提供基于 WebSocket 的噼哩啪啦 API 访问
+
+### GrpcApi
+
+提供基于 GRPC 的噼哩啪啦 API 访问
 
 ## 注解
 
