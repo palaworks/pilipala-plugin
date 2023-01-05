@@ -14,7 +14,7 @@ plugins of pilipala
 
 为`IPost`提供`Summary`字段（概要），并在必要时从正文生成概要。
 
-### EmailNotifier*
+### EmailNotifier
 
 使用电子邮件对噼哩啪啦事件予以通知。
 
