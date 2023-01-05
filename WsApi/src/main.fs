@@ -11,7 +11,7 @@ open plugin.routing
 open plugin.hosting
 
 [<HookOn(AppLifeCycle.AfterBuild)>]
-type WSAPI(cfg: IPluginCfgProvider, app: IApp) =
+type WsApi(cfg: IPluginCfgProvider, app: IApp) =
     do
         let cfg =
             { json = cfg.config }
