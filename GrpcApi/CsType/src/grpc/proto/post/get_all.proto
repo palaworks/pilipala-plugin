@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc.api.post.get_all";
+
+import "get.proto";
+
+package post.get_all;
+
+message Req {}
+
+message Rsp {
+  repeated get.T Collection = 1;
+}

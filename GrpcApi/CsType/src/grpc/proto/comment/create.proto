@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc.api.comment.create";
+
+import "get.proto";
+
+package comment.create;
+
+message Req {
+  bool IsReply = 1;
+  string Body = 2;
+}
+
+message Rsp {
+  bool Ok = 1;
+  string Msg = 2;
+  optional comment.get.T Data = 3;
+}

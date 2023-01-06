@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc.api.comment.get_all";
+
+import "get.proto";
+
+package comment.get_all;
+
+message Req {}
+
+message Rsp {
+  repeated comment.get.T Collection = 1;
+}

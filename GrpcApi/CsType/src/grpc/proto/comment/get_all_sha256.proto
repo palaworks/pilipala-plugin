@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc.api.comment.get_all_sha256";
+
+package comment.get_all_sha256;
+
+message Req {
+}
+
+message Rsp {
+  repeated IdAndSha256 Collection = 1;
+}
+
+message IdAndSha256 {
+  int64 Id = 1;
+  string Sha256 = 2;
+}

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc.api.comment";
+
+package comment;
+
+import "get.proto";
+import "get_all.proto";
+import "get_all_sha256.proto";
+import "create.proto";
+import "update.proto";
+import "delete.proto";
+
+service CommentService {
+  rpc Get (comment.get.Req) returns (comment.get.Rsp);
+  rpc GetAll (comment.get_all.Req) returns (comment.get_all.Rsp);
+  rpc GetAllSha256 (comment.get_all_sha256.Req) returns (comment.get_all_sha256.Rsp);
+
+  rpc New (comment.create.Req) returns (comment.create.Rsp);
+  rpc Update (comment.update.Req) returns (comment.update.Rsp);
+  rpc Delete (comment.delete.Req) returns (comment.delete.Rsp);
+}

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc.api.comment.get";
+
+package comment.get;
+
+message Req {
+  int64 Id = 1;
+}
+
+message Rsp {
+  bool Ok = 1;
+  string Msg = 2;
+  optional T Data = 3;
+}
+
+message T {
+  int64 Id = 1;
+  string Body = 3;
+  //UNIX timestamp
+  int64 CreateTime = 4;
+}

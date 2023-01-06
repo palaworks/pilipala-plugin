@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc.api.post.create";
+
+import "get.proto";
+
+package post.create;
+
+message Req {
+  string Title = 2;
+  string Body = 3;
+}
+
+message Rsp {
+  bool Ok = 1;
+  string Msg = 2;
+  optional post.get.T Data = 3;
+}

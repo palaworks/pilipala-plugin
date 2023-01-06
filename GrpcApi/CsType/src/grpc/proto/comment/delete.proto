@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc.api.comment.delete";
+
+package comment.delete;
+
+message Req {
+  int64 Id = 1;
+}
+
+message Rsp {
+  bool Ok = 1;
+  string Msg = 2;
+}

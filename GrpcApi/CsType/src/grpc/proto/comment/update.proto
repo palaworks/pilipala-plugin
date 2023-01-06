@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc.api.comment.update";
+
+import "get.proto";
+
+package comment.update;
+
+message Req {
+  int64 Id = 1;
+  string Body = 3;
+}
+
+message Rsp {
+  bool Ok = 1;
+  string Msg = 2;
+  optional comment.get.T Data = 3;
+}
