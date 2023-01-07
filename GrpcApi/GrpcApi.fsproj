@@ -7,8 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="src\grpc\api\post\post_service.fs" />
+        <Compile Include="src\grpc\api\comment\comment_service.fs" />
 
         <Compile Include="src\plugin\cfg.fs" />
+        
         <Compile Include="src\main.fs" />
     </ItemGroup>
 
@@ -25,6 +28,7 @@
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
         </ProjectReference>
+        <ProjectReference Include="CsType\CsType.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -34,10 +38,6 @@
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="src\grpc\type" />
     </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "grpc.api.post.get_all";
+option csharp_namespace = "grpc_code_gen.post.get_all";
 
 import "get.proto";
 

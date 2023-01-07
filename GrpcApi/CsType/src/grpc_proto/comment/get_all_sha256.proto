@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "grpc.api.comment.get_all_sha256";
+option csharp_namespace = "grpc_code_gen.comment.get_all_sha256";
 
 package comment.get_all_sha256;
 

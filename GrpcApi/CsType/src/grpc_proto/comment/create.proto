@@ -1,14 +1,14 @@
 syntax = "proto3";
 
-option csharp_namespace = "grpc.api.comment.update";
+option csharp_namespace = "grpc_code_gen.comment.create";
 
 import "get.proto";
 
-package comment.update;
+package comment.create;
 
 message Req {
-  int64 Id = 1;
-  string Body = 3;
+  bool IsReply = 1;
+  string Body = 2;
 }
 
 message Rsp {

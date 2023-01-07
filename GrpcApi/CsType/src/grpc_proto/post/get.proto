@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-option csharp_namespace = "grpc.api.comment.get";
+option csharp_namespace = "grpc_code_gen.post.get";
 
-package comment.get;
+package post.get;
 
 message Req {
   int64 Id = 1;
@@ -16,7 +16,9 @@ message Rsp {
 
 message T {
   int64 Id = 1;
+  string Title = 2;
   string Body = 3;
   //UNIX timestamp
   int64 CreateTime = 4;
+  int64 ModifyTime = 5;
 }
