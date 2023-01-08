@@ -16,7 +16,7 @@ service CommentService {
   rpc GetAll (comment.get_all.Req) returns (comment.get_all.Rsp);
   rpc GetAllSha256 (comment.get_all_sha256.Req) returns (comment.get_all_sha256.Rsp);
 
-  rpc New (comment.create.Req) returns (comment.create.Rsp);
+  rpc Create (comment.create.Req) returns (comment.create.Rsp);
   rpc Update (comment.update.Req) returns (comment.update.Rsp);
   rpc Delete (comment.delete.Req) returns (comment.delete.Rsp);
 }

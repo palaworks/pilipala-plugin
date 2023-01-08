@@ -7,8 +7,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="src\grpc\api\post\post_service.fs" />
-        <Compile Include="src\grpc\api\comment\comment_service.fs" />
+        <Compile Include="src\grpc\api\post\get.fs" />
+        <Compile Include="src\grpc\api\post\getAll.fs" />
+        <Compile Include="src\grpc\api\post\getAllSha256.fs" />
+        <Compile Include="src\grpc\api\post\create.fs" />
+        <Compile Include="src\grpc\api\post\update.fs" />
+        <Compile Include="src\grpc\api\post\delete.fs" />
+        <Compile Include="src\grpc\api\post\service.fs" />
+        <Compile Include="src\grpc\api\comment\get.fs" />
+        <Compile Include="src\grpc\api\comment\getAll.fs" />
+        <Compile Include="src\grpc\api\comment\getAllSha256.fs" />
+        <Compile Include="src\grpc\api\comment\create.fs" />
+        <Compile Include="src\grpc\api\comment\update.fs" />
+        <Compile Include="src\grpc\api\comment\delete.fs" />
+        <Compile Include="src\grpc\api\comment\service.fs" />
 
         <Compile Include="src\plugin\cfg.fs" />
         
