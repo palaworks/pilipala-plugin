@@ -5,6 +5,7 @@ option csharp_namespace = "grpc_code_gen.post.get_all_sha256";
 package post.get_all_sha256;
 
 message Req {
+  string Token = 1;
 }
 
 message Rsp {

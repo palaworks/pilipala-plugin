@@ -7,8 +7,10 @@ import "get.proto";
 package comment.create;
 
 message Req {
-  bool IsReply = 1;
-  string Body = 2;
+  string Token = 1;
+
+  bool IsReply = 2;
+  string Body = 3;
 }
 
 message Rsp {

@@ -6,7 +6,9 @@ import "get.proto";
 
 package post.get_all;
 
-message Req {}
+message Req {
+  string Token = 1;
+}
 
 message Rsp {
   repeated get.T Collection = 1;

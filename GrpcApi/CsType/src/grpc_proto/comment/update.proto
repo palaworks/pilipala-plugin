@@ -7,7 +7,9 @@ import "get.proto";
 package comment.update;
 
 message Req {
-  int64 Id = 1;
+  string Token = 1;
+  
+  int64 Id = 2;
   string Body = 3;
 }
 

@@ -21,6 +21,8 @@
         <Compile Include="src\grpc\api\comment\update.fs" />
         <Compile Include="src\grpc\api\comment\delete.fs" />
         <Compile Include="src\grpc\api\comment\service.fs" />
+        <Compile Include="src\grpc\api\token\get.fs" />
+        <Compile Include="src\grpc\api\token\service.fs" />
 
         <Compile Include="src\plugin\cfg.fs" />
         

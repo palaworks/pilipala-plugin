@@ -5,6 +5,7 @@ option csharp_namespace = "grpc_code_gen.comment.get_all_sha256";
 package comment.get_all_sha256;
 
 message Req {
+  string Token = 1;
 }
 
 message Rsp {

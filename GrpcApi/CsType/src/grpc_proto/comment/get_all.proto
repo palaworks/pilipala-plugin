@@ -6,7 +6,9 @@ import "get.proto";
 
 package comment.get_all;
 
-message Req {}
+message Req {
+  string Token = 1;
+}
 
 message Rsp {
   repeated comment.get.T Collection = 1;

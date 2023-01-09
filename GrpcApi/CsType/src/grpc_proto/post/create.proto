@@ -7,6 +7,8 @@ import "get.proto";
 package post.create;
 
 message Req {
+  string Token = 1;
+
   string Title = 2;
   string Body = 3;
 }
