@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="src\token.fs" />
         <Compile Include="src\grpc\api\post\get.fs" />
         <Compile Include="src\grpc\api\post\getAll.fs" />
         <Compile Include="src\grpc\api\post\getAllSha256.fs" />
@@ -23,10 +24,10 @@
         <Compile Include="src\grpc\api\comment\service.fs" />
         <Compile Include="src\grpc\api\token\get.fs" />
         <Compile Include="src\grpc\api\token\service.fs" />
-
         <Compile Include="src\plugin\cfg.fs" />
-        
+        <Compile Include="src\ext\server.fs" />
         <Compile Include="src\main.fs" />
+        
     </ItemGroup>
 
     <ItemGroup>
@@ -52,6 +53,7 @@
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
+        <PackageReference Include="System.Runtime.Caching" Version="7.0.0" />
     </ItemGroup>
 
 </Project>
