@@ -9,7 +9,9 @@ message Req {
 }
 
 message Rsp {
-  repeated IdAndSha256 Collection = 1;
+  bool Ok = 1;
+  string Msg = 2;
+  repeated IdAndSha256 Collection = 3;
 }
 
 message IdAndSha256 {

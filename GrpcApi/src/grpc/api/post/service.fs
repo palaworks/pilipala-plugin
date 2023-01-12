@@ -14,6 +14,9 @@ type Ctx = ServerCallContext
 type M = grpc_code_gen.post.create.Req
 
 let make (token_handler: TokenHandler) =
+    let token_check_failed token =
+        $"Operation failed: Token({token}) not exist or expired"
+
     { new grpc_code_gen.post.PostService.PostServiceBase() with
 
         override self.Get(req: get.Req, ctx: Ctx) =
@@ -21,7 +24,7 @@ let make (token_handler: TokenHandler) =
             | Some user ->
                 grpc.api.post.get.handler user req ctx |> unwrapOr
                 <| fun msg -> grpc_code_gen.post.get.Rsp(Ok = false, Msg = msg)
-            | None -> grpc_code_gen.post.get.Rsp(Ok = false, Msg = "")
+            | None -> grpc_code_gen.post.get.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
 
         override self.GetAll(req: get_all.Req, ctx: Ctx) =
@@ -29,7 +32,7 @@ let make (token_handler: TokenHandler) =
             | Some user ->
                 getAll.handler user req ctx |> unwrapOr
                 <| fun msg -> get_all.Rsp()
-            | None -> get_all.Rsp() //TODO
+            | None -> get_all.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
 
         override self.GetAllSha256(req: get_all_sha256.Req, ctx: Ctx) =
@@ -37,7 +40,7 @@ let make (token_handler: TokenHandler) =
             | Some user ->
                 getAllSha256.handler user req ctx |> unwrapOr
                 <| fun msg -> get_all_sha256.Rsp()
-            | None -> get_all_sha256.Rsp() //TODO
+            | None -> get_all_sha256.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
 
         override self.Create(req: create.Req, ctx: Ctx) =
@@ -45,7 +48,7 @@ let make (token_handler: TokenHandler) =
             | Some user ->
                 create.handler user req ctx |> unwrapOr
                 <| fun msg -> create.Rsp(Ok = false, Msg = msg)
-            | None -> create.Rsp() //TODO
+            | None -> create.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
 
         override self.Update(req: update.Req, ctx: Ctx) =
@@ -53,7 +56,7 @@ let make (token_handler: TokenHandler) =
             | Some user ->
                 update.handler user req ctx |> unwrapOr
                 <| fun msg -> update.Rsp(Ok = false, Msg = msg)
-            | None -> update.Rsp() //TODO
+            | None -> update.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
 
         override self.Delete(req: delete.Req, ctx: Ctx) =
@@ -61,7 +64,7 @@ let make (token_handler: TokenHandler) =
             | Some user ->
                 delete.handler user req ctx |> unwrapOr
                 <| fun msg -> delete.Rsp(Ok = false, Msg = msg)
-            | None -> delete.Rsp() //TODO
+            | None -> delete.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult }
 
     |> PostService.BindService

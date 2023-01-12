@@ -11,5 +11,7 @@ message Req {
 }
 
 message Rsp {
-  repeated comment.get.T Collection = 1;
+  bool Ok = 1;
+  string Msg = 2;
+  repeated comment.get.T Collection = 3;
 }
