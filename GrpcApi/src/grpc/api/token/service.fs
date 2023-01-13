@@ -17,7 +17,7 @@ let make (token_handler: TokenHandler) =
 
         override self.Get(req: get.Req, ctx: Ctx) =
             grpc.api.token.get.handler token_handler req ctx
-            |> unwrapOr
+            |> unwrapOrEval
             <| fun msg -> grpc_code_gen.token.get.Rsp(Ok = false, Msg = msg)
             |> Task.FromResult }
 

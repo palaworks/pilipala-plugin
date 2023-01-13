@@ -6,7 +6,7 @@ package comment.get;
 
 message Req {
   string Token = 1;
-  
+
   int64 Id = 2;
 }
 
@@ -19,6 +19,5 @@ message Rsp {
 message T {
   int64 Id = 1;
   string Body = 3;
-  //UNIX timestamp
-  int64 CreateTime = 4;
+  string CreateTime = 4;//ISO-8601
 }

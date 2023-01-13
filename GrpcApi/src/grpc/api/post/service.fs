@@ -22,7 +22,8 @@ let make (token_handler: TokenHandler) =
         override self.Get(req: get.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                grpc.api.post.get.handler user req ctx |> unwrapOr
+                grpc.api.post.get.handler user req ctx
+                |> unwrapOrEval
                 <| fun msg -> grpc_code_gen.post.get.Rsp(Ok = false, Msg = msg)
             | None -> grpc_code_gen.post.get.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
@@ -30,23 +31,23 @@ let make (token_handler: TokenHandler) =
         override self.GetAll(req: get_all.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                getAll.handler user req ctx |> unwrapOr
-                <| fun msg -> get_all.Rsp()
+                getAll.handler user req ctx |> unwrapOrEval
+                <| fun msg -> get_all.Rsp(Ok = false, Msg = msg)
             | None -> get_all.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
 
         override self.GetAllSha256(req: get_all_sha256.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                getAllSha256.handler user req ctx |> unwrapOr
-                <| fun msg -> get_all_sha256.Rsp()
+                getAllSha256.handler user req ctx |> unwrapOrEval
+                <| fun msg -> get_all_sha256.Rsp(Ok = false, Msg = msg)
             | None -> get_all_sha256.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
 
         override self.Create(req: create.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                create.handler user req ctx |> unwrapOr
+                create.handler user req ctx |> unwrapOrEval
                 <| fun msg -> create.Rsp(Ok = false, Msg = msg)
             | None -> create.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
@@ -54,7 +55,7 @@ let make (token_handler: TokenHandler) =
         override self.Update(req: update.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                update.handler user req ctx |> unwrapOr
+                update.handler user req ctx |> unwrapOrEval
                 <| fun msg -> update.Rsp(Ok = false, Msg = msg)
             | None -> update.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
@@ -62,7 +63,7 @@ let make (token_handler: TokenHandler) =
         override self.Delete(req: delete.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                delete.handler user req ctx |> unwrapOr
+                delete.handler user req ctx |> unwrapOrEval
                 <| fun msg -> delete.Rsp(Ok = false, Msg = msg)
             | None -> delete.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult }

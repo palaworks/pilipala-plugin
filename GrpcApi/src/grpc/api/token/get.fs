@@ -9,5 +9,6 @@ open token
 type Ctx = ServerCallContext
 
 let handler (token_handler: TokenHandler) (req: Req) (ctx: Ctx) =
-
-    Rsp() |> Ok
+    match token_handler.NewToken req.Uid req.Pwd with
+    | Ok token -> Rsp(Ok = true, Msg = "", Value = token) |> Ok
+    | Err msg -> Err msg

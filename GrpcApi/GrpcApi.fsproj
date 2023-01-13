@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="src\token.fs" />
+        <Compile Include="src\token_handler.fs" />
         <Compile Include="src\grpc\api\post\get.fs" />
         <Compile Include="src\grpc\api\post\getAll.fs" />
         <Compile Include="src\grpc\api\post\getAllSha256.fs" />

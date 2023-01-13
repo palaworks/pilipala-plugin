@@ -5,7 +5,7 @@ option csharp_namespace = "grpc_code_gen.token.get";
 package token.get;
 
 message Req{
-  string Uid = 1;
+  int64 Uid = 1;
   string Pwd = 2;
 }
 

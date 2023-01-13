@@ -6,7 +6,7 @@ package post.get;
 
 message Req {
   string Token = 1;
-  
+
   int64 Id = 2;
 }
 
@@ -20,7 +20,6 @@ message T {
   int64 Id = 1;
   string Title = 2;
   string Body = 3;
-  //UNIX timestamp
-  int64 CreateTime = 4;
-  int64 ModifyTime = 5;
+  string CreateTime = 4;//ISO-8601
+  string ModifyTime = 5;//ISO-8601
 }
