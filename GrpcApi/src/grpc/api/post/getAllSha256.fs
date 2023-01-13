@@ -34,5 +34,5 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) =
         <| []
 
     Rsp(Ok = true, Msg = "")
-        .apply (fun rsp -> rsp.Collection.AddRange collection)
+        .effect (fun rsp -> rsp.Collection.AddRange collection)
     |> Ok

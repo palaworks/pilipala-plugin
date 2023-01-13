@@ -22,14 +22,14 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) =
                 .effect (fun x ->
                     x.Id <- comment.Id
 
+                    //TODO code formatter will make this broken
                     x.Sha256 <-
-                        comment.Body.unwrapOrEval
-                            (fun _ -> $"Unknown error: can not read comment({comment.Id})")
-                                .sha256
-                                .sha256)
+                        comment.Body.unwrapOrEval(fun _ -> $"Unknown error: can not read comment({comment.Id})")
+                            .sha256
+                            .sha256)
             :: acc
         <| []
 
     Rsp(Ok = true, Msg = "")
-        .apply (fun rsp -> rsp.Collection.AddRange collection)
+        .effect (fun rsp -> rsp.Collection.AddRange collection)
     |> Ok

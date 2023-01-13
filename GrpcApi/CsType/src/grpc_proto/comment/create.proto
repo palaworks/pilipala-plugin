@@ -9,8 +9,9 @@ package comment.create;
 message Req {
   string Token = 1;
 
-  bool IsReply = 2;
-  string Body = 3;
+  int64 BindingId = 2;
+  bool IsReply = 3;
+  string Body = 4;
 }
 
 message Rsp {

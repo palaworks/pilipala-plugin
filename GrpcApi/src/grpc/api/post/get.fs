@@ -17,7 +17,7 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) =
                 T(
                     Id = post.Id,
                     Title = post.Title.unwrapOrEval (fun _ -> $"Unknown error: can not read post({post.Id})"),
-                    Body = post.Title.unwrapOrEval (fun _ -> $"Unknown error: can not read post({post.Id})"),
+                    Body = post.Body.unwrapOrEval (fun _ -> $"Unknown error: can not read post({post.Id})"),
                     CreateTime =
                         post
                             .CreateTime
