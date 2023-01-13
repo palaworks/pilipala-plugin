@@ -10,4 +10,10 @@ open pilipala.util.hash.sha256
 
 type Ctx = ServerCallContext
 
-let handler (user: IUser) (req: Req) (ctx: Ctx) = Rsp() |> Ok
+let handler (user: IUser) (req: Req) (ctx: Ctx) =
+    match user.GetComment req.Id with
+    | Ok post ->
+        match post.Drop() with
+        | Ok _ -> Rsp(Ok = true, Msg = "") |> Ok
+        | Err msg -> Err msg
+    | Err msg -> Err msg

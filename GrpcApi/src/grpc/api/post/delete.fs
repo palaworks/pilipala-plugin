@@ -13,6 +13,7 @@ type Ctx = ServerCallContext
 let handler (user: IUser) (req: Req) (ctx: Ctx) =
     match user.GetPost req.Id with
     | Ok post ->
-        
-        Rsp() |> Ok
+        match post.Drop() with
+        | Ok _ -> Rsp(Ok = true, Msg = "") |> Ok
+        | Err msg -> Err msg
     | Err msg -> Err msg
