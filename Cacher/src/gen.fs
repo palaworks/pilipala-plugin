@@ -47,4 +47,4 @@ let gen
             id, v.cast ())
 
     renderBuilderItem.collection.Add
-    <| Replace(fun old id -> unwrapOr (find id) (fun _ -> old id))
+    <| Replace(fun old id -> unwrapOrEval (find id) (fun _ -> old id))

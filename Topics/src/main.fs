@@ -16,7 +16,7 @@ type Topics(postRenderBuilder: IPostRenderPipelineBuilder, cfg: IPluginCfgProvid
     let topics =
         { json = cfg.config }
             .deserializeTo<Dictionary<i64, string []>>()
-            .unwrapOr (fun _ -> Dict<i64, string []>())
+            .unwrapOrEval (fun _ -> Dict<i64, string []>())
 
     do
         let f id : i64 * obj =
@@ -24,7 +24,7 @@ type Topics(postRenderBuilder: IPostRenderPipelineBuilder, cfg: IPluginCfgProvid
             topics
                 .TryGetValue(id)
                 .intoOption'()
-                .unwrapOr(fun _ -> [||])
+                .unwrapOr([||])
                 .obj ()
 
         postRenderBuilder.["Topics"].collection.Add

@@ -102,43 +102,43 @@ module helper =
                     .unwrap() //Opt<Opt<obj>>
                     .fmap(cast) //Opt<Opt<str>>
                     .bind(id) //Opt<str>
-                    .unwrapOr (fun _ -> null)
+                    .unwrapOrEval (fun _ -> null)
 
             let summary =
                 post.["Summary"]
                     .unwrap() //Opt<obj>
                     .fmap(cast) //Opt<str>
-                    .unwrapOr (fun _ -> null)
+                    .unwrapOrEval (fun _ -> null)
 
             let isGeneratedSummary =
                 post.["IsGeneratedSummary"]
                     .unwrap() //Opt<obj>
                     .fmap(cast) //Opt<bool>
-                    .unwrapOr (fun _ -> false)
+                    .unwrapOrEval (fun _ -> false)
 
             let viewCount =
                 post.["ViewCount"]
                     .unwrap() //Opt<obj>
                     .fmap(cast) //Opt<u32>
-                    .unwrapOr (fun _ -> 0u)
+                    .unwrapOrEval (fun _ -> 0u)
 
             let isArchived =
                 post.["IsArchived"]
                     .unwrap() //Opt<obj>
                     .fmap(cast) //Opt<bool>
-                    .unwrapOr (fun _ -> false)
+                    .unwrapOrEval (fun _ -> false)
 
             let isScheduled =
                 post.["IsScheduled"]
                     .unwrap() //Opt<obj>
                     .fmap(cast) //Opt<bool>
-                    .unwrapOr (fun _ -> false)
+                    .unwrapOrEval (fun _ -> false)
 
             let topics =
                 post.["Topics"]
                     .unwrap() //Opt<obj>
                     .fmap(cast) //Opt<[str]>
-                    .unwrapOr (fun _ -> [||])
+                    .unwrapOrEval (fun _ -> [||])
 
             (*
             let prevId =
@@ -155,7 +155,7 @@ module helper =
                 post.["Mark"]
                     .unwrap() //Opt<obj>
                     .fmap(cast) //Opt<u32>
-                    .unwrapOr (fun _ -> "")
+                    .unwrapOrEval (fun _ -> "")
 
             { Id = post.Id.ToString()
               Title = post.Title.unwrap ()

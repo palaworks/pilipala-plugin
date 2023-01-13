@@ -21,21 +21,21 @@ type Rsp =
             comment.["UserName"]
                 .unwrap() //Opt<obj>
                 .fmap(cast) //Opt<str>
-                .unwrapOr (fun _ -> comment.UserId.ToString())
+                .unwrapOrEval (fun _ -> comment.UserId.ToString())
 
         let UserSiteUrl =
             comment.["UserSiteUrl"]
                 .unwrap() //Opt<Opt<obj>>
                 .fmap(cast) //Opt<Opt<str>>
                 .bind(id) //Opt<str>
-                .unwrapOr (fun _ -> null)
+                .unwrapOrEval (fun _ -> null)
 
         let UserAvatarUrl =
             comment.["UserAvatarUrl"]
                 .unwrap() //Opt<Opt<obj>>
                 .fmap(cast) //Opt<Opt<str>>
                 .bind(id) //Opt<str>
-                .unwrapOr (fun _ -> null)
+                .unwrapOrEval (fun _ -> null)
 
         { Id = comment.Id.ToString()
           UserName = UserName

@@ -21,7 +21,7 @@ type Handler(pl_display_user: IUser) =
                             post.["Mark"]
                                 .unwrap() //Opt<obj>
                                 .fmap(cast) //Opt<string>
-                                .unwrapOr (fun _ -> "")
+                                .unwrapOr ""
 
                         match mark with
                         | "pin" -> post.Id.ToString() :: pinned, other //指定文章，排名靠前

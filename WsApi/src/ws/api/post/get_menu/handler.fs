@@ -20,7 +20,7 @@ type Handler(pl_display_user: IUser) =
                         post.["Mark"]
                             .unwrap() //Opt<obj>
                             .fmap(cast) //Opt<string>
-                            .unwrapOr (fun _ -> "")
+                            .unwrapOr ""
 
                     match mark with
                     | "menu"

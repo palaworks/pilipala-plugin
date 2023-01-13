@@ -15,7 +15,7 @@ type ViewCount(postRenderBuilder: IPostRenderPipelineBuilder, cfg: IPluginCfgPro
     let map =
         { json = cfg.config }
             .deserializeTo<Dict<i64, u32>>()
-            .unwrapOr (fun _ -> Dict<i64, u32>())
+            .unwrapOrEval (fun _ -> Dict<i64, u32>())
 
 
     //TODO 应实现每N次同步、关闭前同步和每时间段同步

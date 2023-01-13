@@ -21,7 +21,7 @@ type Llink(render: IPostRenderPipelineBuilder, cfg: IPluginCfgProvider) =
         let map =
             { json = cfg.config }
                 .deserializeTo<Dict<string, string>>()
-                .unwrapOr (fun _ -> Dict<string, string>())
+                .unwrapOrEval (fun _ -> Dict<string, string>())
 
         let f (id: i64, body: string) =
             id, map.foldl (fun (acc: string) (KV (k, v)) -> acc.Replace(k, v)) body

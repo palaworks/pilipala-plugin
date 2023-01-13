@@ -12,7 +12,7 @@ type Mark(postRenderBuilder: IPostRenderPipelineBuilder, cfg: IPluginCfgProvider
 
     let map =
         { json = cfg.config }.deserializeTo<Dict<i64, string>>()
-            .unwrapOr
+            .unwrapOrEval
         <| fun _ -> Dict<_, _>()
 
     do
