@@ -25,6 +25,7 @@
         <Compile Include="src\grpc\api\token\get.fs" />
         <Compile Include="src\grpc\api\token\service.fs" />
         <Compile Include="src\plugin\cfg.fs" />
+        <Compile Include="src\plugin\credential.fs" />
         <Compile Include="src\ext\server.fs" />
         <Compile Include="src\main.fs" />
         
