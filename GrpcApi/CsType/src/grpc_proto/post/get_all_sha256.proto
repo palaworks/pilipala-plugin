@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 option csharp_namespace = "grpc_code_gen.post.get_all_sha256";
+option java_package = "grpc_code_gen.post.get_all_sha256";
 
 package post.get_all_sha256;
 

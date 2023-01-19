@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 declare protoc_path=$HOME/.nuget/packages/grpc.tools/2.51.0/tools/linux_x64/protoc
 declare grpc_csharp_plugin_path=$HOME/.nuget/packages/grpc.tools/2.51.0/tools/linux_x64/grpc_csharp_plugin
 

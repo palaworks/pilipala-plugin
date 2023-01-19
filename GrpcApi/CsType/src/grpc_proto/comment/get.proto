@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 option csharp_namespace = "grpc_code_gen.comment.get";
+option java_package = "grpc_code_gen.comment.get";
 
 package comment.get;
 
@@ -18,6 +19,11 @@ message Rsp {
 
 message T {
   int64 Id = 1;
-  string Body = 3;
-  string CreateTime = 4;//ISO-8601
+  //TODO
+  //int64 BindingId = 2;
+  //bool IsReply = 3;
+  string Body = 4;
+  string CreateTime = 5;//ISO-8601
+  //TODO
+  //string ModifyTime = 6;//ISO-8601
 }

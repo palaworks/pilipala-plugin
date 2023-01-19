@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 option csharp_namespace = "grpc_code_gen.comment.delete";
+option java_package = "grpc_code_gen.comment.delete";
 
 package comment.delete;
 

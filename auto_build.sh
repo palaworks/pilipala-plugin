@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 declare -a plugins=(
     "Mark"
     "Llink"

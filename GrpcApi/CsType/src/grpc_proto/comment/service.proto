@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 option csharp_namespace = "grpc_code_gen.comment";
+option java_package = "grpc_code_gen.comment";
 
 package comment;
 
