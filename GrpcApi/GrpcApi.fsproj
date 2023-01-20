@@ -8,21 +8,21 @@
 
     <ItemGroup>
         <Compile Include="src\token_handler.fs" />
-        <Compile Include="src\grpc\api\post\get.fs" />
+        <Compile Include="src\grpc\api\post\getOne.fs" />
         <Compile Include="src\grpc\api\post\getAll.fs" />
         <Compile Include="src\grpc\api\post\getAllSha256.fs" />
         <Compile Include="src\grpc\api\post\create.fs" />
         <Compile Include="src\grpc\api\post\update.fs" />
         <Compile Include="src\grpc\api\post\delete.fs" />
         <Compile Include="src\grpc\api\post\service.fs" />
-        <Compile Include="src\grpc\api\comment\get.fs" />
+        <Compile Include="src\grpc\api\comment\getOne.fs" />
         <Compile Include="src\grpc\api\comment\getAll.fs" />
         <Compile Include="src\grpc\api\comment\getAllSha256.fs" />
         <Compile Include="src\grpc\api\comment\create.fs" />
         <Compile Include="src\grpc\api\comment\update.fs" />
         <Compile Include="src\grpc\api\comment\delete.fs" />
         <Compile Include="src\grpc\api\comment\service.fs" />
-        <Compile Include="src\grpc\api\token\get.fs" />
+        <Compile Include="src\grpc\api\token\getOne.fs" />
         <Compile Include="src\grpc\api\token\service.fs" />
         <Compile Include="src\plugin\cfg.fs" />
         <Compile Include="src\plugin\credential.fs" />
@@ -49,7 +49,10 @@
 
     <ItemGroup>
         <PackageReference Include="Grpc.Core" Version="2.46.5" />
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
         <PackageReference Update="FSharp.Core" Version="7.0.0">
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>

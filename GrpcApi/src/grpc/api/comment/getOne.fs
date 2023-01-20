@@ -1,7 +1,7 @@
-module grpc.api.comment.get
+module grpc.api.comment.get_one
 
 open System
-open grpc_code_gen.comment.get
+open grpc_code_gen.comment.get_one
 open Grpc.Core
 open fsharper.typ
 open pilipala.access.user

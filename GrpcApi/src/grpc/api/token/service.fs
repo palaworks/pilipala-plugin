@@ -15,10 +15,10 @@ type Ctx = ServerCallContext
 let make (token_handler: TokenHandler) =
     { new grpc_code_gen.token.TokenService.TokenServiceBase() with
 
-        override self.Get(req: get.Req, ctx: Ctx) =
-            grpc.api.token.get.handler token_handler req ctx
+        override self.GetOne(req: get_one.Req, ctx: Ctx) =
+            grpc.api.token.get_one.handler token_handler req ctx
             |> unwrapOrEval
-            <| fun msg -> grpc_code_gen.token.get.Rsp(Ok = false, Msg = msg)
+            <| fun msg -> grpc_code_gen.token.get_one.Rsp(Ok = false, Msg = msg)
             |> Task.FromResult }
 
     |> TokenService.BindService

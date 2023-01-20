@@ -22,7 +22,7 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) =
             |> ignore
 
             let data =
-                grpc_code_gen.comment.get.T(
+                grpc_code_gen.comment.get_one.T(
                     Id = comment.Id,
                     Body = comment.Body.unwrapOrEval (fun _ -> $"Unknown error: can not read comment({comment.Id})"),
                     CreateTime =

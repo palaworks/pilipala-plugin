@@ -19,13 +19,13 @@ let make (token_handler: TokenHandler) =
 
     { new grpc_code_gen.post.PostService.PostServiceBase() with
 
-        override self.Get(req: get.Req, ctx: Ctx) =
+        override self.GetOne(req: get_one.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                grpc.api.post.get.handler user req ctx
+                grpc.api.post.get_one.handler user req ctx
                 |> unwrapOrEval
-                <| fun msg -> grpc_code_gen.post.get.Rsp(Ok = false, Msg = msg)
-            | None -> grpc_code_gen.post.get.Rsp(Ok = false, Msg = token_check_failed req.Token)
+                <| fun msg -> grpc_code_gen.post.get_one.Rsp(Ok = false, Msg = msg)
+            | None -> grpc_code_gen.post.get_one.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
 
         override self.GetAll(req: get_all.Req, ctx: Ctx) =

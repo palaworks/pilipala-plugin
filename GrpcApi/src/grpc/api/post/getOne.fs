@@ -1,7 +1,7 @@
-module grpc.api.post.get
+module grpc.api.post.get_one
 
 open System
-open grpc_code_gen.post.get
+open grpc_code_gen.post.get_one
 open Grpc.Core
 open fsharper.typ
 open pilipala.access.user

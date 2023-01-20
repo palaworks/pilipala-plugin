@@ -17,7 +17,7 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) =
     let collection =
         posts.foldl
         <| fun acc post ->
-            grpc_code_gen.post.get.T(
+            grpc_code_gen.post.get_one.T(
                 Id = post.Id,
                 Title = post.Title.unwrapOrEval (fun _ -> $"Unknown error: can not read post({post.Id})"),
                 Body = post.Body.unwrapOrEval (fun _ -> $"Unknown error: can not read post({post.Id})"),

@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-option csharp_namespace = "grpc_code_gen.post.get";
-option java_package = "grpc_code_gen.post.get";
+option csharp_namespace = "grpc_code_gen.post.get_one";
+option java_package = "grpc_code_gen.post.get_one";
 
-package post.get;
+package post.get_one;
 
 message Req {
   string Token = 1;

@@ -19,7 +19,7 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) =
             match post.NewComment req.Body with
             | Ok comment ->
                 let data =
-                    grpc_code_gen.comment.get.T(
+                    grpc_code_gen.comment.get_one.T(
                         Id = comment.Id,
                         Body = comment.Body.unwrapOrEval (fun _ -> $"Unknown error: can not read post({post.Id})"),
                         CreateTime =

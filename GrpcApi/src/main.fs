@@ -1,5 +1,6 @@
 ﻿namespace pilipala.plugin
 
+open System
 open System.Collections.Generic
 open System.IO
 open Grpc.Core
@@ -22,6 +23,9 @@ type GrpcApi(cfg: IPluginCfgProvider, app: IApp) =
                 .unwrap ()
 
         let token_handler = token.TokenHandler app
+        
+        Console.WriteLine cfg.host
+        Console.WriteLine cfg.port
 
         Server()
             .addPort(ServerPort(cfg.host, i32 cfg.port, get_credentials cfg))

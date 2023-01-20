@@ -1,6 +1,6 @@
-module grpc.api.token.get
+module grpc.api.token.get_one
 
-open grpc_code_gen.token.get
+open grpc_code_gen.token.get_one
 open Grpc.Core
 open fsharper.typ
 open pilipala

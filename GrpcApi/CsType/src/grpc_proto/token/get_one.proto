@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-option csharp_namespace = "grpc_code_gen.token.get";
-option java_package = "grpc_code_gen.token.get";
+option csharp_namespace = "grpc_code_gen.token.get_one";
+option java_package = "grpc_code_gen.token.get_one";
 
-package token.get;
+package token.get_one;
 
 message Req{
   int64 Uid = 1;

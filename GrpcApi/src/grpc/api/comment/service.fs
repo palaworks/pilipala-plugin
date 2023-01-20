@@ -18,13 +18,13 @@ let make (token_handler: TokenHandler) =
 
     { new grpc_code_gen.comment.CommentService.CommentServiceBase() with
 
-        override self.Get(req: get.Req, ctx: Ctx) =
+        override self.GetOne(req: get_one.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                grpc.api.comment.get.handler user req ctx
+                grpc.api.comment.get_one.handler user req ctx
                 |> unwrapOrEval
-                <| fun msg -> grpc_code_gen.comment.get.Rsp(Ok = false, Msg = msg)
-            | None -> grpc_code_gen.comment.get.Rsp(Ok = false, Msg = token_check_failed req.Token)
+                <| fun msg -> grpc_code_gen.comment.get_one.Rsp(Ok = false, Msg = msg)
+            | None -> grpc_code_gen.comment.get_one.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
 
         override self.GetAll(req: get_all.Req, ctx: Ctx) =

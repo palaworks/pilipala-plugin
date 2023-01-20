@@ -3,7 +3,7 @@ syntax = "proto3";
 option csharp_namespace = "grpc_code_gen.comment.get_all";
 option java_package = "grpc_code_gen.comment.get_all";
 
-import "get.proto";
+import "get_one.proto";
 
 package comment.get_all;
 
@@ -14,5 +14,5 @@ message Req {
 message Rsp {
   bool Ok = 1;
   string Msg = 2;
-  repeated comment.get.T Collection = 3;
+  repeated comment.get_one.T Collection = 3;
 }
