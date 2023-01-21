@@ -1,11 +1,13 @@
 namespace pilipala.plugin
 
-open Microsoft.Extensions.Logging
 open pilipala
 open fsharper.op
 open fsharper.typ
 open pilipala.plugin
 open pilipala.util.text
+open System.Threading.Tasks
+open Microsoft.Extensions.Logging
+
 open ws.server
 open plugin.cfg
 open plugin.routing
@@ -15,7 +17,7 @@ open plugin.hosting
 type WsApi(cfg: IPluginCfgProvider, app: IApp, logger: ILogger<WsApi>) =
     do
         let cfg = { json = cfg.config }.deserializeTo<Cfg>().unwrap ()
-        
+
         //Display
         let pl_display_user =
             app.userLoginByName cfg.pl_comment_user cfg.pl_comment_pwd |> unwrap
@@ -38,4 +40,5 @@ type WsApi(cfg: IPluginCfgProvider, app: IApp, logger: ILogger<WsApi>) =
             (wsPublicServer cfg.ws_public_port cert_path).configRouting
             <| (pl_display_user, pl_comment_user, cfg.enable_api_response_detail_logging, logger)
 
-        runHost wsLocalServer wsPublicServer logger
+        fun _ -> runHost wsLocalServer wsPublicServer logger
+        |> Task.RunIgnore

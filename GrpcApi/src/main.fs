@@ -1,8 +1,10 @@
 ﻿namespace pilipala.plugin
 
 open pilipala
+open fsharper.typ
 open pilipala.plugin
 open pilipala.util.text
+open System.Threading.Tasks
 open Microsoft.Extensions.Logging
 
 open plugin.cfg
@@ -16,4 +18,5 @@ type GrpcApi(cfg: IPluginCfgProvider, app: IApp, logger: ILogger<GrpcApi>) =
 
         let token_handler = TokenHandler app
 
-        runHost cfg token_handler logger
+        fun _ -> runHost cfg token_handler logger
+        |> Task.RunIgnore
