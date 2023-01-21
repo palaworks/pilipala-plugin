@@ -32,9 +32,9 @@
         <Compile Include="src\ws\api\post\get_menu\req.fs" />
         <Compile Include="src\ws\api\post\get_menu\rsp.fs" />
         <Compile Include="src\ws\api\post\get_menu\handler.fs" />
-        <Compile Include="src\plugin\hosting.fs" />
         <Compile Include="src\plugin\routing.fs" />
         <Compile Include="src\plugin\cfg.fs" />
+        <Compile Include="src\plugin\hosting.fs" />
         <Compile Include="src\main.fs" />
     </ItemGroup>
 
