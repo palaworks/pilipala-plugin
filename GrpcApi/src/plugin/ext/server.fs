@@ -1,7 +1,6 @@
-namespace ext
+namespace plugin.ext
 
 open Grpc.Core
-open fsharper.op
 open fsharper.typ
 
 [<AutoOpen>]

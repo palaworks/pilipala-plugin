@@ -1,13 +1,13 @@
 module grpc.api.comment.getAll
 
 open System
-open Microsoft.Extensions.Logging
-open grpc_code_gen.comment.get_all
 open Grpc.Core
 open fsharper.op
 open fsharper.typ
 open pilipala.access.user
 open pilipala.util.text.time
+open Microsoft.Extensions.Logging
+open grpc_code_gen.comment.get_all
 
 type Ctx = ServerCallContext
 

@@ -1,13 +1,13 @@
 module grpc.api.comment.update
 
 open System
-open Microsoft.Extensions.Logging
-open grpc_code_gen.comment.update
 open Grpc.Core
 open fsharper.typ
 open pilipala.access.user
 open pilipala.util.text.time
 open pilipala.util.hash.sha256
+open Microsoft.Extensions.Logging
+open grpc_code_gen.comment.update
 
 type Ctx = ServerCallContext
 

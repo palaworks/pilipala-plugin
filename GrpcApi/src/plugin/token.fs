@@ -1,12 +1,12 @@
-namespace token
+namespace plugin.token
 
 open System
-open System.Runtime.Caching
+open pilipala
 open fsharper.op
 open fsharper.typ
-open pilipala
-open pilipala.access.user
 open pilipala.util.id
+open pilipala.access.user
+open System.Runtime.Caching
 
 type TokenHandler(app: IApp) =
 

@@ -1,13 +1,10 @@
 module grpc.api.post.delete
 
-open System
-open Microsoft.Extensions.Logging
-open grpc_code_gen.post.delete
 open Grpc.Core
 open fsharper.typ
 open pilipala.access.user
-open pilipala.util.text.time
-open pilipala.util.hash.sha256
+open grpc_code_gen.post.delete
+open Microsoft.Extensions.Logging
 
 type Ctx = ServerCallContext
 

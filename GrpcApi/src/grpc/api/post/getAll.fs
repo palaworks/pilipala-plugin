@@ -1,14 +1,13 @@
 module grpc.api.post.getAll
 
 open System
-open Microsoft.Extensions.Logging
-open Google.Protobuf.Collections
-open grpc_code_gen.post.get_all
 open Grpc.Core
 open fsharper.op
 open fsharper.typ
 open pilipala.access.user
 open pilipala.util.text.time
+open grpc_code_gen.post.get_all
+open Microsoft.Extensions.Logging
 
 type Ctx = ServerCallContext
 

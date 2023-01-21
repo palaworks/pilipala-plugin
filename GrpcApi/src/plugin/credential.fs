@@ -1,13 +1,11 @@
 module plugin.credential
 
+open Grpc.Core
 open System.IO
-open System.Collections.Generic
-open System.Collections.Generic
-open plugin.cfg
-open Grpc.Core
-open Grpc.Core
-open fsharper.op
 open fsharper.typ
+open System.Collections.Generic
+
+open plugin.cfg
 
 let get_credentials (cfg: Cfg) : ServerCredentials =
     if cfg.enable_ssl then

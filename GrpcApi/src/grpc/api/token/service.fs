@@ -1,15 +1,15 @@
 module grpc.api.token.service
 
-open System.Threading.Tasks
-open Microsoft.Extensions.Logging
+open pilipala
 open Grpc.Core
-
-open grpc_code_gen.token
-open grpc.api.token
 open fsharper.op
 open fsharper.typ
-open pilipala
-open token
+open grpc.api.token
+open grpc_code_gen.token
+open System.Threading.Tasks
+open Microsoft.Extensions.Logging
+
+open plugin.token
 
 type Ctx = ServerCallContext
 
