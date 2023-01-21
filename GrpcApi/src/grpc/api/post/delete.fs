@@ -1,6 +1,7 @@
 module grpc.api.post.delete
 
 open System
+open Microsoft.Extensions.Logging
 open grpc_code_gen.post.delete
 open Grpc.Core
 open fsharper.typ
@@ -10,7 +11,7 @@ open pilipala.util.hash.sha256
 
 type Ctx = ServerCallContext
 
-let handler (user: IUser) (req: Req) (ctx: Ctx) =
+let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     match user.GetPost req.Id with
     | Ok post ->
         match post.Drop() with

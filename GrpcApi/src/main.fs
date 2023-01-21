@@ -4,6 +4,7 @@ open System
 open System.Collections.Generic
 open System.IO
 open Grpc.Core
+open Microsoft.Extensions.Logging
 open pilipala
 open fsharper.op
 open fsharper.typ
@@ -15,21 +16,17 @@ open plugin.credential
 open ext
 
 [<HookOn(AppLifeCycle.AfterBuild)>]
-type GrpcApi(cfg: IPluginCfgProvider, app: IApp) =
+type GrpcApi(cfg: IPluginCfgProvider, app: IApp, logger: ILogger<GrpcApi>) =
     do
-        let cfg =
-            { json = cfg.config }
-                .deserializeTo<Cfg>()
-                .unwrap ()
+        let cfg = { json = cfg.config }.deserializeTo<Cfg>().unwrap ()
 
         let token_handler = token.TokenHandler app
-        
-        Console.WriteLine cfg.host
-        Console.WriteLine cfg.port
+
+        logger.LogInformation $"gRPC now listen on {cfg.host}:{cfg.port}"
 
         Server()
             .addPort(ServerPort(cfg.host, i32 cfg.port, get_credentials cfg))
-            .addService(grpc.api.token.service.make token_handler)
-            .addService(grpc.api.post.service.make token_handler)
-            .addService(grpc.api.comment.service.make token_handler)
+            .addService(grpc.api.comment.service.make token_handler logger)
+            .addService(grpc.api.post.service.make token_handler logger)
+            .addService(grpc.api.token.service.make token_handler logger)
             .Start()

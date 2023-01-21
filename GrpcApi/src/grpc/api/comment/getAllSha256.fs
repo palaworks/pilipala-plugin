@@ -2,6 +2,7 @@ module grpc.api.comment.getAllSha256
 
 open System
 open System.Text
+open Microsoft.Extensions.Logging
 open grpc_code_gen.comment.get_all_sha256
 open Grpc.Core
 open fsharper.op
@@ -12,7 +13,7 @@ open pilipala.util.hash.sha256
 
 type Ctx = ServerCallContext
 
-let handler (user: IUser) (req: Req) (ctx: Ctx) =
+let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     let comments = user.GetReadableComment()
 
     let collection =
@@ -24,12 +25,12 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) =
 
                     //TODO code formatter will make this broken
                     x.Sha256 <-
-                        comment.Body.unwrapOrEval(fun _ -> $"Unknown error: can not read comment({comment.Id})")
-                            .sha256
-                            .sha256)
+                        comment.Body.unwrapOrEval(fun _ ->
+                            $"Unknown error: can not read {nameof comment.Body}(comment id:{comment.Id})"
+                            |> effect logger.LogError)
+                            .sha256.sha256)
             :: acc
         <| []
 
-    Rsp(Ok = true, Msg = "")
-        .effect (fun rsp -> rsp.Collection.AddRange collection)
+    Rsp(Ok = true, Msg = "").effect (fun rsp -> rsp.Collection.AddRange collection)
     |> Ok

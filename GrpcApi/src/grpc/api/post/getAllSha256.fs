@@ -1,6 +1,7 @@
 module grpc.api.post.getAllSha256
 
 open System.Text
+open Microsoft.Extensions.Logging
 open grpc_code_gen.post.get_all_sha256
 open Grpc.Core
 open fsharper.op
@@ -10,22 +11,28 @@ open pilipala.util.hash.sha256
 
 type Ctx = ServerCallContext
 
-let handler (user: IUser) (req: Req) (ctx: Ctx) =
+let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     let posts = user.GetReadablePost()
 
     let collection =
         posts.foldl
-        <| fun acc comment ->
+        <| fun acc post ->
             IdAndSha256()
                 .effect (fun x ->
-                    x.Id <- comment.Id
+                    x.Id <- post.Id
 
                     x.Sha256 <-
                         StringBuilder().Append(
-                            comment.Title.unwrapOrEval (fun _ -> $"Unknown error: can not read post({comment.Id})")
+                            fun _ ->
+                                $"Unknown error: can not read {nameof post.Title}(post id:{post.Id})"
+                                |> effect logger.LogError
+                            |> post.Title.unwrapOrEval
                         )
                             .Append(
-                            comment.Body.unwrapOrEval (fun _ -> $"Unknown error: can not read post({comment.Id})")
+                            fun _ ->
+                                $"Unknown error: can not read {nameof post.Body}(post id:{post.Id})"
+                                |> effect logger.LogError
+                            |> post.Body.unwrapOrEval
                         )
                             .ToString()
                             .sha256
@@ -33,6 +40,5 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) =
             :: acc
         <| []
 
-    Rsp(Ok = true, Msg = "")
-        .effect (fun rsp -> rsp.Collection.AddRange collection)
+    Rsp(Ok = true, Msg = "").effect (fun rsp -> rsp.Collection.AddRange collection)
     |> Ok

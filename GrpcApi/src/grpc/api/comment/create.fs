@@ -1,6 +1,7 @@
 module grpc.api.comment.create
 
 open System
+open Microsoft.Extensions.Logging
 open grpc_code_gen.comment.create
 open Grpc.Core
 open fsharper.typ
@@ -10,7 +11,7 @@ open pilipala.util.text.time
 
 type Ctx = ServerCallContext
 
-let handler (user: IUser) (req: Req) (ctx: Ctx) =
+let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     if req.IsReply then
         Rsp(Ok = true, Msg = "") |> Ok
     else
@@ -21,11 +22,18 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) =
                 let data =
                     grpc_code_gen.comment.get_one.T(
                         Id = comment.Id,
-                        Body = comment.Body.unwrapOrEval (fun _ -> $"Unknown error: can not read post({post.Id})"),
+                        Body =
+                            comment.Body.unwrapOrEval (fun _ ->
+                                $"Unknown error: can not read {nameof comment.Body}(comment id:{post.Id})"
+                                |> effect logger.LogError),
                         CreateTime =
                             comment
                                 .CreateTime
-                                .unwrapOrEval(fun _ -> DateTime.UnixEpoch)
+                                .unwrapOrEval(fun _ ->
+                                    DateTime.UnixEpoch.effect
+                                    <| fun _ ->
+                                        logger.LogError
+                                            $"Unknown error: can not read {nameof comment.CreateTime}(comment id:{comment.Id})")
                                 .ToIso8601()
                     )
 

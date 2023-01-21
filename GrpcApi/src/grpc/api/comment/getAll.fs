@@ -1,6 +1,7 @@
 module grpc.api.comment.getAll
 
 open System
+open Microsoft.Extensions.Logging
 open grpc_code_gen.comment.get_all
 open Grpc.Core
 open fsharper.op
@@ -10,7 +11,7 @@ open pilipala.util.text.time
 
 type Ctx = ServerCallContext
 
-let handler (user: IUser) (req: Req) (ctx: Ctx) =
+let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     let comments = user.GetReadableComment()
 
     let collection =
@@ -18,16 +19,22 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) =
         <| fun acc comment ->
             grpc_code_gen.comment.get_one.T(
                 Id = comment.Id,
-                Body = comment.Body.unwrapOrEval (fun _ -> $"Unknown error: can not read comment({comment.Id})"),
+                Body =
+                    comment.Body.unwrapOrEval (fun _ ->
+                        $"Unknown error: can not read {nameof comment.Body}(comment id:{comment.Id})"
+                        |> effect logger.LogError),
                 CreateTime =
                     comment
                         .CreateTime
-                        .unwrapOrEval(fun _ -> DateTime.UnixEpoch)
+                        .unwrapOrEval(fun _ ->
+                            DateTime.UnixEpoch.effect
+                            <| fun _ ->
+                                logger.LogError
+                                    $"Unknown error: can not read {nameof comment.CreateTime}(comment id:{comment.Id})")
                         .ToIso8601()
             )
             :: acc
         <| []
 
-    Rsp(Ok = true, Msg = "").effect
-    <| fun rsp -> rsp.Collection.AddRange collection
+    Rsp(Ok = true, Msg = "").effect <| fun rsp -> rsp.Collection.AddRange collection
     |> Ok

@@ -1,6 +1,7 @@
 module grpc.api.post.update
 
 open System
+open Microsoft.Extensions.Logging
 open grpc_code_gen.post.update
 open Grpc.Core
 open fsharper.typ
@@ -10,12 +11,10 @@ open pilipala.util.hash.sha256
 
 type Ctx = ServerCallContext
 
-let handler (user: IUser) (req: Req) (ctx: Ctx) =
+let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     match user.GetPost(req.Id) with
     | Ok post ->
-
         if post.CanRead && post.CanWrite then
-
             post.Title.fmap
             <| fun old ->
                 if old.sha256.sha256 <> req.Title.sha256.sha256 then
@@ -31,21 +30,37 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) =
             let data =
                 grpc_code_gen.post.get_one.T(
                     Id = post.Id,
-                    Title = post.Title.unwrapOrEval (fun _ -> $"Unknown error: can not read post({post.Id})"),
-                    Body = post.Body.unwrapOrEval (fun _ -> $"Unknown error: can not read post({post.Id})"),
+                    Title =
+                        post.Title.unwrapOrEval (fun _ ->
+                            $"Unknown error: can not read {nameof post.Title}(post id:{post.Id})"
+                            |> effect logger.LogError),
+                    Body =
+                        post.Body.unwrapOrEval (fun _ ->
+                            $"Unknown error: can not read {nameof post.Body}(post id:{post.Id})"
+                            |> effect logger.LogError),
                     CreateTime =
                         post
                             .CreateTime
-                            .unwrapOrEval(fun _ -> DateTime.UnixEpoch)
+                            .unwrapOrEval(fun _ ->
+                                DateTime.UnixEpoch.effect
+                                <| fun _ ->
+                                    logger.LogError
+                                        $"Unknown error: can not read {nameof post.CreateTime}(post id:{post.Id})")
                             .ToIso8601(),
                     ModifyTime =
                         post
                             .ModifyTime
-                            .unwrapOrEval(fun _ -> DateTime.UnixEpoch)
+                            .unwrapOrEval(fun _ ->
+                                DateTime.UnixEpoch.effect
+                                <| fun _ ->
+                                    logger.LogError
+                                        $"Unknown error: can not read {nameof post.ModifyTime}(post id:{post.Id})")
                             .ToIso8601()
                 )
 
             Rsp(Ok = true, Msg = "", Data = data) |> Ok
         else
-            Err "Operation failed: Permission denied"
+            $"Operation failed: Permission denied(post id:{post.Id})"
+            |> effect logger.LogError
+            |> Err
     | Err msg -> Err msg
