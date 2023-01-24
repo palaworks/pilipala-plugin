@@ -19,11 +19,9 @@ message Rsp {
 
 message T {
   int64 Id = 1;
-  //TODO
-  //int64 BindingId = 2;
-  //bool IsReply = 3;
-  string Body = 4;
-  string CreateTime = 5;//ISO-8601
-  //TODO
-  //string ModifyTime = 6;//ISO-8601
+  string Body = 2;
+  string CreateTime = 3;//ISO-8601
+  string ModifyTime = 4;//ISO-8601
+  int64 BindingId = 5;
+  bool IsReply = 6;
 }
