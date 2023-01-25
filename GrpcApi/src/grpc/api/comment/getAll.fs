@@ -31,6 +31,15 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
                             <| fun _ ->
                                 logger.LogError
                                     $"Unknown error: can not read {nameof comment.CreateTime}(comment id:{comment.Id})")
+                        .ToIso8601(),
+                ModifyTime =
+                    comment
+                        .ModifyTime
+                        .unwrapOrEval(fun _ ->
+                            DateTime.UnixEpoch.effect
+                            <| fun _ ->
+                                logger.LogError
+                                    $"Unknown error: can not read {nameof comment.ModifyTime}(comment id:{comment.Id})")
                         .ToIso8601()
             )
             :: acc
