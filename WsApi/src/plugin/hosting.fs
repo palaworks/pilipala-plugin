@@ -22,7 +22,7 @@ type Worker(wsLocalServer: WebSocketServer, wsPublicServer: WebSocketServer, log
 let runHost wsLocalServer wsPublicServer (logger: ILogger) =
     Host
         .CreateDefaultBuilder()
-        .ConfigureLogging(fun builder -> builder.Services.Clear())
+        .ConfigureLogging(fun builder -> builder.ClearProviders() |> ignore)
         .ConfigureServices(fun ctx services ->
             fun _ -> new Worker(wsLocalServer, wsPublicServer, logger)
             |> services.AddHostedService

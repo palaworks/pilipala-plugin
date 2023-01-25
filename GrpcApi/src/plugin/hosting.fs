@@ -31,7 +31,7 @@ type Worker(cfg: Cfg, token_handler: TokenHandler, logger: ILogger) =
 let runHost cfg token_handler (logger: ILogger) =
     Host
         .CreateDefaultBuilder()
-        .ConfigureLogging(fun builder -> builder.Services.Clear())
+        .ConfigureLogging(fun builder -> builder.ClearProviders() |> ignore)
         .ConfigureServices(fun ctx services ->
             fun _ -> new Worker(cfg, token_handler, logger)
             |> services.AddHostedService
