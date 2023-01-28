@@ -1,17 +1,14 @@
 module grpc.api.comment.service
 
 open pilipala
-open Grpc.Core
 open fsharper.op
 open fsharper.typ
+open plugin.token
+open plugin.grpc.alias
 open grpc.api.comment
 open grpc_code_gen.comment
 open System.Threading.Tasks
 open Microsoft.Extensions.Logging
-
-open plugin.token
-
-type Ctx = ServerCallContext
 
 let make (token_handler: TokenHandler) (logger: ILogger) =
     let token_check_failed token =
@@ -23,7 +20,7 @@ let make (token_handler: TokenHandler) (logger: ILogger) =
         override self.GetOne(req: get_one.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                grpc.api.comment.get_one.handler user req ctx logger|> unwrapOrEval
+                grpc.api.comment.get_one.handler user req ctx logger |> unwrapOrEval
                 <| fun msg -> grpc_code_gen.comment.get_one.Rsp(Ok = false, Msg = msg)
             | None -> grpc_code_gen.comment.get_one.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
@@ -31,7 +28,7 @@ let make (token_handler: TokenHandler) (logger: ILogger) =
         override self.GetAll(req: get_all.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                getAll.handler user req ctx logger|> unwrapOrEval
+                getAll.handler user req ctx logger |> unwrapOrEval
                 <| fun msg -> get_all.Rsp(Ok = false, Msg = msg)
             | None -> get_all.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
@@ -39,7 +36,7 @@ let make (token_handler: TokenHandler) (logger: ILogger) =
         override self.GetAllSha256(req: get_all_sha256.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                getAllSha256.handler user req ctx logger|> unwrapOrEval
+                getAllSha256.handler user req ctx logger |> unwrapOrEval
                 <| fun msg -> get_all_sha256.Rsp(Ok = false, Msg = msg)
             | None -> get_all_sha256.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
@@ -47,7 +44,7 @@ let make (token_handler: TokenHandler) (logger: ILogger) =
         override self.Create(req: create.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                create.handler user req ctx logger|> unwrapOrEval
+                create.handler user req ctx logger |> unwrapOrEval
                 <| fun msg -> create.Rsp(Ok = false, Msg = msg)
             | None -> create.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
@@ -55,7 +52,7 @@ let make (token_handler: TokenHandler) (logger: ILogger) =
         override self.Update(req: update.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                update.handler user req ctx logger|> unwrapOrEval
+                update.handler user req ctx logger |> unwrapOrEval
                 <| fun msg -> update.Rsp(Ok = false, Msg = msg)
             | None -> update.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
@@ -63,7 +60,7 @@ let make (token_handler: TokenHandler) (logger: ILogger) =
         override self.Delete(req: delete.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                delete.handler user req ctx logger|> unwrapOrEval
+                delete.handler user req ctx logger |> unwrapOrEval
                 <| fun msg -> delete.Rsp(Ok = false, Msg = msg)
             | None -> delete.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult }

@@ -1,16 +1,14 @@
 module grpc.api.post.service
 
-open Grpc.Core
 open fsharper.op
+open plugin.token
 open fsharper.typ
 open grpc.api.post
+open plugin.grpc.alias
 open grpc_code_gen.post
 open System.Threading.Tasks
 open Microsoft.Extensions.Logging
 
-open plugin.token
-
-type Ctx = ServerCallContext
 type M = grpc_code_gen.post.create.Req
 
 let make (token_handler: TokenHandler) (logger: ILogger) =

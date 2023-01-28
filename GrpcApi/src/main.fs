@@ -1,15 +1,14 @@
 ﻿namespace pilipala.plugin
 
 open pilipala
+open plugin.cfg
 open fsharper.typ
+open plugin.token
+open plugin.hosting
 open pilipala.plugin
 open pilipala.util.text
 open System.Threading.Tasks
 open Microsoft.Extensions.Logging
-
-open plugin.cfg
-open plugin.token
-open plugin.hosting
 
 [<HookOn(AppLifeCycle.AfterBuild)>]
 type GrpcApi(cfg: IPluginCfgProvider, app: IApp, logger: ILogger<GrpcApi>) =

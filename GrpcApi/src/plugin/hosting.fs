@@ -1,17 +1,16 @@
 module plugin.hosting
 
 open Grpc.Core
+open plugin.ext
+open plugin.cfg
+open plugin.token
 open fsharper.typ
 open fsharper.alias
+open plugin.credential
 open System.Threading.Tasks
 open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.Logging
 open Microsoft.Extensions.DependencyInjection
-
-open plugin.ext
-open plugin.cfg
-open plugin.token
-open plugin.credential
 
 type Worker(cfg: Cfg, token_handler: TokenHandler, logger: ILogger) =
     inherit BackgroundService()

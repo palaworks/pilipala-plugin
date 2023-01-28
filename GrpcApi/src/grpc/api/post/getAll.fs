@@ -1,15 +1,13 @@
 module grpc.api.post.getAll
 
 open System
-open Grpc.Core
 open fsharper.op
 open fsharper.typ
+open plugin.grpc.alias
 open pilipala.access.user
 open pilipala.util.text.time
 open grpc_code_gen.post.get_all
 open Microsoft.Extensions.Logging
-
-type Ctx = ServerCallContext
 
 let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     let posts = user.GetReadablePost()
@@ -21,11 +19,11 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
                 Id = post.Id,
                 Title =
                     post.Title.unwrapOrEval (fun _ ->
-                        $"Unknown error: can not read {nameof post.Title}(post id:{post.Id})"
+                        $"Unknown error: can not read {nameof post.Title} (post id:{post.Id})"
                         |> effect logger.LogError),
                 Body =
                     post.Body.unwrapOrEval (fun _ ->
-                        $"Unknown error: can not read {nameof post.Body}(post id:{post.Id})"
+                        $"Unknown error: can not read {nameof post.Body} (post id:{post.Id})"
                         |> effect logger.LogError),
                 CreateTime =
                     post
@@ -34,7 +32,7 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
                             DateTime.UnixEpoch.effect
                             <| fun _ ->
                                 logger.LogError
-                                    $"Unknown error: can not read {nameof post.CreateTime}(post id:{post.Id})")
+                                    $"Unknown error: can not read {nameof post.CreateTime} (post id:{post.Id})")
                         .ToIso8601(),
                 ModifyTime =
                     post
@@ -43,7 +41,7 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
                             DateTime.UnixEpoch.effect
                             <| fun _ ->
                                 logger.LogError
-                                    $"Unknown error: can not read {nameof post.ModifyTime}(post id:{post.Id})")
+                                    $"Unknown error: can not read {nameof post.ModifyTime} (post id:{post.Id})")
                         .ToIso8601()
             )
             :: acc

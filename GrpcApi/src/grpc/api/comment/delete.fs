@@ -1,12 +1,10 @@
 module grpc.api.comment.delete
 
-open Grpc.Core
 open fsharper.typ
+open plugin.grpc.alias
 open pilipala.access.user
 open Microsoft.Extensions.Logging
 open grpc_code_gen.comment.delete
-
-type Ctx = ServerCallContext
 
 let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     match user.GetComment req.Id with

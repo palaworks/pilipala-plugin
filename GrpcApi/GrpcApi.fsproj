@@ -8,6 +8,7 @@
 
     <ItemGroup>
         <Compile Include="src\plugin\token.fs" />
+        <Compile Include="src\grpc\alias.fs" />
         <Compile Include="src\grpc\api\post\getOne.fs" />
         <Compile Include="src\grpc\api\post\getAll.fs" />
         <Compile Include="src\grpc\api\post\getAllSha256.fs" />

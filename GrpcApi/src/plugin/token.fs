@@ -12,8 +12,7 @@ type TokenHandler(app: IApp) =
 
     let cache = MemoryCache.Default
 
-    let uuid_generator =
-        uuid.Generator(uuid.Format.N)
+    let uuid_generator = uuid.Generator(uuid.Format.N)
 
     let gen_policy () =
         CacheItemPolicy()

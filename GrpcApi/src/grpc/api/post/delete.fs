@@ -1,12 +1,10 @@
 module grpc.api.post.delete
 
-open Grpc.Core
 open fsharper.typ
+open plugin.grpc.alias
 open pilipala.access.user
 open grpc_code_gen.post.delete
 open Microsoft.Extensions.Logging
-
-type Ctx = ServerCallContext
 
 let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     match user.GetPost req.Id with
