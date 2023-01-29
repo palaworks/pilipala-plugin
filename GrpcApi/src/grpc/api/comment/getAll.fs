@@ -6,6 +6,7 @@ open fsharper.typ
 open plugin.grpc.alias
 open pilipala.access.user
 open pilipala.util.text.time
+open pilipala.container.comment
 open Microsoft.Extensions.Logging
 open grpc_code_gen.comment.get_all
 open grpc_code_gen.comment.message
@@ -16,6 +17,20 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     let dataList =
         comments.foldl
         <| fun acc comment ->
+
+            let bindingId, isReply =
+                comment.Binding.fmap
+                <| fun x ->
+                    match x with
+                    | BindPost id -> id, false
+                    | BindComment id -> id, true
+                |> unwrapOrEval
+                <| fun _ ->
+                    $"Unknown error: can not read {nameof comment.Binding} (comment id:{comment.Id})"
+                    |> logger.LogError
+
+                    0, false
+
             Comment(
                 Id = comment.Id,
                 Body =
@@ -39,7 +54,9 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
                             <| fun _ ->
                                 logger.LogError
                                     $"Unknown error: can not read {nameof comment.ModifyTime} (comment id:{comment.Id})")
-                        .ToIso8601()
+                        .ToIso8601(),
+                BindingId = bindingId,
+                IsReply = isReply
             )
             :: acc
         <| []

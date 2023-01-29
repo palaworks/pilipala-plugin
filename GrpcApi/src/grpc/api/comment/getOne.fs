@@ -1,6 +1,7 @@
 module grpc.api.comment.getOne
 
 open System
+open fsharper.op
 open fsharper.typ
 open plugin.grpc.alias
 open pilipala.access.user
@@ -16,18 +17,18 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
         if comment.CanRead then
             let data =
 
-                let binding_id, is_reply =
-                    comment
-                        .Binding
-                        .fmap(fun x ->
-                            match x with
-                            | BindPost id -> id, false
-                            | BindComment id -> id, true)
-                        .unwrapOrEval (fun _ ->
-                            $"Unknown error: can not read {nameof comment.Binding} (comment id:{comment.Id})"
-                            |> logger.LogError
+                let bindingId, isReply =
+                    comment.Binding.fmap
+                    <| fun x ->
+                        match x with
+                        | BindPost id -> id, false
+                        | BindComment id -> id, true
+                    |> unwrapOrEval
+                    <| fun _ ->
+                        $"Unknown error: can not read {nameof comment.Binding} (comment id:{comment.Id})"
+                        |> logger.LogError
 
-                            0, false)
+                        0, false
 
                 Comment(
                     Id = comment.Id,
@@ -53,8 +54,8 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
                                     logger.LogError
                                         $"Unknown error: can not read {nameof comment.ModifyTime} (comment id:{comment.Id})")
                             .ToIso8601(),
-                    BindingId = binding_id,
-                    IsReply = is_reply
+                    BindingId = bindingId,
+                    IsReply = isReply
                 )
 
             Rsp(Ok = true, Msg = "", Data = data) |> Ok
