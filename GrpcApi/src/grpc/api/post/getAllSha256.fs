@@ -6,16 +6,17 @@ open fsharper.typ
 open plugin.grpc.alias
 open pilipala.access.user
 open pilipala.util.hash.sha256
+open grpc_code_gen.post.message
 open Microsoft.Extensions.Logging
 open grpc_code_gen.post.get_all_sha256
 
 let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     let posts = user.GetReadablePost()
 
-    let collection =
+    let dataList =
         posts.foldl
         <| fun acc post ->
-            IdAndSha256()
+            IdWithSha256()
                 .effect (fun x ->
                     x.Id <- post.Id
 
@@ -38,5 +39,5 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
             :: acc
         <| []
 
-    Rsp(Ok = true, Msg = "").effect (fun rsp -> rsp.Collection.AddRange collection)
+    Rsp(Ok = true, Msg = "").effect (fun rsp -> rsp.DataList.AddRange dataList)
     |> Ok

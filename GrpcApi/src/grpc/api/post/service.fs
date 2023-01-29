@@ -21,9 +21,17 @@ let make (token_handler: TokenHandler) (logger: ILogger) =
         override self.GetOne(req: get_one.Req, ctx: Ctx) =
             match token_handler.GetUser req.Token with
             | Some user ->
-                grpc.api.post.get_one.handler user req ctx logger |> unwrapOrEval
+                getOne.handler user req ctx logger |> unwrapOrEval
                 <| fun msg -> grpc_code_gen.post.get_one.Rsp(Ok = false, Msg = msg)
             | None -> grpc_code_gen.post.get_one.Rsp(Ok = false, Msg = token_check_failed req.Token)
+            |> Task.FromResult
+
+        override self.GetSome(req: get_some.Req, ctx: Ctx) =
+            match token_handler.GetUser req.Token with
+            | Some user ->
+                getSome.handler user req ctx logger |> unwrapOrEval
+                <| fun msg -> grpc_code_gen.post.get_some.Rsp(Ok = false, Msg = msg)
+            | None -> grpc_code_gen.post.get_some.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
 
         override self.GetAll(req: get_all.Req, ctx: Ctx) =

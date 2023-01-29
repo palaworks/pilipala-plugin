@@ -6,15 +6,16 @@ open plugin.grpc.alias
 open pilipala.access.user
 open pilipala.util.hash.sha256
 open Microsoft.Extensions.Logging
+open grpc_code_gen.comment.message
 open grpc_code_gen.comment.get_all_sha256
 
 let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     let comments = user.GetReadableComment()
 
-    let collection =
+    let dataList =
         comments.foldl
         <| fun acc comment ->
-            IdAndSha256()
+            IdWithSha256()
                 .effect (fun x ->
                     x.Id <- comment.Id
 
@@ -27,5 +28,5 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
             :: acc
         <| []
 
-    Rsp(Ok = true, Msg = "").effect (fun rsp -> rsp.Collection.AddRange collection)
+    Rsp(Ok = true, Msg = "").effect (fun rsp -> rsp.DataList.AddRange dataList)
     |> Ok

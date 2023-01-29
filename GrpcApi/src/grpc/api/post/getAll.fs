@@ -6,16 +6,17 @@ open fsharper.typ
 open plugin.grpc.alias
 open pilipala.access.user
 open pilipala.util.text.time
+open grpc_code_gen.post.message
 open grpc_code_gen.post.get_all
 open Microsoft.Extensions.Logging
 
 let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     let posts = user.GetReadablePost()
 
-    let collection =
+    let dataList =
         posts.foldl
         <| fun acc post ->
-            grpc_code_gen.post.get_one.T(
+            Post(
                 Id = post.Id,
                 Title =
                     post.Title.unwrapOrEval (fun _ ->
@@ -47,5 +48,5 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
             :: acc
         <| []
 
-    Rsp(Ok = true, Msg = "").effect <| fun rsp -> rsp.Collection.AddRange collection
+    Rsp(Ok = true, Msg = "").effect <| fun rsp -> rsp.DataList.AddRange dataList
     |> Ok

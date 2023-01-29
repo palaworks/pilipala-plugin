@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc_code_gen.comment.message";
+option java_package = "grpc_code_gen.comment.message";
+
+package comment.message;
+
+message Comment {
+  int64 Id = 1;
+  string Body = 2;
+  string CreateTime = 3;//ISO-8601
+  string ModifyTime = 4;//ISO-8601
+  int64 BindingId = 5;
+  bool IsReply = 6;
+}
+
+message IdWithSha256 {
+  int64 Id = 1;
+  string Sha256 = 2;
+}

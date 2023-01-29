@@ -6,13 +6,14 @@ open plugin.grpc.alias
 open pilipala.access.user
 open pilipala.util.text.time
 open grpc_code_gen.post.create
+open grpc_code_gen.post.message
 open Microsoft.Extensions.Logging
 
 let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     match user.NewPost req.Title req.Body with
     | Ok post ->
         let data =
-            grpc_code_gen.post.get_one.T(
+            Post(
                 Id = post.Id,
                 Title =
                     post.Title.unwrapOrEval (fun _ ->

@@ -1,19 +1,22 @@
-module grpc.api.post.getOne
+module grpc.api.post.getSome
 
 open System
+open fsharper.op
 open fsharper.typ
 open plugin.grpc.alias
 open pilipala.access.user
 open pilipala.util.text.time
 open grpc_code_gen.post.message
-open grpc_code_gen.post.get_one
+open grpc_code_gen.post.get_some
 open Microsoft.Extensions.Logging
 
 let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
-    match user.GetPost(req.Id) with
-    | Ok post ->
-        if post.CanRead then
-            let data =
+    let posts = user.GetReadablePost()//TODO optimize performance
+
+    let dataList =
+        posts.foldl
+        <| fun acc post ->
+            if req.IdList.Contains(post.Id) then
                 Post(
                     Id = post.Id,
                     Title =
@@ -43,10 +46,10 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
                                         $"Unknown error: can not read {nameof post.ModifyTime} (post id:{post.Id})")
                             .ToIso8601()
                 )
+                :: acc
+            else
+                acc
+        <| []
 
-            Rsp(Ok = true, Msg = "", Data = data) |> Ok
-        else
-            $"Operation failed: Permission denied (post id:{post.Id})"
-            |> effect logger.LogError
-            |> Err
-    | Err msg -> Err msg
+    Rsp(Ok = true, Msg = "").effect <| fun rsp -> rsp.DataList.AddRange dataList
+    |> Ok

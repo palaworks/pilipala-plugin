@@ -1,34 +1,22 @@
-module grpc.api.comment.getOne
+module grpc.api.comment.getSome
 
 open System
+open fsharper.op
 open fsharper.typ
 open plugin.grpc.alias
 open pilipala.access.user
 open pilipala.util.text.time
-open pilipala.container.comment
-open Microsoft.Extensions.Logging
-open grpc_code_gen.comment.get_one
 open grpc_code_gen.comment.message
+open grpc_code_gen.comment.get_some
+open Microsoft.Extensions.Logging
 
 let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
-    match user.GetComment(req.Id) with
-    | Ok comment ->
-        if comment.CanRead then
-            let data =
+    let posts = user.GetReadablePost() //TODO optimize performance
 
-                let binding_id, is_reply =
-                    comment
-                        .Binding
-                        .fmap(fun x ->
-                            match x with
-                            | BindPost id -> id, false
-                            | BindComment id -> id, true)
-                        .unwrapOrEval (fun _ ->
-                            $"Unknown error: can not read {nameof comment.Binding} (comment id:{comment.Id})"
-                            |> logger.LogError
-
-                            0, false)
-
+    let dataList =
+        posts.foldl
+        <| fun acc comment ->
+            if req.IdList.Contains(comment.Id) then
                 Comment(
                     Id = comment.Id,
                     Body =
@@ -52,14 +40,12 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
                                 <| fun _ ->
                                     logger.LogError
                                         $"Unknown error: can not read {nameof comment.ModifyTime} (comment id:{comment.Id})")
-                            .ToIso8601(),
-                    BindingId = binding_id,
-                    IsReply = is_reply
+                            .ToIso8601()
                 )
+                :: acc
+            else
+                acc
+        <| []
 
-            Rsp(Ok = true, Msg = "", Data = data) |> Ok
-        else
-            $"Operation failed: Permission denied (comment id:{comment.Id})"
-            |> effect logger.LogError
-            |> Err
-    | Err msg -> Err msg
+    Rsp(Ok = true, Msg = "").effect <| fun rsp -> rsp.DataList.AddRange dataList
+    |> Ok

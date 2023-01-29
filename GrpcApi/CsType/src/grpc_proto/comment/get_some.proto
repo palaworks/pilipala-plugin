@@ -1,14 +1,16 @@
 syntax = "proto3";
 
-option csharp_namespace = "grpc_code_gen.comment.get_all";
-option java_package = "grpc_code_gen.comment.get_all";
+option csharp_namespace = "grpc_code_gen.comment.get_some";
+option java_package = "grpc_code_gen.comment.get_some";
 
 import "message.proto";
 
-package comment.get_all;
+package comment.get_some;
 
 message Req {
   string Token = 1;
+
+  repeated int64 IdList = 2;
 }
 
 message Rsp {

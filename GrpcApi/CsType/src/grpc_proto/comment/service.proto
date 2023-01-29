@@ -6,6 +6,7 @@ option java_package = "grpc_code_gen.comment";
 package comment;
 
 import "get_one.proto";
+import "get_some.proto";
 import "get_all.proto";
 import "get_all_sha256.proto";
 import "create.proto";
@@ -14,6 +15,7 @@ import "delete.proto";
 
 service CommentService {
   rpc GetOne (comment.get_one.Req) returns (comment.get_one.Rsp);
+  rpc GetSome (comment.get_some.Req) returns (comment.get_some.Rsp);
   rpc GetAll (comment.get_all.Req) returns (comment.get_all.Rsp);
   rpc GetAllSha256 (comment.get_all_sha256.Req) returns (comment.get_all_sha256.Rsp);
 

@@ -7,6 +7,7 @@ open pilipala.access.user
 open pilipala.util.text.time
 open Microsoft.Extensions.Logging
 open grpc_code_gen.comment.create
+open grpc_code_gen.comment.message
 
 let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     if req.IsReply then
@@ -17,7 +18,7 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
             match post.NewComment req.Body with
             | Ok comment ->
                 let data =
-                    grpc_code_gen.comment.get_one.T(
+                    Comment(
                         Id = comment.Id,
                         Body =
                             comment.Body.unwrapOrEval (fun _ ->

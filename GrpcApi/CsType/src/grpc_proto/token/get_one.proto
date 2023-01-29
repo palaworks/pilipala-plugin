@@ -13,5 +13,5 @@ message Req{
 message Rsp{
   bool Ok = 1;
   string Msg = 2;
-  string Value = 3;
+  string Data = 3;
 }

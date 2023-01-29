@@ -6,6 +6,7 @@ option java_package = "grpc_code_gen.post";
 package post;
 
 import "get_one.proto";
+import "get_some.proto";
 import "get_all.proto";
 import "get_all_sha256.proto";
 import "create.proto";
@@ -14,6 +15,7 @@ import "delete.proto";
 
 service PostService {
   rpc GetOne (get_one.Req) returns (get_one.Rsp);
+  rpc GetSome (get_some.Req) returns (get_some.Rsp);
   rpc GetAll (get_all.Req) returns (get_all.Rsp);
   rpc GetAllSha256 (get_all_sha256.Req) returns (get_all_sha256.Rsp);
 

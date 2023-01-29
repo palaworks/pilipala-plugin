@@ -10,6 +10,7 @@
         <Compile Include="src\plugin\token.fs" />
         <Compile Include="src\grpc\alias.fs" />
         <Compile Include="src\grpc\api\post\getOne.fs" />
+        <Compile Include="src\grpc\api\post\getSome.fs" />
         <Compile Include="src\grpc\api\post\getAll.fs" />
         <Compile Include="src\grpc\api\post\getAllSha256.fs" />
         <Compile Include="src\grpc\api\post\create.fs" />
@@ -17,6 +18,7 @@
         <Compile Include="src\grpc\api\post\delete.fs" />
         <Compile Include="src\grpc\api\post\service.fs" />
         <Compile Include="src\grpc\api\comment\getOne.fs" />
+        <Compile Include="src\grpc\api\comment\getSome.fs" />
         <Compile Include="src\grpc\api\comment\getAll.fs" />
         <Compile Include="src\grpc\api\comment\getAllSha256.fs" />
         <Compile Include="src\grpc\api\comment\create.fs" />

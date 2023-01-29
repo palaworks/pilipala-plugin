@@ -3,6 +3,8 @@ syntax = "proto3";
 option csharp_namespace = "grpc_code_gen.comment.get_one";
 option java_package = "grpc_code_gen.comment.get_one";
 
+import "message.proto";
+
 package comment.get_one;
 
 message Req {
@@ -14,14 +16,5 @@ message Req {
 message Rsp {
   bool Ok = 1;
   string Msg = 2;
-  optional T Data = 3;
-}
-
-message T {
-  int64 Id = 1;
-  string Body = 2;
-  string CreateTime = 3;//ISO-8601
-  string ModifyTime = 4;//ISO-8601
-  int64 BindingId = 5;
-  bool IsReply = 6;
+  optional comment.message.Comment Data = 3;
 }

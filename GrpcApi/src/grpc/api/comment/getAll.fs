@@ -8,14 +8,15 @@ open pilipala.access.user
 open pilipala.util.text.time
 open Microsoft.Extensions.Logging
 open grpc_code_gen.comment.get_all
+open grpc_code_gen.comment.message
 
 let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     let comments = user.GetReadableComment()
 
-    let collection =
+    let dataList =
         comments.foldl
         <| fun acc comment ->
-            grpc_code_gen.comment.get_one.T(
+            Comment(
                 Id = comment.Id,
                 Body =
                     comment.Body.unwrapOrEval (fun _ ->
@@ -43,5 +44,5 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
             :: acc
         <| []
 
-    Rsp(Ok = true, Msg = "").effect <| fun rsp -> rsp.Collection.AddRange collection
+    Rsp(Ok = true, Msg = "").effect <| fun rsp -> rsp.DataList.AddRange dataList
     |> Ok
