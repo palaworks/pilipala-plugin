@@ -3,7 +3,7 @@ namespace ws.api.post.get_all_id
 open fsharper.op
 open fsharper.typ
 open pilipala.access.user
-open ws.api.post.get
+open ws.api.post.get_one
 open ws.helper
 
 type Handler(pl_display_user: IUser) =

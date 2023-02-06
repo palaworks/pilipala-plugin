@@ -5,7 +5,7 @@ open fsharper.op
 open fsharper.typ
 open fsharper.alias
 open pilipala.access.user
-open ws.api.post.get.helper
+open ws.api.post.get_one.helper
 open ws.helper
 
 type Handler(pl_display_user: IUser) =
@@ -16,4 +16,4 @@ type Handler(pl_display_user: IUser) =
             let current_id = Int64.Parse req.CurrentId
 
             (get_prev_post pl_display_user current_id)
-                .fmap (fun post -> ws.api.post.get.Rsp.fromPost (post, pl_display_user))
+                .fmap (fun post -> ws.api.post.get_one.Rsp.fromPost (post, pl_display_user))

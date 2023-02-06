@@ -1,4 +1,4 @@
-namespace ws.api.post.get_batch
+namespace ws.api.post.get_some
 
 open fsharper.alias
 

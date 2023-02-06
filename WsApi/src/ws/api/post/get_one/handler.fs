@@ -1,4 +1,4 @@
-namespace ws.api.post.get
+namespace ws.api.post.get_one
 
 open System
 open fsharper.op

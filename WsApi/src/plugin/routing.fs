@@ -17,9 +17,9 @@ type WebSocketServer with
         ) =
         self
             .addService(
-                "/post/get",
+                "/post/get_one",
                 fun _ ->
-                    (pl_display_user |> post.get.Handler).toWsBehavior
+                    (pl_display_user |> post.get_one.Handler).toWsBehavior
                     <| enable_api_response_detail_logging
                     <| logger
             )
@@ -38,9 +38,9 @@ type WebSocketServer with
                     <| logger
             )
             .addService(
-                "/post/get_batch",
+                "/post/get_some",
                 fun _ ->
-                    (pl_display_user |> post.get_batch.Handler).toWsBehavior
+                    (pl_display_user |> post.get_some.Handler).toWsBehavior
                     <| enable_api_response_detail_logging
                     <| logger
             )
