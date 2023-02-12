@@ -1,13 +1,13 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
-name: Build plugins
+name: Build
 
 on:
   push:
-    branches: [ "stable", "dev" ]
+    branches: [ "dev" ]
   pull_request:
-    branches: [ "stable", "dev" ]
+    branches: [ "dev" ]
  
   workflow_dispatch:
 
@@ -17,11 +17,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
+    - uses: actions/checkout@v3
+    
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 7.0.x
+        
     - name: Restore dependencies
       run: dotnet restore
+    
     - name: Build
       run: dotnet build --no-restore
