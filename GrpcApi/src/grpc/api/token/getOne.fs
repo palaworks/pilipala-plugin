@@ -10,4 +10,4 @@ open Microsoft.Extensions.Logging
 let handler (token_handler: TokenHandler) (req: Req) (ctx: Ctx) (logger: ILogger) =
     match token_handler.NewToken req.Uid req.Pwd with
     | Ok token -> Rsp(Ok = true, Msg = "", Data = token) |> Ok
-    | Err msg -> Err msg
+    | Err e -> Err e

@@ -16,11 +16,11 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
         if req.IsReply then
             match user.GetComment req.BindingId with
             | Ok comment -> comment.NewComment req.Body
-            | Err msg -> Err msg
+            | Err e -> Err e
         else
             match user.GetPost req.BindingId with
             | Ok post -> post.NewComment req.Body
-            | Err msg -> Err msg
+            | Err e -> Err e
 
     match result with
     | Ok comment ->
@@ -68,4 +68,4 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
             )
 
         Rsp(Ok = true, Msg = "", Data = data) |> Ok
-    | Err msg -> Err msg
+    | Err e -> Err e

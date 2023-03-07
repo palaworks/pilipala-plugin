@@ -44,4 +44,4 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
             )
 
         Rsp(Ok = true, Msg = "", Data = data) |> Ok
-    | Err msg -> Err msg
+    | Err e -> Err e

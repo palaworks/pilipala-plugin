@@ -14,7 +14,7 @@ let make (token_handler: TokenHandler) (logger: ILogger) =
 
         override self.GetOne(req: get_one.Req, ctx: Ctx) =
             getOne.handler token_handler req ctx logger |> unwrapOrEval
-            <| fun msg -> grpc_code_gen.token.get_one.Rsp(Ok = false, Msg = msg)
+            <| fun e -> grpc_code_gen.token.get_one.Rsp(Ok = false, Msg = e.Message)
             |> Task.FromResult }
 
     |> TokenService.BindService

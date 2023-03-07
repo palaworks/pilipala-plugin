@@ -27,7 +27,7 @@ type TokenHandler(app: IApp) =
             //TODO 不清除之前的缓存带来了允许多次登录而不冲突的潜在特性，该特性可以应用于多设备登录
             cache.Set(CacheItem(token, user), gen_policy ())
             Ok token
-        | Err msg -> Err msg
+        | Err e -> Err e
 
     member self.GetUser token : Option'<IUser> =
         cache.Get token

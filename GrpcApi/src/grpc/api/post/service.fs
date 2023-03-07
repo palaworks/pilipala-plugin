@@ -22,7 +22,7 @@ let make (token_handler: TokenHandler) (logger: ILogger) =
             match token_handler.GetUser req.Token with
             | Some user ->
                 getOne.handler user req ctx logger |> unwrapOrEval
-                <| fun msg -> grpc_code_gen.post.get_one.Rsp(Ok = false, Msg = msg)
+                <| fun e -> grpc_code_gen.post.get_one.Rsp(Ok = false, Msg = e.Message)
             | None -> grpc_code_gen.post.get_one.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
 
@@ -54,7 +54,7 @@ let make (token_handler: TokenHandler) (logger: ILogger) =
             match token_handler.GetUser req.Token with
             | Some user ->
                 create.handler user req ctx logger |> unwrapOrEval
-                <| fun msg -> create.Rsp(Ok = false, Msg = msg)
+                <| fun e -> create.Rsp(Ok = false, Msg = e.Message)
             | None -> create.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
 
@@ -62,7 +62,7 @@ let make (token_handler: TokenHandler) (logger: ILogger) =
             match token_handler.GetUser req.Token with
             | Some user ->
                 update.handler user req ctx logger |> unwrapOrEval
-                <| fun msg -> update.Rsp(Ok = false, Msg = msg)
+                <| fun e -> update.Rsp(Ok = false, Msg = e.Message)
             | None -> update.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult
 
@@ -70,7 +70,7 @@ let make (token_handler: TokenHandler) (logger: ILogger) =
             match token_handler.GetUser req.Token with
             | Some user ->
                 delete.handler user req ctx logger |> unwrapOrEval
-                <| fun msg -> delete.Rsp(Ok = false, Msg = msg)
+                <| fun e -> delete.Rsp(Ok = false, Msg = e.Message)
             | None -> delete.Rsp(Ok = false, Msg = token_check_failed req.Token)
             |> Task.FromResult }
 

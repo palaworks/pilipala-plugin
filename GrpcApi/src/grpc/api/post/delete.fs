@@ -11,5 +11,5 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
     | Ok post ->
         match post.Drop() with
         | Ok _ -> Rsp(Ok = true, Msg = "") |> Ok
-        | Err msg -> Err msg
-    | Err msg -> Err msg
+        | Err e -> Err e
+    | Err e -> Err e

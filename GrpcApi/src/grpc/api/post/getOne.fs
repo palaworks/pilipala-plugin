@@ -48,5 +48,6 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
         else
             $"Operation failed: Permission denied (post id:{post.Id})"
             |> effect logger.LogError
+            |> Exception
             |> Err
-    | Err msg -> Err msg
+    | Err e -> Err e

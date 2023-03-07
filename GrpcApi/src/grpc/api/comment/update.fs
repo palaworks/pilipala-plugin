@@ -1,5 +1,6 @@
 module grpc.api.comment.update
 
+open System
 open fsharper.typ
 open plugin.grpc.alias
 open pilipala.access.user
@@ -21,5 +22,6 @@ let handler (user: IUser) (req: Req) (ctx: Ctx) (logger: ILogger) =
         else
             $"Operation failed: Permission denied (comment id:{comment.Id})"
             |> effect logger.LogError
+            |> Exception
             |> Err
-    | Err msg -> Err msg
+    | Err e -> Err e
