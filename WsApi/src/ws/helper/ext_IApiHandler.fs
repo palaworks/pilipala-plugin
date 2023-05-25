@@ -21,7 +21,7 @@ type IApiHandler<'h, 'req, 'rsp> with
                     | Ok api_req -> self.handle api_req.Data
                     | Err e ->
                         logger.LogError e.Message
-                        Err "Invalid api request"
+                        "Invalid api request" |> Exception |> Err
 
                 let api_rsp =
                     match result with
@@ -30,14 +30,14 @@ type IApiHandler<'h, 'req, 'rsp> with
                           Ok = true
                           Msg = "Success"
                           Data = x }
-                    | Err msg ->
+                    | Err e ->
                         { Seq =
                             //TODO 不优雅
                             match opt_api_req with
                             | Ok api_req -> api_req.Seq
                             | _ -> -1
                           Ok = false
-                          Msg = msg
+                          Msg = e.Message
                           Data = Unchecked.defaultof<'rsp> }
 
                 let json = api_rsp.serializeToJson().json

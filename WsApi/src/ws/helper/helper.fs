@@ -16,4 +16,4 @@ type ApiResponse<'rsp> =
       Data: 'rsp }
 
 type IApiHandler<'h, 'req, 'rsp> =
-    abstract handle: 'req -> Result'<'rsp, string>
+    abstract handle: 'req -> Result'<'rsp>
