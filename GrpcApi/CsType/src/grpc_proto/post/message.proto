@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc_code_gen.post.message";
+option java_package = "grpc_code_gen.post.message";
+
+package post.message;
+
+message Post {
+  int64 Id = 1;
+  string Title = 2;
+  string Body = 3;
+  string CreateTime = 4;//ISO-8601
+  string ModifyTime = 5;//ISO-8601
+}
+
+message IdWithSha256 {
+  int64 Id = 1;
+  string Sha256 = 2;
+}

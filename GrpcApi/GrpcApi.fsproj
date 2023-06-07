@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <EnableDynamicLoading>true</EnableDynamicLoading>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="src\plugin\token.fs" />
+        <Compile Include="src\grpc\alias.fs" />
+        <Compile Include="src\grpc\api\post\getOne.fs" />
+        <Compile Include="src\grpc\api\post\getSome.fs" />
+        <Compile Include="src\grpc\api\post\getAll.fs" />
+        <Compile Include="src\grpc\api\post\getAllSha256.fs" />
+        <Compile Include="src\grpc\api\post\create.fs" />
+        <Compile Include="src\grpc\api\post\update.fs" />
+        <Compile Include="src\grpc\api\post\delete.fs" />
+        <Compile Include="src\grpc\api\post\service.fs" />
+        <Compile Include="src\grpc\api\comment\getOne.fs" />
+        <Compile Include="src\grpc\api\comment\getSome.fs" />
+        <Compile Include="src\grpc\api\comment\getAll.fs" />
+        <Compile Include="src\grpc\api\comment\getAllSha256.fs" />
+        <Compile Include="src\grpc\api\comment\create.fs" />
+        <Compile Include="src\grpc\api\comment\update.fs" />
+        <Compile Include="src\grpc\api\comment\delete.fs" />
+        <Compile Include="src\grpc\api\comment\service.fs" />
+        <Compile Include="src\grpc\api\token\getOne.fs" />
+        <Compile Include="src\grpc\api\token\service.fs" />
+        <Compile Include="src\plugin\ext\server.fs" />
+        <Compile Include="src\plugin\cfg.fs" />
+        <Compile Include="src\plugin\credential.fs" />
+        <Compile Include="src\plugin\hosting.fs" />
+        <Compile Include="src\main.fs" />
+        
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\fsharper\fsharper.fsproj">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </ProjectReference>
+        <ProjectReference Include="..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </ProjectReference>
+        <ProjectReference Include="..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </ProjectReference>
+        <ProjectReference Include="CsType\CsType.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Grpc.Core" Version="2.46.5" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Update="FSharp.Core" Version="7.0.0">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Include="System.Runtime.Caching" Version="7.0.0" />
+    </ItemGroup>
+
+</Project>

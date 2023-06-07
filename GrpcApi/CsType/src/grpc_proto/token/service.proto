@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc_code_gen.token";
+option java_package = "grpc_code_gen.token";
+
+import "get_one.proto";
+
+package token;
+
+service TokenService{
+  rpc GetOne (get_one.Req) returns (get_one.Rsp);
+}

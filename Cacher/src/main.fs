@@ -26,7 +26,7 @@ type Cacher
     let config =
         { json = cfg.config }
             .deserializeTo<Cfg>()
-            .unwrapOr (fun _ ->
+            .unwrapOrEval (fun _ ->
                 { enable_post = false
                   enable_comment = false })
 

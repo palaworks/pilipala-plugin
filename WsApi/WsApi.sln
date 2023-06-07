@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "WsApi", "WsApi.fsproj", "{D307F6CA-A6CF-4056-9A8B-80FBD2D09EAA}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\fsharper\fsharper.fsproj", "{F86BCD7B-64FA-450D-8C97-75FB040D7A08}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala-frame", "..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj", "{5E4A7D9C-AC7F-449E-A04D-C52C2F99CA87}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala.util", "..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj", "{562DF60A-E25D-4893-9036-82667642D41D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D307F6CA-A6CF-4056-9A8B-80FBD2D09EAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D307F6CA-A6CF-4056-9A8B-80FBD2D09EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D307F6CA-A6CF-4056-9A8B-80FBD2D09EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D307F6CA-A6CF-4056-9A8B-80FBD2D09EAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F86BCD7B-64FA-450D-8C97-75FB040D7A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F86BCD7B-64FA-450D-8C97-75FB040D7A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F86BCD7B-64FA-450D-8C97-75FB040D7A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F86BCD7B-64FA-450D-8C97-75FB040D7A08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E4A7D9C-AC7F-449E-A04D-C52C2F99CA87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E4A7D9C-AC7F-449E-A04D-C52C2F99CA87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E4A7D9C-AC7F-449E-A04D-C52C2F99CA87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E4A7D9C-AC7F-449E-A04D-C52C2F99CA87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{562DF60A-E25D-4893-9036-82667642D41D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562DF60A-E25D-4893-9036-82667642D41D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562DF60A-E25D-4893-9036-82667642D41D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562DF60A-E25D-4893-9036-82667642D41D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

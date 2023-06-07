@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc_code_gen.post.delete";
+option java_package = "grpc_code_gen.post.delete";
+
+package post.delete;
+
+message Req {
+  string Token = 1;
+
+  int64 Id = 2;
+}
+
+message Rsp {
+  bool Ok = 1;
+  string Msg = 2;
+}

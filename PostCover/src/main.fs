@@ -18,7 +18,7 @@ type PostCover
     let map =
         { json = cfg.config }
             .deserializeTo<Dict<i64, string>>()
-            .unwrapOr (fun _ -> Dict<i64, string>())
+            .unwrapOrEval (fun _ -> Dict<i64, string>())
 
     do
         let f id =

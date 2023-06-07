@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <EnableDynamicLoading>true</EnableDynamicLoading>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="src\ws\helper\helper.fs" />
+        <Compile Include="src\ws\helper\ext_IApiHandler.fs" />
+        <Compile Include="src\ws\server.fs" />
+        <Compile Include="src\ws\api\comment\create\req.fs" />
+        <Compile Include="src\ws\api\comment\create\rsp.fs" />
+        <Compile Include="src\ws\api\comment\create\handler.fs" />
+        <Compile Include="src\ws\api\post\get_one\req.fs" />
+        <Compile Include="src\ws\api\post\get_one\rsp.fs" />
+        <Compile Include="src\ws\api\post\get_one\handler.fs" />
+        <Compile Include="src\ws\api\post\get_prev\req.fs" />
+        <Compile Include="src\ws\api\post\get_prev\rsp.fs" />
+        <Compile Include="src\ws\api\post\get_prev\handler.fs" />
+        <Compile Include="src\ws\api\post\get_next\req.fs" />
+        <Compile Include="src\ws\api\post\get_next\rsp.fs" />
+        <Compile Include="src\ws\api\post\get_next\handler.fs" />
+        <Compile Include="src\ws\api\post\get_some\req.fs" />
+        <Compile Include="src\ws\api\post\get_some\rsp.fs" />
+        <Compile Include="src\ws\api\post\get_some\handler.fs" />
+        <Compile Include="src\ws\api\post\get_all_id\req.fs" />
+        <Compile Include="src\ws\api\post\get_all_id\rsp.fs" />
+        <Compile Include="src\ws\api\post\get_all_id\handler.fs" />
+        <Compile Include="src\ws\api\post\get_menu\req.fs" />
+        <Compile Include="src\ws\api\post\get_menu\rsp.fs" />
+        <Compile Include="src\ws\api\post\get_menu\handler.fs" />
+        <Compile Include="src\plugin\routing.fs" />
+        <Compile Include="src\plugin\cfg.fs" />
+        <Compile Include="src\plugin\hosting.fs" />
+        <Compile Include="src\main.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\fsharper\fsharper.fsproj">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </ProjectReference>
+        <ProjectReference Include="..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </ProjectReference>
+        <ProjectReference Include="..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </ProjectReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Update="FSharp.Core" Version="7.0.0">
+            <Private>false</Private>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
+        <PackageReference Include="Suave" Version="2.6.2" />
+    </ItemGroup>
+
+</Project>

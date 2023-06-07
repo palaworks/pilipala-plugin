@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc_code_gen.token.get_one";
+option java_package = "grpc_code_gen.token.get_one";
+
+package token.get_one;
+
+message Req{
+  int64 Uid = 1;
+  string Pwd = 2;
+}
+
+message Rsp{
+  bool Ok = 1;
+  string Msg = 2;
+  string Data = 3;
+}

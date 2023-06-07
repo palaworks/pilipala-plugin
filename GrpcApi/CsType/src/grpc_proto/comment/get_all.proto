@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc_code_gen.comment.get_all";
+option java_package = "grpc_code_gen.comment.get_all";
+
+import "message.proto";
+
+package comment.get_all;
+
+message Req {
+  string Token = 1;
+}
+
+message Rsp {
+  bool Ok = 1;
+  string Msg = 2;
+  repeated comment.message.Comment DataList = 3;
+}

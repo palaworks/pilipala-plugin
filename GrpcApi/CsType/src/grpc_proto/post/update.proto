@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc_code_gen.post.update";
+option java_package = "grpc_code_gen.post.update";
+
+package post.update;
+
+message Req {
+  string Token = 1;
+  
+  int64 Id = 2;
+  string Title = 3;
+  string Body = 4;
+}
+
+message Rsp {
+  bool Ok = 1;
+  string Msg = 2;
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpc_code_gen.post.create";
+option java_package = "grpc_code_gen.post.create";
+
+import "message.proto";
+
+package post.create;
+
+message Req {
+  string Token = 1;
+
+  string Title = 2;
+  string Body = 3;
+}
+
+message Rsp {
+  bool Ok = 1;
+  string Msg = 2;
+  optional post.message.Post Data = 3;
+}

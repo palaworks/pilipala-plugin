@@ -37,7 +37,7 @@ type UserName
             >>= fun user_name -> Some(post_id, user_name)
 
         postRenderBuilder.["UserName"].collection.Add
-        <| Replace(fun fail id -> unwrapOr (f id) (fun _ -> fail id))
+        <| Replace(fun fail id -> unwrapOrEval (f id) (fun _ -> fail id))
 
     do
         //comment
@@ -59,4 +59,4 @@ type UserName
             >>= fun user_name -> Some(comment_id, user_name)
 
         commentRenderBuilder.["UserName"].collection.Add
-        <| Replace(fun fail id -> unwrapOr (f id) (fun _ -> fail id))
+        <| Replace(fun fail id -> unwrapOrEval (f id) (fun _ -> fail id))

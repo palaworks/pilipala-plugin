@@ -21,7 +21,7 @@ type PostStatus(postRenderBuilder: IPostRenderPipelineBuilder, cfg: IPluginCfgPr
     let config =
         { json = cfg.config }
             .deserializeTo<Cfg>()
-            .unwrapOr (fun _ ->
+            .unwrapOrEval (fun _ ->
                 { archived = HashSet<i64>()
                   scheduled = HashSet<i64>() })
 
