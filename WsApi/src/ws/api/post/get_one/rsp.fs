@@ -9,6 +9,7 @@ open fsharper.op.Foldable
 open pilipala.container.post
 open pilipala.access.user
 open pilipala.container.comment
+open pilipala.util.text.markdown
 open pilipala.util.text
 open ws.api.comment.create
 
@@ -40,13 +41,12 @@ module helper =
             post.["SuccId"].bind
             <| fun opt_opt_id ->
                 (opt_opt_id.fmap
-                 <| fun x ->
-                     x.cast<Option'<obj>>().fmap
-                     <| fun x -> x.cast<i64> ())
-                    .bind id
+                 <| fun x -> x.cast<Option'<obj>>().fmap <| fun x -> x.cast<i64> ())
+                    .bind
+                    id
                 |> fun optId ->
                     match optId with
-                    | None -> Err "No post available"
+                    | None -> "No post available" |> Exception |> Err
                     | Some id ->
                         match user.GetPost id with
                         | Ok post when post.CanRead -> Ok post
@@ -60,13 +60,12 @@ module helper =
             post.["PredId"].bind
             <| fun opt_opt_id ->
                 (opt_opt_id.fmap
-                 <| fun x ->
-                     x.cast<Option'<obj>>().fmap
-                     <| fun x -> x.cast<i64> ())
-                    .bind id
+                 <| fun x -> x.cast<Option'<obj>>().fmap <| fun x -> x.cast<i64> ())
+                    .bind
+                    id
                 |> fun optId ->
                     match optId with
-                    | None -> Err "No post available"
+                    | None -> "No post available" |> Exception |> Err
                     | Some id ->
                         match user.GetPost id with
                         | Ok post when post.CanRead -> Ok post
@@ -75,22 +74,19 @@ module helper =
                         | _ -> get_prev_post user id
 
     type Rsp with
+
         static member fromPost(post: IPost, user: IUser) =
             let rec getRecursiveComments (comment: IComment) =
                 match comment.Comments.unwrap().toList () with
                 | [] -> []
                 | cs ->
                     cs.foldl
-                    <| fun acc c ->
-                        acc
-                        @ (comment.Id, true, c) :: getRecursiveComments c
+                    <| fun acc c -> acc @ (comment.Id, true, c) :: getRecursiveComments c
                     <| []
 
             let comments =
                 (post.Comments.unwrap().foldl
-                 <| fun acc c ->
-                     acc
-                     @ (post.Id, false, c) :: getRecursiveComments c
+                 <| fun acc c -> acc @ (post.Id, false, c) :: getRecursiveComments c
                  <| []
                  |> List.sortBy (fun (_, _, c) -> c.CreateTime |> unwrap))
                     .foldr

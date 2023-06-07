@@ -7,8 +7,8 @@ type Cfg =
       pl_display_pwd: string
       pl_comment_user: string
       pl_comment_pwd: string
-      ws_local_port: i32
-      ws_public_port: i32
+      ws_local_port: u16
+      ws_public_port: u16
       ws_public_enable_ssl: bool
       ws_cert_pem_path: string
       ws_cert_key_path: string

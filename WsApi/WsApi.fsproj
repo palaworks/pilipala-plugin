@@ -9,7 +9,6 @@
     <ItemGroup>
         <Compile Include="src\ws\helper\helper.fs" />
         <Compile Include="src\ws\helper\ext_IApiHandler.fs" />
-        <Compile Include="src\ws\helper\ext_WebSocketServer.fs" />
         <Compile Include="src\ws\server.fs" />
         <Compile Include="src\ws\api\comment\create\req.fs" />
         <Compile Include="src\ws\api\comment\create\rsp.fs" />
@@ -51,10 +50,6 @@
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
         </ProjectReference>
-        <ProjectReference Include="..\..\websocket-sharp\websocket-sharp\websocket-sharp.csproj">
-            <Private>false</Private>
-            <ExcludeAssets>runtime</ExcludeAssets>
-        </ProjectReference>
     </ItemGroup>
 
     <ItemGroup>
@@ -66,6 +61,7 @@
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
+        <PackageReference Include="Suave" Version="2.6.2" />
     </ItemGroup>
 
 </Project>
