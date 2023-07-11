@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\fsharper\fsharper.fsproj">
+        <ProjectReference Include="..\..\..\thaumy\fsharper\fsharper.fsproj">
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
         </ProjectReference>
@@ -30,7 +30,7 @@
         <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="7.0.0" />
         <PackageReference Include="System.Runtime.Caching" Version="7.0.0" />
 
-        <PackageReference Update="FSharp.Core" Version="7.0.0">
+        <PackageReference Update="FSharp.Core" Version="7.0.300">
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>

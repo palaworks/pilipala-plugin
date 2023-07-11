@@ -38,7 +38,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\fsharper\fsharper.fsproj">
+        <ProjectReference Include="..\..\..\thaumy\fsharper\fsharper.fsproj">
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
         </ProjectReference>
@@ -53,11 +53,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0">
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1">
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>
-        <PackageReference Update="FSharp.Core" Version="7.0.0">
+        <PackageReference Update="FSharp.Core" Version="7.0.300">
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
         </PackageReference>

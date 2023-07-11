@@ -6,7 +6,7 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala-frame", "..\..\pil
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala.util", "..\..\pilipala-sdk\pilipala.util\pilipala.util.fsproj", "{81368FD8-0344-471C-A0A2-6A01126C2180}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\fsharper\fsharper.fsproj", "{7377124D-3ADC-42D2-8C4E-4D8E36D5D350}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\..\thaumy\fsharper\fsharper.fsproj", "{7377124D-3ADC-42D2-8C4E-4D8E36D5D350}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
