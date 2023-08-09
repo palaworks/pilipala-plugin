@@ -26,7 +26,7 @@ let wsLocalServer (port: u16) routing =
 
 let wsPublicServer (port: u16) pem_path key_path routing =
     let x509Cert = X509Certificate2.CreateFromPemFile(pem_path, key_path)
-    let ipAddr = IPAddress.Loopback
+    let ipAddr = IPAddress.Any
 
     startWebServer
         { defaultConfig with
@@ -35,15 +35,3 @@ let wsPublicServer (port: u16) pem_path key_path routing =
         routing
 
     (ipAddr, port)
-
-(*
-    match cert_path with
-    | Some(pem_path, key_path) ->
-
-        let X509cert = X509Certificate2.CreateFromPemFile(pem_path, key_path)
-
-        WebSocketServer(IPAddress.Any, port, true)
-        |> effect (fun x -> x.SslConfiguration.ServerCertificate <- X509cert)
-
-    | None -> WebSocketServer(IPAddress.Any, port, false)
-    *)
