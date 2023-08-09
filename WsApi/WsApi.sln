@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "WsApi", "WsApi.fsproj", "{D307F6CA-A6CF-4056-9A8B-80FBD2D09EAA}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\fsharper\fsharper.fsproj", "{F86BCD7B-64FA-450D-8C97-75FB040D7A08}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\..\thaumy\fsharper\fsharper.fsproj", "{F86BCD7B-64FA-450D-8C97-75FB040D7A08}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala-frame", "..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj", "{5E4A7D9C-AC7F-449E-A04D-C52C2F99CA87}"
 EndProject

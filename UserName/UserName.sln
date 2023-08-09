@@ -4,11 +4,11 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "UserName", "UserName.fsproj
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala-frame", "..\..\pilipala-sdk\pilipala-frame\pilipala-frame.fsproj", "{DD5B38CB-3398-451E-BF8B-BFA3264322EF}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\fsharper\fsharper.fsproj", "{BE268878-176D-484A-B8CA-6BE86393228E}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharper", "..\..\..\thaumy\fsharper\fsharper.fsproj", "{BE268878-176D-484A-B8CA-6BE86393228E}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "pilipala.data.db-ext", "..\..\pilipala-sdk\pilipala.data.db-ext\pilipala.data.db-ext.fsproj", "{70417748-C10D-479F-A155-38DCE256E334}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DbManaged", "..\..\DbManaged\DbManaged.fsproj", "{6C062BD6-1CD6-4F5A-8D0D-D6722408B528}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DbManaged", "..\..\..\thaumy\DbManaged\DbManaged.fsproj", "{6C062BD6-1CD6-4F5A-8D0D-D6722408B528}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
